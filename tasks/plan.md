@@ -1,0 +1,35 @@
+# Delivery plan: Oral-B Italy 2027
+
+The user approved [the specification](../docs/SPEC.md) and [roadmap](../ROADMAP.md) on 19 November 2026. This records approval of their content despite their original draft banners. Delivery is one annotated KNIME workflow, a traceable funding decision and a 10-minute management presentation. The submission deadline is **27 November 2026 at 23:59 on MyLuiss**; target upload by 18:00.
+
+## Work, in dependency order
+
+[The ledger](todo.md) gives each task's owner, direct predecessors, size, outputs, acceptance checks and verification. [GitHub Issues](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues) mirror the tasks with native “blocked by” links. Use the same T-ID in evidence and handoffs; update the checkbox when its issue closes. XS is a short check or handoff; S and M each fit one focused session, with M reserved for work requiring multiple checks or artifacts.
+
+**Issue index** (T-ID → GitHub issue):
+[T01 → #1](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/1) · [T02 → #2](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/2) · [T03 → #3](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/3) · [T04 → #4](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/4) · [T05 → #5](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/5) · [T06 → #6](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/6) · [T07 → #7](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/7) · [T08 → #8](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/8) · [T09 → #9](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/9) · [T10 → #10](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/10) · [T11 → #11](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/11) · [T12 → #12](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/12) · [T13 → #13](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/13) · [T14 → #14](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/14) · [T15 → #15](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/15) · [T16 → #16](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/16) · [T17 → #17](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/17) · [T18 → #18](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/18) · [T19 → #19](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/19).
+
+| Window | Task index | Checkpoint / evidence required |
+|---|---|---|
+| Nov 19: T01–T04 start in parallel | T01 kickoff, T02 evaluation contract | Pair 1 lead verifies names, environment and inputs; Pair 4 reviewer signs threshold cases and validation rules before model work. |
+| Nov 19–20 | T03 persona evidence, T04 QA worksheet | Pair 3 peer checks cited benefits; Pair 4 peer checks historical arithmetic, zero-selection and slide allocation. |
+| Nov 19–20 | T05 join audit, T06 historical baseline | Pair 1 lead releases the checked T05 table to Pair 3 immediately. Pair 4 imports the T06 snapshot: reproduce 152 + 18 links, 310 unknown and €15,000 realized net before modeling. |
+| Nov 21–22 | T07 profile evidence, T08 baseline predictions | Pairs 2 and 3 cross-check group counts, national coverage and stable fold assignments before interpretation. |
+| By Nov 23 | T09 candidate predictions, T10 validate and choose | Pair 1 reviewer checks 510 held-out decisions reconcile to fold and pooled totals, geographic evidence and the documented model choice. |
+| Nov 24–25 | T11 score and stress-test, T12 release candidate | Pair 2 peer verifies 480 scores, both comparisons, stress scenarios and the exact workflow/summary hashes handed to QA. |
+| By Nov 25 | T13 independent finance QA, T14 shopper actions | Pair 4 release reviewer signs matching totals and Pair 3 lead signs the store-to-message evidence. Decide on a pilot or broader rollout. |
+| Nov 26 | T15 fresh rerun, T16 deck | Pair 4 release reviewer ties the PDF figures to the exact clean-rerun snapshot. An early deck draft is allowed; no final rehearsal with unverified figures. |
+| Nov 26–27 | T17 rehearsals, T18 upload | Presentation lead signs two timed runs; named submission owner verifies uploaded copies and privately retains confirmation. |
+| Following week | T19 live delivery | Presentation lead confirms actual Q&A rehearsal and live session with a teammate. |
+
+**Critical chain:** T01 → T05 → T06 → T08 → T09 → T10 → T11 → T12 → T13 → release checks → T17 → T18 → T19. T02 feeds T08, T03/T07 feed T14, and T04 feeds independent QA. The precise AND-dependencies are in the ledger. Start an unblocked task without waiting for unrelated tasks in the same window.
+
+**Checkpoint protocol:** reviewers record pass/fail and evidence on the relevant issues before closing them. At integrated workflow gates, import the designated snapshot, **Reset → Execute all** and record its hash. If a gate fails, leave the affected issue open, stop its dependent tasks and return it to the producer; independent lanes may continue. A changed workflow or financial summary voids prior QA: repeat T13/T15 on the new T12 revision, refresh any affected shopper claims and deck, then repeat T17 on the final PDF.
+
+## Working agreements
+
+- Pair 1 edits the workflow until T06, then hands the editable copy and a `.knwf` snapshot to Pair 2. Pair 2 is the sole subsequent editor; Pairs 3 and 4 read exports or work on separate copies. Pair 4 owns the deck and independent financial check. Confirm individual names rather than assigning guessed GitHub handles.
+- Keep `data/` read-only. Use the national store code as the output key, retain original headers at import, name KNIME stages by business action and annotate reasons. Store model inputs, held-out scores and funding outputs separately. Use configured paths and unrounded probabilities; sort decision exports by store ID for reproducible comparison.
+- Run commands from the repository root. The spec's execution interface is KNIME **Reset → Execute all** (or execute the named stage while developing). Shell checks supplement the operator checks; there is no project test runner. Output paths in the ledger are contracts for the future tasks, not files expected at breakdown time. Tabular exports are UTF-8 CSVs with a header, one record per line and stable ordering.
+- Controls: no fuzzy linkage or fabricated negatives; no target leakage; no causal, individual-level or market-share claims from catchment data. Use the approved all-480, uncapped base case unless new constraints are confirmed. Ask before changing assumptions or tools.
+- Extras are not dependencies, core tasks or core issues. Only after the Phase 3 decision freeze (T11–T14), with explicit go-ahead, spare ownership and protected rehearsal time, consider Extra 2 first. Power BI, influencers, LLM rankings and a GenAI experience remain parked in the roadmap. Skipping every extra is valid.
