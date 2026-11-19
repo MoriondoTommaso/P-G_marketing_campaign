@@ -88,7 +88,7 @@ Use KNIME Analytics Platform with Excel readers, native preparation/modeling nod
 | Question | Owner and latest point to resolve |
 |---|---|
 | Are there budget limits, retailer constraints or restrictions on reactivating stores beyond the brief? | Pair 1, before finalizing the funding rule; otherwise seek approval for the stated base case. |
-| Are the named consumer personas or lineup details from the class presentation available separately? | Pair 3, before committing to messages or making product claims. |
+| Are the named consumer personas or lineup details from the class presentation available separately? | Team 1 researches this in #3; Team 4 uses the evidence for messages and product claims in #14. |
 | Who fills each pair, who owns submission, and which KNIME version will the team use? | Team, at kickoff. Record names for the contributions appendix. |
 
 **Approval gate:** the full spec and phase roadmap are drafts until the team explicitly approves them. After approval, run `/breakdown`.
