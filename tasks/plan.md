@@ -2,6 +2,14 @@
 
 The user approved [the specification](../docs/SPEC.md) and [roadmap](../ROADMAP.md) on 19 November 2026. This records approval of their content despite their original draft banners. Delivery is one annotated KNIME workflow, a traceable funding decision and a 10-minute management presentation. The course deadline is **27 November 2026 at 23:59 on MyLuiss**. The [internal schedule](../docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md#internal-deadlines-and-handoffs) sets a verified submission target of **16:00** and an absolute internal deadline of **18:00** (Europe/Rome). T18 in the ledger records the earlier 18:00 target.
 
+## Team 1 handoff
+
+Team 1's three deliverables are complete and available for handoff.
+
+- **T01** — Teams 2 and 3 can use the [setup runbook](../docs/runbook.md) for input fingerprints, KNIME configuration and the T06 workflow handoff. Team 4's release-role confirmations and a second teammate's KNIME version check are pending for formal closure.
+- **T02** — Teams 2–4 can use the [evaluation protocol](../docs/evaluation.md) for the fixed folds, model comparison, funding rule and independent financial checks. Team 3 can configure the workflow now and run it with the verified T06 snapshot. Record receipt at handoff.
+- **T03** — Team 4 can use the [shopper evidence](../docs/shopper-evidence.md) to prototype shelf tactics, then use T07 and T11 for store-specific T14 actions. The teammate citation check is pending for formal closure. Persona-specific and SKU-specific copy depend on source confirmation.
+
 ## Work, in dependency order
 
 | Two-person team | Exclusive issue block | Earliest start and handoff |
