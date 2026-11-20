@@ -1,6 +1,6 @@
 # Delivery plan: Oral-B Italy 2027
 
-The user approved [the specification](../docs/SPEC.md) and [roadmap](../ROADMAP.md) on 19 November 2026. This records approval of their content despite their original draft banners. Delivery is one annotated KNIME workflow, a traceable funding decision and a 10-minute management presentation. The submission deadline is **27 November 2026 at 23:59 on MyLuiss**; target upload by 18:00.
+The user approved [the specification](../docs/SPEC.md) and [roadmap](../ROADMAP.md) on 19 November 2026. This records approval of their content despite their original draft banners. Delivery is one annotated KNIME workflow, a traceable funding decision and a 10-minute management presentation. The course deadline is **27 November 2026 at 23:59 on MyLuiss**. The [internal schedule](../docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md#internal-deadlines-and-handoffs) sets a verified submission target of **16:00** and an absolute internal deadline of **18:00** (Europe/Rome). T18 in the ledger records the earlier 18:00 target.
 
 ## Work, in dependency order
 
@@ -25,7 +25,7 @@ Each issue carries one `team-N` label on GitHub. Block boundaries assign respons
 | Nov 19–20 | T05 join audit, T06 historical baseline | Team 2 releases the checked T05 table immediately. Team 3 imports the T06 snapshot: reproduce 152 + 18 links, 310 unknown and €15,000 realized net before modeling. |
 | Nov 21–22 | T07 profile evidence, T08 baseline predictions | Teams 2 and 3 check group counts, national coverage and stable fold assignments before interpretation. |
 | By Nov 23 | T09 candidate predictions, T10 validate and choose | Team 3 checks 510 held-out decisions reconcile to fold and pooled totals, geographic evidence and the documented model choice. |
-| Nov 24–25 | T11 score and stress-test, T12 release candidate | Team 3 verifies 480 scores, both comparisons, stress scenarios and the exact workflow/summary hashes handed to QA. |
+| By Nov 24, 21:00 | T11 score and stress-test, T12 release candidate | Team 3 verifies 480 scores, both comparisons, stress scenarios and the exact workflow/summary hashes handed to QA. |
 | By Nov 25 | T13 independent finance QA, T14 shopper actions | Team 4 signs matching totals and the store-to-message evidence. Decide on a pilot or broader rollout. |
 | Nov 26 | T15 fresh rerun, T16 deck | Team 4's release reviewer ties the PDF figures to the exact clean-rerun snapshot. An early deck draft is allowed; no final rehearsal with unverified figures. |
 | Nov 26–27 | T17 rehearsals, T18 upload | Presentation lead signs two timed runs; named submission owner verifies uploaded copies and privately retains confirmation. |
@@ -37,8 +37,8 @@ Each issue carries one `team-N` label on GitHub. Block boundaries assign respons
 
 ## Working agreements
 
-- Team 2 edits the workflow through T06, then hands the editable copy and a `.knwf` snapshot to Team 3. Team 3 is the sole subsequent editor. Team 4 verifies an exported copy, owns the deck and runs the independent financial check. Individual GitHub assignees can be added once the eight handles and pairings are known.
+- Team 2 edits the workflow through T06, then hands the editable copy and a `.knwf` snapshot to Team 3. Team 3 is the sole subsequent editor. Team 4 verifies an exported copy, owns the deck and runs the independent financial check. See the [named team assignments](../docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md).
 - Keep `data/` read-only. Use the national store code as the output key, retain original headers at import, name KNIME stages by business action and annotate reasons. Store model inputs, held-out scores and funding outputs separately. Use configured paths and unrounded probabilities; sort decision exports by store ID for reproducible comparison.
 - Run commands from the repository root. The spec's execution interface is KNIME **Reset → Execute all** (or execute the named stage while developing). Shell checks supplement the operator checks; there is no project test runner. Output paths in the ledger are contracts for the future tasks, not files expected at breakdown time. Tabular exports are UTF-8 CSVs with a header, one record per line and stable ordering.
 - Controls: no fuzzy linkage or fabricated negatives; no target leakage; no causal, individual-level or market-share claims from catchment data. Use the approved all-480, uncapped base case unless new constraints are confirmed. Ask before changing assumptions or tools.
-- Extras are not dependencies, core tasks or core issues. Only after the Phase 3 decision freeze (T11–T14), with explicit go-ahead, spare ownership and protected rehearsal time, consider Extra 2 first. Power BI, influencers, LLM rankings and a GenAI experience remain parked in the roadmap. Skipping every extra is valid.
+- The three selected extras run alongside the core tasks. Teams 1–3 hand their material to Team 4 by Nov 25 at 18:00 for the integrated presentation at 20:00. See the [optional activity briefs](../docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md#selected-optional-activities).

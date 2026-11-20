@@ -13,7 +13,7 @@ Recommend which Italian stores should receive the 2027 campaign, how many to fun
 | Reproducible evidence | Open one annotated KNIME workflow, compare at least two predictive models against a simple baseline, and reproduce the recommendation from the supplied workbooks. |
 | Management presentation | Deliver the decision in 10 minutes, with at most 10 content slides including any extras, plus a separate contributions appendix. Submit the PDF and KNIME workflow to MyLuiss by **Friday, 27 November 2026, 23:59**. Present the following week. |
 
-**Scope confirmed in interview:** eight participants; parallel work in four pairs; all extras are conditional and separate from core acceptance. Extra 2 is the first candidate if time remains. See the optional section of the roadmap.
+**Team scope:** eight participants work in four pairs. Extras 2, 3 and 5 have planned owners and remain optional under the course requirements. See the [team assignments](TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md) for the owners and internal milestones.
 
 ## Evidence and inputs
 
@@ -78,7 +78,7 @@ Use KNIME Analytics Platform with Excel readers, native preparation/modeling nod
 ## Boundaries and acceptance
 
 - **Always:** preserve the raw workbooks; distinguish observed 2026 outcomes from forecasts; trace every headline number to an output; document material limitations and each participant's actual contribution.
-- **Ask first:** changing the eligibility or budget assumption, using approximate matches, substituting tools for KNIME, changing the financial benchmark, or starting an extra.
+- **Ask first:** changing the eligibility or budget assumption, using approximate matches, substituting tools for KNIME, changing the financial benchmark, or starting an extra outside the current plan.
 - **Never:** treat unlabeled stores as failures, use a store's outcome to predict itself, edit the target list manually to improve the story, or present an optional activity as necessary for submission.
 
 **Core is complete when** the KNIME export reruns; all 170 labels and 480 national decisions reconcile; the model comparison and held-out funding test are visible; the activation list, count and financial comparisons agree; and the deck explains store traits, shopper actions and uncertainty in terms a manager can use. The PDF must meet the slide limit, include the contributions appendix, and be rehearsed at least twice within the 10-minute slot. No minimum profit improvement or extra is required to pass these checks.
@@ -89,6 +89,6 @@ Use KNIME Analytics Platform with Excel readers, native preparation/modeling nod
 |---|---|
 | Are there budget limits, retailer constraints or restrictions on reactivating stores beyond the brief? | Pair 1, before finalizing the funding rule; otherwise seek approval for the stated base case. |
 | Are the named consumer personas or lineup details from the class presentation available separately? | Team 1 researches this in #3; Team 4 uses the evidence for messages and product claims in #14. |
-| Who fills each pair, who owns submission, and which KNIME version will the team use? | Team, at kickoff. Record names for the contributions appendix. |
+| Who owns submission, and which KNIME version will the team use? | Team, at kickoff. Confirm the T01 release and presentation roles. |
 
 **Approval gate:** the full spec and phase roadmap are drafts until the team explicitly approves them. After approval, run `/breakdown`.
