@@ -3,21 +3,24 @@
 Each issue has one owning two-person team; T01 records the names. Start as soon as all listed dependencies pass. Consecutive numbers denote ownership, not a requirement to finish the entire preceding block. See [team handoffs and checkpoints](plan.md).
 
 ## T01 — Record the team, environment and input fingerprints
-- [ ] TODO · Team 1 · XS · Depends: none
-- **Output:** `docs/runbook.md`
+- [ ] Runbook delivered; confirmations pending · Team 1 · XS · Depends: none
+- **Output:** [Setup runbook](../docs/runbook.md) — Teams 2 and 3 can use the recorded input hashes and KNIME settings for the T05 join and T06 handoff.
+- **Before closing:** Team 4 names the submission owner, backup, release reviewer and presentation lead; a second teammate records their KNIME version and required-feature check on #1.
 - **Accept:** Name two members per team, eight distinct people total. From Team 4 identify the human submission owner and backup, release reviewer and presentation lead. Record KNIME version/extensions, configurable input path and the two workbook hashes. Record all 480 stores eligible, repeats allowed and no cap as the approved base case; escalate any new constraint.
 - **Verify:** `shasum -a 256 data/Activated_Stores.xlsx data/Italian_Stores.xlsx`; compare both lines with the runbook. A second member checks the recorded KNIME version against their installation.
 
 ## T02 — Define the held-out funding test before fitting
-- [ ] TODO · Team 1 · S · Depends: none
-- **Output:** `docs/evaluation.md`
+- [ ] Protocol delivered; handoff receipt pending · Team 1 · S · Depends: none
+- **Output:** [Evaluation protocol](../docs/evaluation.md) — ready for Teams 2–4. The fold assignments and 59/60/61% funding decisions have been checked.
+- **Before closing:** Team 3 records receipt on #2. Model execution is verified under T08–T12.
 - **Accept:** Specify seed, a fixed five-fold outcome-stratified assignment by store, a small national-feature shortlist, and fold-local preprocessing/selection; reserve any tuning for inner training folds. Define the baseline, logistic and shallow-tree comparisons using Brier score, calibration near 60%, fold variation and held-out net versus all/none. Define the spatial grouping and fallback for sparse groups before seeing model results.
 - **Accept:** Before results, record the numerical near-threshold band, the scale-change trigger for a like-budget comparison, and how to compare equal numbers of stores if fewer than 170 qualify without adding loss-making stores to the recommendation. Share the rules with Teams 2–4.
 - **Verify:** `git diff --exit-code -- data/`; walk a hypothetical held-out store through the design: it cannot affect training statistics or its own prediction. Hand-check 59%, 60%, 61% net −€25, €0, +€25 and only the last funded.
 
 ## T03 — Establish which shopper claims the case supports
-- [ ] TODO · Team 1 · S · Depends: none
-- **Output:** `docs/shopper-evidence.md`
+- [ ] Evidence matrix delivered; citation review pending · Team 1 · S · Depends: none
+- **Output:** [Shopper evidence and action matrix](../docs/shopper-evidence.md) — Team 4 can prototype the neutral shelf guide now.
+- **Before closing:** A teammate checks the citations and claim wording against case pp. 41–46 and records the result on #3. Named personas and SKU-specific copy need separate source confirmation before use.
 - **Accept:** Cite case pages for relevant toothpaste benefits and in-store tactics. Record whether class-provided personas were available; distinguish sourced descriptions from team hypotheses. Draft the evidence → need → message → placement → measure matrix, leaving unverified profiles open.
 - **Verify:** `open 'docs/PG_Luiss_Business Case_13_11_26.pdf'` on macOS (otherwise open in a PDF reader); a teammate checks citations against pp. 41–46 and confirms no unsupported product claim is labeled as fact.
 
@@ -48,6 +51,7 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 
 ## T08 — Produce leakage-free baseline probabilities
 - [ ] TODO · Team 3 · S · Depends: T02, T06
+- **Handoff:** Team 3 can configure the folds from the [evaluation protocol](../docs/evaluation.md) now. Run them on the verified T06 snapshot once both gates pass; compare the sorted fold mapping with the protocol reference, including after reordering the input rows.
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/folds.csv`, `outputs/baseline-oof.csv`
 - **Accept:** Assign each of 170 linked IDs to one of five fixed stratified test folds. For each store export its fold and the success rate of the other four folds. Do not include unlabeled stores in training.
 - **Verify:** Execute the KNIME validation stage; record `shasum -a 256 outputs/folds.csv`, reset and re-execute, and compare the second hash with the first. `wc -l outputs/folds.csv outputs/baseline-oof.csv` must show 171 lines each. Recalculate one fold's constant prediction from the other folds' success and store counts.
@@ -87,6 +91,7 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 
 ## T14 — Turn selected store profiles into shopper actions
 - [ ] TODO · Team 4 · S · Depends: T03, T07, T11
+- **Handoff:** Prototype the [T03 shelf guide](../docs/shopper-evidence.md) with neutral descriptors now. Finalize store-specific actions after the T03 review, using T07 profile counts and T11 selected IDs. Use persona- or SKU-specific wording only when its source is confirmed.
 - **Output:** `docs/shopper-actions.md`
 - **Accept:** Tie each priority persona to a supported store profile, consumer need, specific toothpaste message, channel/placement and measure. Cite observed comparisons, not individual shopper preferences; label inferred needs as hypotheses. If no stores qualify, frame actions for a bounded test rather than a national campaign.
 - **Verify:** `open docs/shopper-actions.md`; a peer traces each action to a profile count and source, checks actual selected-store coverage against `outputs/activation-list.csv`, and confirms class personas or explicit hypothesis labels.
@@ -112,7 +117,7 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 ## T18 — Submit and verify the course package
 - [ ] TODO · Team 4 · XS · Depends: T17
 - **Output:** MyLuiss submission confirmation; receipt retained privately by the team
-- **Accept:** Upload the final presentation PDF and KNIME workflow, plus only separately approved required attachments, by 27 Nov 23:59 (aim for 18:00). Verify the uploaded copies open; record filenames, timestamp and confirmation. Schedule Q&A rehearsal before the following week's talk.
+- **Accept:** Upload the final presentation PDF and KNIME workflow, plus only separately approved required attachments. On 27 Nov (Europe/Rome), aim for verified submission by 16:00; the absolute internal deadline is 18:00 and MyLuiss closes at 23:59. Verify the uploaded copies open; record filenames, timestamp and confirmation. Schedule Q&A rehearsal before the following week's talk.
 - **Verify:** Before upload run `shasum -a 256 presentation/campaign.pdf workflows/oral-b-italy.knwf`. Download the submitted copies, compare hashes, reopen the PDF and import the workflow. Confirm the portal shows the submission and timestamp; keep credentials and receipt off the public issue.
 
 ## T19 — Present the decision to P&G managers
