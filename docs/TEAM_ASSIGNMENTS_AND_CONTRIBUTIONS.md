@@ -124,7 +124,11 @@ The professor requires one additional presentation appendix slide describing wha
 
 | Date | Task / Issue | Specific Work Performed | Evidence (File / Commit / PR) | Result |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| 2026-11-21 | T04 / #4 | Built the finance QA workbook independent of KNIME: 2026 baseline, 59/60/61% break-even cases, zero-selected case, automatic checks and the 108→107 reviewer test | `outputs/finance-qa.xlsx` | 108 / 170 reproduces €270,000 sales, €255,000 spend, €15,000 net; 107 gives €12,500 (−€2,500), spend unchanged; all checks pass |
+| 2026-11-21 | T04 / #4 | Drafted the deck storyboard with space reserved for both comparators, shopper actions, uncertainty and the contributions appendix | `presentation/storyboard.md` | 10 content slides + appendix, about 9:00 |
+| 2026-11-21 | T05 / #5, T06 / #6 (review) | Independently rebuilt Ele's join from the two Excel files and compared it with her exports | Ele's branch `ele/t05-join` (`outputs/join-audit.csv`, `outputs/store-universe.csv`, `outputs/baseline-2026.csv`) | Counts match: code 106 / 46, coordinates 2 / 16 (each exactly one match), 108 / 62 / 310; labels identical; feature values unchanged |
+| 2026-11-21 | T07 / #7 | Profiled successes vs. failures and activated vs. never-activated stores, checked each trait inside the north band, and listed coverage gaps | `outputs/store-profiles.csv`, `docs/store-insights.md` | 4 strong traits that hold inside the north; 7 data gaps sent to Ele |
+| 2026-11-21 | Extra 2 | Drafted the 10-source longlist and the "how we'd test it" section | `docs/additional-data.md` | Ready for Ele's shortlist and recommendation |
 
 ### Tommy
 
