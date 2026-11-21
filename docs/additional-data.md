@@ -10,7 +10,7 @@ Team 2 · Ele (lead) and Deniz
 
 The gaps come from [`docs/store-insights.md`](store-insights.md#3-data-gaps-sent-to-ele-for-extra-2):
 
-- **G1:** Distance from a Dentist, 25–100: 190 never-activated stores, only 13 activated.
+- **G1:** Distance from a Dentist, 25–100: 190 never-activated stores, only 13 activated. In the south, 35 never-activated stores are further from a dentist than any activated southern store.
 - **G2:** Stores with no schools nearby: 157 never-activated stores, 27 activated (25 failed).
 - **G3:** Few labelled failures in the centre and south (9 failures in total, against 227 never-activated stores).
 - **G4:** No store-level data: sales, footfall, size or format, retailer, shelf space, competitors.

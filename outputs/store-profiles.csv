@@ -156,3 +156,33 @@ trait_tercile,Online Consumption IYA,"(280.0, inf]",54,44,10,106,0.815,,,,,,,,,,
 trait_tercile,Nr of Schools,"(-inf, 2.0]",72,33,39,236,0.458,,,,,,,,,,,
 trait_tercile,Nr of Schools,"(2.0, 5.0]",45,27,18,46,0.6,,,,,,,,,,,
 trait_tercile,Nr of Schools,"(5.0, inf]",53,48,5,28,0.906,,,,,,,,,,,
+model_predictor_by_band,Total Population,Centre (41.5 <= lat < 44.5) | activated,49,,,,,176794,139226,87699,218345,10780,672802,,,,,
+model_predictor_by_band,Total Population,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,145895,86741,54305,191130,1391,872492,,,,,12
+model_predictor_by_band,Total Population,North (lat >= 44.5) | activated,83,,,,,207576,135197,58959,291744,1453,1.0232e+06,,,,,
+model_predictor_by_band,Total Population,North (lat >= 44.5) | never_activated,83,,,,,146508,103488,61817.5,178423,6425,907501,,,,,0
+model_predictor_by_band,Total Population,South/islands (lat < 41.5) | activated,38,,,,,201542,135544,42289.8,265190,3074,745268,,,,,
+model_predictor_by_band,Total Population,South/islands (lat < 41.5) | never_activated,110,,,,,127092,60226.5,19950.2,156364,1479,1.05765e+06,,,,,4
+model_predictor_by_band,Avg Income per Household,Centre (41.5 <= lat < 44.5) | activated,49,,,,,19716.1,19625.6,17368,21913.5,14561.2,25964.2,,,,,
+model_predictor_by_band,Avg Income per Household,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,18118.6,18281.3,15972.8,19766.1,10192.1,26114.8,,,,,16
+model_predictor_by_band,Avg Income per Household,North (lat >= 44.5) | activated,83,,,,,20335.3,19937,18406.1,21080.7,16722.6,26774.5,,,,,
+model_predictor_by_band,Avg Income per Household,North (lat >= 44.5) | never_activated,83,,,,,20828.9,19989.9,18627,22295.7,16171.3,27472,,,,,5
+model_predictor_by_band,Avg Income per Household,South/islands (lat < 41.5) | activated,38,,,,,14923.8,15554.8,12083.3,17353.1,9371.65,19663.8,,,,,
+model_predictor_by_band,Avg Income per Household,South/islands (lat < 41.5) | never_activated,110,,,,,13629.1,13111.5,11555.8,15162.7,9144.74,19426.6,,,,,2
+model_predictor_by_band,Households avg components,Centre (41.5 <= lat < 44.5) | activated,49,,,,,2.29092,2.32203,2.05371,2.48861,1.94613,2.58762,,,,,
+model_predictor_by_band,Households avg components,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,2.41844,2.44899,2.37034,2.53426,1.93814,2.7157,,,,,6
+model_predictor_by_band,Households avg components,North (lat >= 44.5) | activated,83,,,,,2.28804,2.28709,2.17091,2.39134,1.99909,2.88148,,,,,
+model_predictor_by_band,Households avg components,North (lat >= 44.5) | never_activated,83,,,,,2.22423,2.19139,2.14257,2.27276,1.91944,2.65889,,,,,6
+model_predictor_by_band,Households avg components,South/islands (lat < 41.5) | activated,38,,,,,2.52439,2.50918,2.42479,2.58703,2.35448,3.11259,,,,,
+model_predictor_by_band,Households avg components,South/islands (lat < 41.5) | never_activated,110,,,,,2.58327,2.56236,2.47063,2.66401,2.11255,3.08448,,,,,5
+model_predictor_by_band,Nr of Hygienists,Centre (41.5 <= lat < 44.5) | activated,49,,,,,1.89796,2,0,3,0,7,,,,,
+model_predictor_by_band,Nr of Hygienists,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,2.60684,1,0,4,0,19,,,,,10
+model_predictor_by_band,Nr of Hygienists,North (lat >= 44.5) | activated,83,,,,,1.19277,1,0,2,0,4,,,,,
+model_predictor_by_band,Nr of Hygienists,North (lat >= 44.5) | never_activated,83,,,,,2,0,0,1.5,0,18,,,,,10
+model_predictor_by_band,Nr of Hygienists,South/islands (lat < 41.5) | activated,38,,,,,3.31579,3,0,5,0,24,,,,,
+model_predictor_by_band,Nr of Hygienists,South/islands (lat < 41.5) | never_activated,110,,,,,1.67273,0,0,2,0,17,,,,,0
+model_predictor_by_band,Distance from a Dentist,Centre (41.5 <= lat < 44.5) | activated,49,,,,,11.4628,3.50119,0.731081,10.5294,0.116663,99.9341,,,,,
+model_predictor_by_band,Distance from a Dentist,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,62.0079,65.8101,48.1785,83.1133,0.615582,98.2709,,,,,0
+model_predictor_by_band,Distance from a Dentist,North (lat >= 44.5) | activated,83,,,,,113.072,140.128,27.499,163.665,0.278047,229.076,,,,,
+model_predictor_by_band,Distance from a Dentist,North (lat >= 44.5) | never_activated,83,,,,,80.5756,70.3069,36.2676,137.311,11.027,187.3,,,,,0
+model_predictor_by_band,Distance from a Dentist,South/islands (lat < 41.5) | activated,38,,,,,7.67293,5.73241,2.11611,13.1371,0.104647,28.5088,,,,,
+model_predictor_by_band,Distance from a Dentist,South/islands (lat < 41.5) | never_activated,110,,,,,24.5333,22.4058,10.864,36.1079,0.525601,70.0349,,,,,35

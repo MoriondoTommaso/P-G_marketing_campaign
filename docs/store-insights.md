@@ -3,13 +3,13 @@
 T07 / [#7](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/7) · Team 2 · Deniz
 
 **Input:** the final `outputs/store-universe.csv` from T05 (480 stores: 108 success, 62 failure, 310 never activated). The KNIME workflow was not touched.
-**Output:** [`outputs/store-profiles.csv`](../outputs/store-profiles.csv), one row per trait × group, plus geography and tercile rows.
+**Output:** [`outputs/store-profiles.csv`](../outputs/store-profiles.csv), one row per trait × group, plus geography rows, tercile rows and Team 3's five model predictors by region.
 
 **Rules followed:**
 - The 310 never-activated stores are **unknown**, never failure.
 - Nothing from the activation file (coordinates, match method, codes) is used as a trait. Latitude and longitude below come from the national store file.
 - No value was normalised, filled or removed.
-- Everything here is **descriptive history from 2026**. Any reason given for a pattern is a **hypothesis**, not a finding.
+- Everything here is **descriptive history from 2026** about store catchment areas. It says nothing about individual shoppers, causes or market share. Any reason given for a pattern is a **hypothesis**, not a finding.
 
 ## How to read the numbers
 
@@ -26,11 +26,11 @@ The south is almost all successes (46 of 51 labelled stores below latitude 43°)
 
 | Trait | Median, successes | Median, failures | Direction | Score, all labelled | Score, north only | Hypothesis (not tested) |
 |---|---|---|---|---|---|---|
-| Distance from a Dentist | 9.0 | 155.0 | Lower in successes | 0.12 | 0.09 | Shoppers near a dentist are more likely to get a recommendation for an electric toothbrush. |
+| Distance from a Dentist | 9.0 | 155.0 | Lower in successes | 0.12 | 0.09 | Areas with easy access to dental care may have more oral-care awareness, so a toothpaste activation finds more receptive shoppers. |
 | Water hardness IDX | 40 | 89 | Lower in successes | 0.17 | 0.21 | Unclear. It may stand in for region or for other local factors we do not observe. |
-| Online Consumption IYA | 277.5 | 239.5 | Higher in successes | 0.78 | 0.71 | Areas that buy more online may adopt tech-led oral care sooner. |
-| Nr of Schools | 4 | 2 | Higher in successes | 0.76 | 0.78 | More schools suggest denser areas with families and more shopper traffic. |
-| Latitude | 43.6 | 45.7 | Lower (further south) | 0.24 | 0.31 | Regional retail or shopper differences. |
+| Online Consumption IYA | 277.5 | 239.5 | Higher in successes | 0.78 | 0.71 | Areas with higher online consumption may respond better to brand and premium communication. |
+| Nr of Schools | 4 | 2 | Higher in successes | 0.76 | 0.78 | More schools may point to busier areas with more families, so more shoppers pass the display. |
+| Latitude | 43.6 | 45.7 | Lower (further south) | 0.24 | 0.31 | Regional differences in retailers or shopping habits. |
 | Longitude | 12.6 | 9.7 | Higher (further east) | 0.70 | 0.74 | Same as above. The far north-west holds many failures. |
 
 Success rate by tercile of the labelled stores (from `store-profiles.csv`, `comparison = trait_tercile`):
@@ -81,6 +81,31 @@ With the two-band split from `docs/evaluation.md` (43°), the result is the same
 
 Never-activated stores **outside the range** of the activated stores: Longitude 18, Graduated population 8, Avg Income per Household 5, and a few on the population traits (full list in `store-profiles.csv`, column `never_activated_outside_labelled_range`). Being inside the range on each trait separately does not guarantee the combination of traits is covered.
 
+### Team 3's five model predictors, region by region
+
+`docs/evaluation.md` asks T07 to compare activated and never-activated stores on the model's predictors within each region. Rows `comparison = model_predictor_by_band` in `store-profiles.csv`. "Outside range" counts never-activated stores outside the range of the activated stores **in the same region**.
+
+| Predictor | Region | Median, activated | Median, never activated | Never activated outside the region's range |
+|---|---|---|---|---|
+| Distance from a Dentist | North | 140.1 (n = 83) | 70.3 (n = 83) | 0 |
+| | Centre | 3.5 (n = 49) | 65.8 (n = 117) | 0 |
+| | South / islands | 5.7 (n = 38) | 22.4 (n = 110) | **35** (activated max is 28.5) |
+| Avg Income per Household | North | €19,937 | €19,990 | 5 |
+| | Centre | €19,626 | €18,281 | **16** |
+| | South / islands | €15,555 | €13,112 | 2 |
+| Total Population | North | 135,197 | 103,488 | 0 |
+| | Centre | 139,226 | 86,741 | 12 |
+| | South / islands | 135,544 | 60,227 | 4 |
+| Nr of Hygienists | North | 1 | 0 | 10 |
+| | Centre | 2 | 1 | 10 |
+| | South / islands | 3 | 0 | 0 |
+| Households avg components | North | 2.29 | 2.19 | 6 |
+| | Centre | 2.32 | 2.45 | 6 |
+| | South / islands | 2.51 | 2.56 | 5 |
+
+- **Dentist distance is where the regions differ most.** In the centre and south, 2026 activated stores very close to a dentist (medians 3.5 and 5.7). The never-activated stores there are much further away (65.8 and 22.4). In the south, 35 of 110 never-activated stores are further from a dentist than any activated southern store.
+- So the model will score many centre and south stores using a dentist distance it has only seen in the **north**, where most failures are. Their forecasts mix a "south" effect and a "far from a dentist" effect that the 2026 data cannot separate. This is a hypothesis about risk, not a measured error.
+
 ## 3. Data gaps (sent to Ele for Extra 2)
 
 1. **Distance from a Dentist, middle range.** Between 25 and 100, there are **190 never-activated stores but only 13 activated ones** (7 success, 6 failure). Activated stores sit either very close (≤ 25: 100 stores) or very far (> 100: 57 stores). The pattern "close = success, far = failure" is not observed in the middle range, where most of the 2027 decisions are.
@@ -96,10 +121,12 @@ Never-activated stores **outside the range** of the activated stores: Longitude 
 1. Open `outputs/store-universe.csv`. Filter `success = 1` (108 rows) and `success = 0` (62 rows).
 2. Take the median of `Distance from a Dentist` in each group. The result should be 9.0178 and 155.0148. Successes are closer to a dentist.
 3. Count rows with `Latitude ≥ 44.5`: 30 successes, 53 failures, 83 blank.
-4. Compare with the rows in `outputs/store-profiles.csv` for `trait = Distance from a Dentist` and `comparison = geography_region_band`.
+4. Compare with `outputs/store-profiles.csv`: the medians are in the rows `comparison = success_vs_failure`, `trait = Distance from a Dentist`, and the band counts in the row `comparison = geography_region_band`, `group = North (lat >= 44.5)`.
 
 ## What this means for the model and the deck
 
-- Team 3's model will probably lean on dentist distance, water hardness, online consumption, schools and geography. These are **associations from 2026**, not causes.
+- **For Team 3:** the frozen model in `docs/evaluation.md` uses five predictors. Of these, only **Distance from a Dentist** clearly separates successes from failures (score 0.12, and 0.09 inside the north). **Income** separates them only through the north/south split (0.38 overall, 0.54 inside the north). **Total Population**, **Nr of Hygienists** and **Households avg components** do not separate them (0.49, 0.49 and 0.53).
+- Three traits that separate strongly and hold inside the north are **not** in the model: **Water hardness IDX** (0.17), **Online Consumption IYA** (0.78) and **Nr of Schools** (0.76). We are not changing the model. The protocol is frozen, and any change would have to be agreed, recorded and justified as an amendment by Team 3 before rerunning, as `docs/evaluation.md` requires. Adding traits picked from the same 170 outcomes also risks overfitting.
+- All of these are **associations from 2026**, not causes.
 - Forecasts for never-activated stores in the dentist range 25–100, with 0 schools, or in the centre and south carry the most **extrapolation risk**. This belongs on the uncertainty slide (storyboard slide 8).
 - A **bounded pilot** that deliberately includes some of these under-covered stores would fill the gaps faster than buying data alone.
