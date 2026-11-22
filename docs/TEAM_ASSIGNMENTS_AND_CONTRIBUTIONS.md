@@ -129,6 +129,9 @@ The professor requires one additional presentation appendix slide describing wha
 | 2026-11-21 | T05 / #5, T06 / #6 (review) | Independently rebuilt Ele's join from the two Excel files and compared it with her exports | Ele's branch `ele/t05-join` (`outputs/join-audit.csv`, `outputs/store-universe.csv`, `outputs/baseline-2026.csv`) | Counts match: code 106 / 46, coordinates 2 / 16 (each exactly one match), 108 / 62 / 310; labels identical; feature values unchanged |
 | 2026-11-21 | T07 / #7 | Profiled successes vs. failures and activated vs. never-activated stores, checked each trait inside the north band, and listed coverage gaps | `outputs/store-profiles.csv`, `docs/store-insights.md` | 4 strong traits that hold inside the north; Team 3's 5 model predictors compared by region; 7 data gaps sent to Ele |
 | 2026-11-21 | Extra 2 | Drafted the 10-source longlist and the "how we'd test it" section | `docs/additional-data.md` | Ready for Ele's shortlist and recommendation |
+| 2026-11-22 | T04 / #4 | Recalculated the finance workbook in Microsoft Excel and ran the 108 → 107 test on a copy | `outputs/finance-qa.xlsx` | All 11 checks PASS; 107 gives €12,500 net (−€2,500) with spend unchanged; 108 restored |
+| 2026-11-22 | T05 / #5, T06 / #6 (review) | Re-checked Ele's updated outputs (commits 06207dc–43563ac): new `target` column, folder variables on all 5 file nodes, runbook workflow hash | `outputs/store-universe.csv`, `workflows/oral-b-italy.knwf`, `docs/runbook.md` | Only `target` added and it agrees with `success` on all 480 rows; other values unchanged; hash matches the runbook |
+| 2026-11-22 | T07 / #7 | Rebuilt the store profiles from Ele's updated `store-universe.csv` and test-merged both Team 2 branches | `outputs/store-profiles.csv` | Byte-identical to the delivered file; branches merge without conflicts |
 
 ### Tommy
 
