@@ -37,6 +37,19 @@ KNIME Analytics Platform **5.12.0** was independently verified from the installe
 
 The installed KNIME Statistics Nodes feature (`5.12.0.v202604281126`) is available. The primary evaluation uses the base loops and aggregations above. Check the application version in **About KNIME Analytics Platform** and feature builds in **Installation Details**. Record platform version, feature builds, OS, architecture and bundled Java in the run record. Team 2 records the actual T06 dependencies. Team 3 records any modeling additions. Manifests and node definitions were inspected on this host. Workflow import and execution await the T06 export.
 
+### T06 export dependencies
+
+Team 2 recorded these values from the node settings inside `workflows/oral-b-italy.knwf` (commit `06207dc`, SHA-256 `e0987a579e61c8c46d72dc6f6922b7484b94fefaa9113adc0a44686e4a49a6cc`). The workflow was saved with KNIME Analytics Platform **5.12.0** (`5.12.0.v202606180846`). It contains 34 nodes from four features. Update this section whenever the `.knwf` is re-exported.
+
+| Feature (`symbolic name`) | Build in the export | Nodes in the T06 workflow |
+|---|---|---|
+| KNIME Base nodes (`org.knime.features.base`) | `5.12.0.v202606261225` | 23: Column Filter, Column Renamer, Concatenate, Create File/Folder Variables, CSV Writer, GroupBy, Joiner, Row Filter, Sorter, Variable Creator |
+| KNIME Excel Support (`org.knime.features.ext.poi`) | `5.12.0.v202605041104` | 2: Excel Reader |
+| KNIME Javasnippet (`org.knime.features.javasnippet`) | `5.12.0.v202606171353` | 5: Rule Engine, Rule-based Row Filter |
+| KNIME Math Expression (JEP) (`org.knime.features.ext.jep`) | `5.12.0.v202605041104` | 4: Math Formula (baseline sales, spend, net and ROI) |
+
+KNIME Math Expression (JEP) is not in the installed-feature table above. Install it before importing the workflow, or KNIME reports the four Math Formula nodes as missing.
+
 ## Inputs, hashes and base case
 
 Run from the repository root on macOS or Linux.
@@ -74,10 +87,10 @@ The approved project base case covers all **480** national stores, allows repeat
 
 ## Configure and reproduce the workflow
 
-1. Put **Create File/Folder Variables** at the top of the workflow and label its base location `input_dir` in the workflow annotation. Select the local checkout's `data/` directory with the chooser. Define `activated_file` and `national_file` so their resolved paths end in `Activated_Stores.xlsx` and `Italian_Stores.xlsx`. Connect the variable port to both **Excel Reader** nodes, use the local file system and bind each reader's file path to its corresponding variable. At handoff, change the base location once and check both resolved paths. Select `default` and use the first row as headers. Preserve the source headers. Check inferred types against the schema above before joining.
+1. Put **Create File/Folder Variables** at the top of the workflow and label its base location `input_dir` in the workflow annotation. Select the local checkout's `data/` directory with the chooser. Define `activated_file` and `national_file` so their resolved paths end in `Activated_Stores.xlsx` and `Italian_Stores.xlsx`. Connect the variable port to both **Excel Reader** nodes, use the local file system and bind each reader's file path to its corresponding variable. At handoff, change the base location once and check both resolved paths. A second **Create File/Folder Variables** node sets `output_dir` (the `outputs/` directory) and the `join_audit_file`, `universe_file` and `baseline_file` variables used by the three **CSV Writer** nodes. Both base locations are absolute local paths, so every teammate must set **both `input_dir` and `output_dir`** to their own checkout before running. Select `default` and use the first row as headers. Preserve the source headers. Check inferred types against the schema above before joining.
 2. Check both input hashes on each machine. On Windows, run `Get-FileHash -Algorithm SHA256 -Path 'data/Activated_Stores.xlsx','data/Italian_Stores.xlsx'` in PowerShell from the repository root. Keep the source files read-only. Point writers to a separate writable output directory such as `outputs/rerun/` for independent QA. Keep €2,500 and €1,500 as named values in a single workflow configuration.
 3. Team 2 checks the readers before joining. Confirm 170 activation rows and 480 national rows. Keep the activation file's blank ID cells as missing and check populated IDs are whole numbers before converting both ID columns to the same integer type. Keep coordinates as doubles. After the exact join, check `outputs/join-audit.csv` has 170 data rows and `outputs/store-universe.csv` has 480. At T06, check `outputs/baseline-2026.csv` against the historical totals above.
-4. Team 2 exports the `.knwf` snapshot at T06. Team 3 imports it into a fresh workspace, sets `input_dir`, resets and chooses **Execute all**. Check 170 linked outcomes, 310 unknowns and the €15,000 historical net before starting T08. Record the snapshot revision, runtime environment, hashes and results in the handoff. Team 3 then owns the editable workflow and applies the [T02 evaluation protocol](evaluation.md).
+4. Team 2 exports the `.knwf` snapshot at T06. Team 3 imports it into a fresh workspace, sets both `input_dir` and `output_dir`, resets and chooses **Execute all**. Check 170 linked outcomes, 310 unknowns and the €15,000 historical net before starting T08. Record the snapshot revision, runtime environment, hashes and results in the handoff. Team 3 then owns the editable workflow and applies the [T02 evaluation protocol](evaluation.md).
 5. Team 4 imports the finance-approved T12 export into a fresh workspace and reruns it against the same inputs. Check the audit counts, 480 decisions, selected store IDs and both Size of Prize comparisons against the release artifacts. [Delivery plan](../tasks/plan.md) · [T15 checks](../tasks/todo.md#t15--reproduce-the-exported-workflow-in-a-clean-workspace)
 
 ## Verification checklist
