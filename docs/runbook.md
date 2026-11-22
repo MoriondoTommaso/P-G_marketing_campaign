@@ -69,6 +69,24 @@ shasum -a 256 data/Activated_Stores.xlsx data/Italian_Stores.xlsx
 - National workbook. All 36 headers are unique and all 480 rows have numeric values in all 36 fields. `Pdv Code` is a positive integer and unique. `Latitude` and `Longitude` are numeric and the pair is unique. Other columns describe catchment demographics, households, household income, schools, hygienists, distance from a dentist, water hardness and online consumption. Source definitions, units and observation dates are incomplete. A numeric cell type does not establish measurement units or vintage.
 - Activation workbook. `Pdv Code`, `Latitude` and `Longitude` are numeric when populated. Their missing counts are 18, 31 and 38, respectively. There are 152 distinct populated IDs and 132 distinct complete coordinate pairs. `Outcome of Activation` is populated text throughout, with the only values `incremental sales` and `no incremental sales`. Neither sheet contained duplicate full rows or formulas.
 
+### T05 data audit: documented exceptions
+
+The Statistics node in the workflow found 0 missing values, no negative values and all coordinates inside Italy (latitude 37.1–46.7, longitude 6.96–17.65). The values are plausible, but the source does not say what three things mean. Team 2 records them as documented exceptions. They do not stop the T05 join, but they limit what the deck may claim.
+
+| Exception | What we know | Consequence |
+|---|---|---|
+| The unit of `Distance from a Dentist` is not stated in the source. | Values run from 0.10 to 229.08 (median 37.00). They could be metres, kilometres, minutes or another scale. | Report it in source units ("distance, unit not stated in source"), never as km or minutes. Comparisons and rankings stay valid. |
+| The base of `Water hardness IDX` is not stated in the source. | Values run from 2 to 157 (median 41). We do not know what value 100 or 0 stands for, or how the index was built. | Describe it only as higher or lower hardness. Do not convert it to a physical unit such as °f or mg/L. |
+| No field in the national file has a date. | The workbook has no measurement date or reference period for any of its 36 columns. | We cannot confirm that any trait was measured before the 2026 campaign. Treat model results as retrospective, as `docs/evaluation.md` requires. See the IYA decision below. |
+
+### Online Consumption IYA: timing decision
+
+"IYA" normally means an index versus a year ago. Its values run from 84 to 309 (median 276). If that comparison year includes the 2026 campaign, the field is measured after the campaign and could partly reflect its effect, which would make it post-treatment and leak the outcome.
+
+We cannot settle this from the data, because the national file has no field dates. On 22 Nov 2026 Team 2 searched the business case PDF (`docs/PG_Luiss_Business Case_13_11_26.pdf`, all 46 pages). It contains no definition of `Online Consumption IYA` or of any other field in the store files, and it does not state when the 2026 campaign ran. There is therefore no definition to quote.
+
+**Decision:** treat `Online Consumption IYA` as possibly post-campaign. Keep it out of the model, the slides and Extra 2. Revisit this only if the business case or the professor confirms that the index was measured before the 2026 campaign. Record that confirmation and its source here before using the field. The frozen predictor shortlist in `docs/evaluation.md` already excludes it.
+
 ### Exact reconciliation
 
 1. Read both sheets with `Pdv Code` as an integer key and coordinates as doubles. Keep a temporary unique activation-row key for the audit. Separate populated IDs from blank IDs before joining.
@@ -93,6 +111,22 @@ The approved project base case covers all **480** national stores, allows repeat
 3. Team 2 checks the readers before joining. Confirm 170 activation rows and 480 national rows. Keep the activation file's blank ID cells as missing and check populated IDs are whole numbers before converting both ID columns to the same integer type. Keep coordinates as doubles. After the exact join, check `outputs/join-audit.csv` has 170 data rows and `outputs/store-universe.csv` has 480. At T06, check `outputs/baseline-2026.csv` against the historical totals above.
 4. Team 2 exports the `.knwf` snapshot at T06. Team 3 imports it into a fresh workspace, sets both `input_dir` and `output_dir`, resets and chooses **Execute all**. Check 170 linked outcomes, 310 unknowns and the €15,000 historical net before starting T08. Record the snapshot revision, runtime environment, hashes and results in the handoff. Team 3 then owns the editable workflow and applies the [T02 evaluation protocol](evaluation.md).
 5. Team 4 imports the finance-approved T12 export into a fresh workspace and reruns it against the same inputs. Check the audit counts, 480 decisions, selected store IDs and both Size of Prize comparisons against the release artifacts. [Delivery plan](../tasks/plan.md) · [T15 checks](../tasks/todo.md#t15--reproduce-the-exported-workflow-in-a-clean-workspace)
+
+### T06 handoff note for Team 3
+
+**Set `input_dir` and `output_dir` first, then Reset → Execute all.**
+
+`outputs/store-universe.csv` contains five columns that must **never** be used as predictors:
+
+| Column | Why it is excluded |
+|---|---|
+| `success` | The label (1 = success, 0 = failure, blank = never activated). |
+| `target` | The same label as text (`success` / `failure`, blank = never activated). Use only **one** of `success` and `target` as the target, and exclude the other from the inputs. Keeping both lets the model read the answer. |
+| `store_id` | An identifier, not a store trait. Keep it only as a row key. |
+| `Latitude` | Used for geographic validation and coverage only, as `docs/evaluation.md` requires. |
+| `Longitude` | Same as `Latitude`. |
+
+Train only on the 170 stores with a label. Never code the 310 blank stores as failures. `Online Consumption IYA` also stays out of the model under the timing decision above.
 
 ## Verification checklist
 
