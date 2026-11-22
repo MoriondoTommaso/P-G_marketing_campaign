@@ -39,14 +39,15 @@ The installed KNIME Statistics Nodes feature (`5.12.0.v202604281126`) is availab
 
 ### T06 export dependencies
 
-Team 2 recorded these values from the node settings inside `workflows/oral-b-italy.knwf` (commit `06207dc`, SHA-256 `e0987a579e61c8c46d72dc6f6922b7484b94fefaa9113adc0a44686e4a49a6cc`). The workflow was saved with KNIME Analytics Platform **5.12.0** (`5.12.0.v202606180846`). It contains 34 nodes from four features. Update this section whenever the `.knwf` is re-exported.
+Team 2 recorded these values from the node settings inside `workflows/oral-b-italy.knwf` (SHA-256 `4919afbf37c88ce60ec2724084b7902bf58f1c321aac96b1885544b32775637b`, committed as "#5 #6 Add link check, data audit, why-18 annotation"). The workflow was saved with KNIME Analytics Platform **5.12.0** (`5.12.0.v202606180846`). It contains 36 nodes from five features. Update this section whenever the `.knwf` is re-exported.
 
 | Feature (`symbolic name`) | Build in the export | Nodes in the T06 workflow |
 |---|---|---|
-| KNIME Base nodes (`org.knime.features.base`) | `5.12.0.v202606261225` | 23: Column Filter, Column Renamer, Concatenate, Create File/Folder Variables, CSV Writer, GroupBy, Joiner, Row Filter, Sorter, Variable Creator |
+| KNIME Base nodes (`org.knime.features.base`) | `5.12.0.v202606261225` | 24: Column Filter, Column Renamer, Concatenate, Create File/Folder Variables, CSV Writer, GroupBy (including the link check), Joiner, Row Filter, Sorter, Variable Creator |
 | KNIME Excel Support (`org.knime.features.ext.poi`) | `5.12.0.v202605041104` | 2: Excel Reader |
 | KNIME Javasnippet (`org.knime.features.javasnippet`) | `5.12.0.v202606171353` | 5: Rule Engine, Rule-based Row Filter |
 | KNIME Math Expression (JEP) (`org.knime.features.ext.jep`) | `5.12.0.v202605041104` | 4: Math Formula (baseline sales, spend, net and ROI) |
+| KNIME Statistics Nodes (`org.knime.features.stats`) | `5.12.0.v202604281126` | 1: Statistics (data audit of the 480 stores) |
 
 KNIME Math Expression (JEP) is not in the installed-feature table above. Install it before importing the workflow, or KNIME reports the four Math Formula nodes as missing.
 
