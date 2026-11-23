@@ -1,6 +1,5 @@
 """Fast structural regressions; the separate fixtures exercise the native nodes."""
 import os
-from pathlib import Path
 import unittest
 from zipfile import ZipFile
 import xml.etree.ElementTree as E

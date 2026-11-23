@@ -145,6 +145,8 @@ def build(src, dest):
     if src.resolve() == dest.resolve() or dest.resolve() == Path(__file__).resolve().parents[3]/"workflows/oral-b-italy.knwf":
         raise ValueError("choose a separate output archive")
     a = Archive(src)
+    if any("/14  Verify and publish (#" in p for p in a.path.values()):
+        raise ValueError("release guards already present; use the candidate before guard installation")
     writers = [i for i, p in a.path.items() if "/CSV Writer (#" in p]
     assert len(writers) == 13
 

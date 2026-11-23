@@ -1,0 +1,10 @@
+Integrated candidate: 33a757e; KNIME 5.12
+valid: native=True, files=13; 13 CSVs match reviewed references
+conflict: native=False, files=0; Release guard: invalid or repeated conflict:106570
+unmatched: native=False, files=0; Release guard: invalid or repeated link:Row0:null:1
+duplicate-label: native=False, files=0; RowID rejected injected duplicate 106570
+wrong-source: native=False, files=0; Release guard: wrong score source for 22999
+missing-oof: native=False, files=0; Release guard: population, activation links, folds, OOF or national scores incomplete
+duplicate-oof: native=False, files=0; Release guard: invalid or repeated oof:105539:1:tree:true
+duplicate-national: native=False, files=0; Release guard: invalid or repeated score:100046:held_out_2026:true
+wrong-fold: native=False, files=0; Release guard: unmatched fold score
