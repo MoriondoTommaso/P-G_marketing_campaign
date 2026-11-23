@@ -1,188 +1,188 @@
-comparison,trait,group,n,n_success,n_failure,n_never_activated,success_rate_among_activated,mean,median,p25,p75,min,max,auc_success_vs_failure,auc_within_north_lat43,direction,separation,never_activated_outside_labelled_range
-success_vs_failure,Water hardness IDX,success,108,,,,,41.3889,40,15,56.25,2,133,0.17,0.207,lower in successes,strong,
-success_vs_failure,Water hardness IDX,failure,62,,,,,81.5161,89,68.75,98,3,157,,,,,
-activated_vs_never,Water hardness IDX,activated_all,170,,,,,56.0235,49,28.25,87,2,157,,,,,
-activated_vs_never,Water hardness IDX,never_activated,310,,,,,42.0548,37,24.25,47,3,132,,,,,0
-success_vs_failure,Online Consumption IYA,success,108,,,,,272.417,277.5,260.5,292,179,308,0.782,0.71,higher in successes,strong,
-success_vs_failure,Online Consumption IYA,failure,62,,,,,232.177,239.5,211.75,266.5,84,293,,,,,
-activated_vs_never,Online Consumption IYA,activated_all,170,,,,,257.741,273.5,242.75,284.75,84,308,,,,,
-activated_vs_never,Online Consumption IYA,never_activated,310,,,,,269.129,277,259,286.75,138,309,,,,,2
-success_vs_failure,Nr of Schools,success,108,,,,,5.73148,4,2,8,0,23,0.764,0.776,higher in successes,strong,
-success_vs_failure,Nr of Schools,failure,62,,,,,2.14516,2,0,4,0,8,,,,,
-activated_vs_never,Nr of Schools,activated_all,170,,,,,4.42353,3,1,6,0,23,,,,,
-activated_vs_never,Nr of Schools,never_activated,310,,,,,1.61613,0,0,2,0,11,,,,,0
-success_vs_failure,Nr of Hygienists,success,108,,,,,1.99074,1,0,3,0,24,0.494,0.467,lower in successes,weak / none,
-success_vs_failure,Nr of Hygienists,failure,62,,,,,1.66129,1,0,3,0,9,,,,,
-activated_vs_never,Nr of Hygienists,activated_all,170,,,,,1.87059,1,0,3,0,24,,,,,
-activated_vs_never,Nr of Hygienists,never_activated,310,,,,,2.1129,0,0,2,0,19,,,,,0
-success_vs_failure,Latitude,success,108,,,,,42.735,43.5874,39.5167,44.6945,37.101,46.7166,0.237,0.314,lower in successes,strong,
-success_vs_failure,Latitude,failure,62,,,,,45.0303,45.7366,45.5157,45.7842,37.3043,46.5831,,,,,
-activated_vs_never,Latitude,activated_all,170,,,,,43.5721,44.4334,41.9711,45.7487,37.101,46.7166,,,,,
-activated_vs_never,Latitude,never_activated,310,,,,,42.5362,42.0416,40.9292,44.5376,37.2582,46.6783,,,,,0
-success_vs_failure,Longitude,success,108,,,,,11.9908,12.6236,9.12658,13.5649,7.30462,16.8118,0.702,0.739,higher in successes,strong,
-success_vs_failure,Longitude,failure,62,,,,,9.93223,9.6927,7.7311,11.2427,6.96448,16.0927,,,,,
-activated_vs_never,Longitude,activated_all,170,,,,,11.24,11.2334,9.04921,13.5008,6.96448,16.8118,,,,,
-activated_vs_never,Longitude,never_activated,310,,,,,13.1239,13.3478,11.3822,14.8111,7.16379,17.6508,,,,,18
-success_vs_failure,Distance from a Dentist,success,108,,,,,19.0698,9.01775,1.93929,16.7482,0.147566,184.46,0.122,0.087,lower in successes,strong,
-success_vs_failure,Distance from a Dentist,failure,62,,,,,131.915,155.015,112.142,169.328,0.104647,229.076,,,,,
-activated_vs_never,Distance from a Dentist,activated_all,170,,,,,60.2251,15.6199,3.49179,138.06,0.104647,229.076,,,,,
-activated_vs_never,Distance from a Dentist,never_activated,310,,,,,53.6818,48.4772,22.3653,75.039,0.525601,187.3,,,,,0
-success_vs_failure,Total Population,success,108,,,,,178650,130161,80841.5,221684,3074,745268,0.486,0.453,lower in successes,weak / none,
-success_vs_failure,Total Population,failure,62,,,,,229937,168650,41207.5,356825,1453,1.0232e+06,,,,,
-activated_vs_never,Total Population,activated_all,170,,,,,197355,138666,65080,261550,1453,1.0232e+06,,,,,
-activated_vs_never,Total Population,never_activated,310,,,,,139387,83562.5,39950.5,176761,1391,1.05765e+06,,,,,2
-success_vs_failure,Male Population,success,108,,,,,85755.7,62330,39394.5,106642,1572,356591,0.484,0.45,lower in successes,weak / none,
-success_vs_failure,Male Population,failure,62,,,,,111737,80964,20144.2,172883,721,499988,,,,,
-activated_vs_never,Male Population,activated_all,170,,,,,95231.3,66450.5,31819.8,126057,721,499988,,,,,
-activated_vs_never,Male Population,never_activated,310,,,,,67068.8,40411,19549,85434.2,681,515248,,,,,3
-success_vs_failure,Female Population,success,108,,,,,92894.8,67831,41649,115042,1502,388677,0.488,0.455,lower in successes,weak / none,
-success_vs_failure,Female Population,failure,62,,,,,118200,87686,21047,181487,732,523207,,,,,
-activated_vs_never,Female Population,activated_all,170,,,,,102124,71906.5,33260.2,134791,732,523207,,,,,
-activated_vs_never,Female Population,never_activated,310,,,,,72318.3,42901,20253.8,91282.2,710,542399,,,,,2
-success_vs_failure,Celibe Population,success,108,,,,,74374.5,52765,32127.2,97116.5,1385,323738,0.48,0.439,lower in successes,weak / none,
-success_vs_failure,Celibe Population,failure,62,,,,,95240.7,71438.5,17772.5,149804,605,416576,,,,,
-activated_vs_never,Celibe Population,activated_all,170,,,,,81984.5,54789.5,25685,111588,605,416576,,,,,
-activated_vs_never,Celibe Population,never_activated,310,,,,,57820.2,33996,15865.2,74171,495,483345,,,,,3
-success_vs_failure,Married Population,success,108,,,,,81514.6,60836,37161.5,103491,1399,344854,0.486,0.453,lower in successes,weak / none,
-success_vs_failure,Married Population,failure,62,,,,,106487,72491.5,18267,164379,648,487535,,,,,
-activated_vs_never,Married Population,activated_all,170,,,,,90622.3,64814,28024.5,118438,648,487535,,,,,
-activated_vs_never,Married Population,never_activated,310,,,,,64486.7,39599,18871.8,81062.2,623,488096,,,,,2
-success_vs_failure,Divorced Population,success,108,,,,,4536.6,3575.5,1615.75,5720.75,26,19741,0.466,0.469,lower in successes,weak / none,
-success_vs_failure,Divorced Population,failure,62,,,,,6052.87,4678,1023,8468.25,36,28497,,,,,
-activated_vs_never,Divorced Population,activated_all,170,,,,,5089.59,3810,1417,6744.75,26,28497,,,,,
-activated_vs_never,Divorced Population,never_activated,310,,,,,3293.96,1848,559,3890,11,25991,,,,,4
-success_vs_failure,Population_age_<5yo,success,108,,,,,8043.77,5615.5,3255.25,10097.5,138,38320,0.459,0.42,lower in successes,weak / none,
-success_vs_failure,Population_age_<5yo,failure,62,,,,,11393.7,8014.5,1994,17456,52,51316,,,,,
-activated_vs_never,Population_age_<5yo,activated_all,170,,,,,9265.51,6094,2823.5,11377.5,52,51316,,,,,
-activated_vs_never,Population_age_<5yo,never_activated,310,,,,,6431.67,3746.5,1662.25,8246,14,61162,,,,,3
-success_vs_failure,Population_age_5_9yo,success,108,,,,,8108.96,5694,3363,9824,180,41754,0.464,0.422,lower in successes,weak / none,
-success_vs_failure,Population_age_5_9yo,failure,62,,,,,11305.1,7955.5,1891.75,17885,71,49368,,,,,
-activated_vs_never,Population_age_5_9yo,activated_all,170,,,,,9274.63,6009.5,2887.75,11366.8,71,49368,,,,,
-activated_vs_never,Population_age_5_9yo,never_activated,310,,,,,6460.62,3666.5,1647.75,8329.75,34,65959,,,,,5
-success_vs_failure,Population_age_10_14yo,success,108,,,,,8113.1,5628.5,3333.5,9864,162,43264,0.465,0.425,lower in successes,weak / none,
-success_vs_failure,Population_age_10_14yo,failure,62,,,,,11120.3,7907,1978,17761.2,82,47204,,,,,
-activated_vs_never,Population_age_10_14yo,activated_all,170,,,,,9209.86,6031.5,2920.5,11561.2,82,47204,,,,,
-activated_vs_never,Population_age_10_14yo,never_activated,310,,,,,6439.33,3722,1776.5,8416.5,52,67841,,,,,5
-success_vs_failure,Population_age_15_19yo,success,108,,,,,8425.76,5903,3340.5,9746.25,176,46209,0.476,0.431,lower in successes,weak / none,
-success_vs_failure,Population_age_15_19yo,failure,62,,,,,10752.1,7809.5,1880.25,17340.2,52,45976,,,,,
-activated_vs_never,Population_age_15_19yo,activated_all,170,,,,,9274.19,6147,2850.75,11934.5,52,46209,,,,,
-activated_vs_never,Population_age_15_19yo,never_activated,310,,,,,6626.87,3939.5,1984.75,8573,58,72211,,,,,2
-success_vs_failure,Population_age_20_24yo,success,108,,,,,9010.27,6211.5,3429.25,10957.8,187,48008,0.48,0.429,lower in successes,weak / none,
-success_vs_failure,Population_age_20_24yo,failure,62,,,,,11140.6,8060.5,1951.25,17986.5,55,48089,,,,,
-activated_vs_never,Population_age_20_24yo,activated_all,170,,,,,9787.21,6572,2886,12922.8,55,48089,,,,,
-activated_vs_never,Population_age_20_24yo,never_activated,310,,,,,7111.23,4433,2154,9067.25,76,74477,,,,,2
-success_vs_failure,Population_age_25_29yo,success,108,,,,,9605.47,6758.5,3628,12109.5,172,46654,0.482,0.429,lower in successes,weak / none,
-success_vs_failure,Population_age_25_29yo,failure,62,,,,,12187,8785,2186.75,19550,55,54520,,,,,
-activated_vs_never,Population_age_25_29yo,activated_all,170,,,,,10547,7097.5,3192.25,14108.2,55,54520,,,,,
-activated_vs_never,Population_age_25_29yo,never_activated,310,,,,,7788.63,4838.5,2392.5,9871,70,71934,,,,,2
-success_vs_failure,Population_age_30_34yo,success,108,,,,,11205,7995.5,4343.5,14589.5,196,49289,0.483,0.434,lower in successes,weak / none,
-success_vs_failure,Population_age_30_34yo,failure,62,,,,,14633.5,10133,2568.5,22063,73,67925,,,,,
-activated_vs_never,Population_age_30_34yo,activated_all,170,,,,,12455.4,8596,3919,17024.5,73,67925,,,,,
-activated_vs_never,Population_age_30_34yo,never_activated,310,,,,,9044.95,5474,2585,11062.5,63,73951,,,,,3
-success_vs_failure,Population_age_35_39yo,success,108,,,,,13815.1,10061,5925.5,18806,266,54749,0.485,0.443,lower in successes,weak / none,
-success_vs_failure,Population_age_35_39yo,failure,62,,,,,18171.5,12602.5,3160,27429.2,105,85612,,,,,
-activated_vs_never,Population_age_35_39yo,activated_all,170,,,,,15403.9,10464,4691.25,20958,105,85612,,,,,
-activated_vs_never,Population_age_35_39yo,never_activated,310,,,,,10832,6322.5,2886.75,13491.8,71,81902,,,,,2
-success_vs_failure,Population_age_40_44yo,success,108,,,,,14586.8,10639.5,6438.75,18656,272,58108,0.481,0.445,lower in successes,weak / none,
-success_vs_failure,Population_age_40_44yo,failure,62,,,,,19199.2,13694.5,3423.25,29616.5,111,87286,,,,,
-activated_vs_never,Population_age_40_44yo,activated_all,170,,,,,16269,10984,5247.5,22212.5,111,87286,,,,,
-activated_vs_never,Population_age_40_44yo,never_activated,310,,,,,11269.8,6603,3089.5,14472.5,80,81161,,,,,2
-success_vs_failure,Population_age_45_49yo,success,108,,,,,14627.1,10513.5,6453.75,18467.8,250,58499,0.481,0.447,lower in successes,weak / none,
-success_vs_failure,Population_age_45_49yo,failure,62,,,,,19193.6,13533.5,3454,30170.2,123,85540,,,,,
-activated_vs_never,Population_age_45_49yo,activated_all,170,,,,,16292.6,10941.5,5194.75,21878.2,123,85540,,,,,
-activated_vs_never,Population_age_45_49yo,never_activated,310,,,,,11208.4,6617,3181.75,14323.8,108,80474,,,,,2
-success_vs_failure,Population_age_50_54yo,success,108,,,,,12732.2,8993,5711.75,16439,180,51888,0.486,0.452,lower in successes,weak / none,
-success_vs_failure,Population_age_50_54yo,failure,62,,,,,16162.1,11556,3035.25,24851.8,94,71026,,,,,
-activated_vs_never,Population_age_50_54yo,activated_all,170,,,,,13983.1,9627.5,4550,18961.5,94,71026,,,,,
-activated_vs_never,Population_age_50_54yo,never_activated,310,,,,,9763,5866.5,2821,12409,82,68889,,,,,1
-success_vs_failure,Population_age_55_59yo,success,108,,,,,11554.4,8599,5153,15084.2,151,48065,0.494,0.457,lower in successes,weak / none,
-success_vs_failure,Population_age_55_59yo,failure,62,,,,,14292,10021.5,2626.5,22293.2,91,64199,,,,,
-activated_vs_never,Population_age_55_59yo,activated_all,170,,,,,12552.8,8995.5,3985.5,17474.5,91,64199,,,,,
-activated_vs_never,Population_age_55_59yo,never_activated,310,,,,,8701.94,5420.5,2525.75,10659.5,100,60564,,,,,0
-success_vs_failure,Population_age_60_64yo,success,108,,,,,11389.8,8562.5,5355,14093.2,163,46686,0.492,0.461,lower in successes,weak / none,
-success_vs_failure,Population_age_60_64yo,failure,62,,,,,14361.1,10490,2621.25,21864,98,64462,,,,,
-activated_vs_never,Population_age_60_64yo,activated_all,170,,,,,12473.4,8923,3891.25,16800.2,98,64462,,,,,
-activated_vs_never,Population_age_60_64yo,never_activated,310,,,,,8697.53,5540.5,2457.25,10670,87,56944,,,,,2
-success_vs_failure,Population_age_65_69yo,success,108,,,,,9692.11,7385.5,4336.5,12446.5,153,36425,0.495,0.473,lower in successes,weak / none,
-success_vs_failure,Population_age_65_69yo,failure,62,,,,,12092.9,9735,2102.75,17556,87,52790,,,,,
-activated_vs_never,Population_age_65_69yo,activated_all,170,,,,,10567.7,7783,3280.75,14134,87,52790,,,,,
-activated_vs_never,Population_age_65_69yo,never_activated,310,,,,,7299.74,4389,1810.75,9338.5,68,46551,,,,,1
-success_vs_failure,Population_age_70_74yo,success,108,,,,,9448.03,7305,4388.25,12035.2,163,34783,0.495,0.482,lower in successes,weak / none,
-success_vs_failure,Population_age_70_74yo,failure,62,,,,,12047.9,9010,2108.5,17121.2,95,54089,,,,,
-activated_vs_never,Population_age_70_74yo,activated_all,170,,,,,10396.2,7774,3445,13255,95,54089,,,,,
-activated_vs_never,Population_age_70_74yo,never_activated,310,,,,,7215.62,4384,1811,9063.25,83,47586,,,,,1
-success_vs_failure,Population_age_>74yo,success,108,,,,,18292.6,15010,7993.75,22750.2,265,70469,0.498,0.497,lower in successes,weak / none,
-success_vs_failure,Population_age_>74yo,failure,62,,,,,21884.1,17442,4046.25,32869.5,178,96862,,,,,
-activated_vs_never,Population_age_>74yo,activated_all,170,,,,,19602.4,15561.5,6646.25,26230.5,178,96862,,,,,
-activated_vs_never,Population_age_>74yo,never_activated,310,,,,,14495.9,9171,3832,17411.5,218,95388,,,,,0
-success_vs_failure,Graduated population,success,108,,,,,22043.4,14974,7624.25,28391,78,98811,0.517,0.491,higher in successes,weak / none,
-success_vs_failure,Graduated population,failure,62,,,,,23925.7,18541.5,3239.5,38686.2,131,94900,,,,,
-activated_vs_never,Graduated population,activated_all,170,,,,,22729.9,15578,5955.25,30079.5,78,98811,,,,,
-activated_vs_never,Graduated population,never_activated,310,,,,,17260.6,9990.5,3431,19833,68,142251,,,,,8
-success_vs_failure,Unoccupied population,success,108,,,,,6634.56,3820,2393.5,8102.5,218,33954,0.558,0.475,higher in successes,weak / none,
-success_vs_failure,Unoccupied population,failure,62,,,,,5866.47,3534.5,1117.25,8980.75,19,27064,,,,,
-activated_vs_never,Unoccupied population,activated_all,170,,,,,6354.43,3820,1746.25,8980.75,19,33954,,,,,
-activated_vs_never,Unoccupied population,never_activated,310,,,,,4692.31,2793,1274,5389,41,46034,,,,,2
-success_vs_failure,Total Students,success,108,,,,,11452,8226.5,4298.75,13746.5,208,53511,0.497,0.449,lower in successes,weak / none,
-success_vs_failure,Total Students,failure,62,,,,,13317.2,10285.5,2304,21582.5,75,56594,,,,,
-activated_vs_never,Total Students,activated_all,170,,,,,12132.3,8424,3695,16428,75,56594,,,,,
-activated_vs_never,Total Students,never_activated,310,,,,,9000.77,5992.5,2613.5,11701,74,75014,,,,,3
-success_vs_failure,Total Households,success,108,,,,,75038,55359,33755,94630.8,1128,288359,0.485,0.46,lower in successes,weak / none,
-success_vs_failure,Total Households,failure,62,,,,,96897.9,73026.5,18436.8,144465,720,422621,,,,,
-activated_vs_never,Total Households,activated_all,170,,,,,83010.4,59976.5,25795,106606,720,422621,,,,,
-activated_vs_never,Total Households,never_activated,310,,,,,58036.6,34136.5,15443.5,72536.2,693,385346,,,,,2
-success_vs_failure,Households avg components,success,108,,,,,2.34833,2.34892,2.19597,2.52333,1.94613,3.11259,0.533,0.333,higher in successes,weak / none,
-success_vs_failure,Households avg components,failure,62,,,,,2.33017,2.36144,2.20141,2.42064,2.00417,2.88148,,,,,
-activated_vs_never,Households avg components,activated_all,170,,,,,2.3417,2.35271,2.20002,2.47312,1.94613,3.11259,,,,,
-activated_vs_never,Households avg components,never_activated,310,,,,,2.42493,2.44761,2.266,2.56083,1.91944,3.08448,,,,,2
-success_vs_failure,Avg Income per Household,success,108,,,,,18454.1,18268.7,16627.6,20786,9371.65,26499.3,0.379,0.54,lower in successes,moderate,
-success_vs_failure,Avg Income per Household,failure,62,,,,,19806.2,19730.5,18391.7,20635.5,12134.2,26774.5,,,,,
-activated_vs_never,Avg Income per Household,activated_all,170,,,,,18947.2,19089.6,17358.9,20747.8,9371.65,26774.5,,,,,
-activated_vs_never,Avg Income per Household,never_activated,310,,,,,17251.2,17734.2,13907.1,19655.1,9144.74,27472,,,,,5
-geography_region_band,region_band,Centre (41.5 <= lat < 44.5),166,44,5,117,0.898,,,,,,,,,,,
-geography_region_band,region_band,North (lat >= 44.5),166,30,53,83,0.361,,,,,,,,,,,
-geography_region_band,region_band,South/islands (lat < 41.5),148,34,4,110,0.895,,,,,,,,,,,
-geography_fallback_band,fallback_band,North (lat >= 43.0),262,62,57,143,0.521,,,,,,,,,,,
-geography_fallback_band,fallback_band,South (lat < 43.0),218,46,5,167,0.902,,,,,,,,,,,
-trait_tercile,Distance from a Dentist,"(-inf, 6.64]",57,51,6,24,0.895,,,,,,,,,,,
-trait_tercile,Distance from a Dentist,"(6.64, 107.006]",56,49,7,262,0.875,,,,,,,,,,,
-trait_tercile,Distance from a Dentist,"(107.006, inf]",57,8,49,24,0.14,,,,,,,,,,,
-trait_tercile,Water hardness IDX,"(-inf, 39.0]",60,54,6,164,0.9,,,,,,,,,,,
-trait_tercile,Water hardness IDX,"(39.0, 84.0]",58,41,17,106,0.707,,,,,,,,,,,
-trait_tercile,Water hardness IDX,"(84.0, inf]",52,13,39,40,0.25,,,,,,,,,,,
-trait_tercile,Online Consumption IYA,"(-inf, 248.0]",61,26,35,54,0.426,,,,,,,,,,,
-trait_tercile,Online Consumption IYA,"(248.0, 280.0]",55,38,17,150,0.691,,,,,,,,,,,
-trait_tercile,Online Consumption IYA,"(280.0, inf]",54,44,10,106,0.815,,,,,,,,,,,
-trait_tercile,Nr of Schools,"(-inf, 2.0]",72,33,39,236,0.458,,,,,,,,,,,
-trait_tercile,Nr of Schools,"(2.0, 5.0]",45,27,18,46,0.6,,,,,,,,,,,
-trait_tercile,Nr of Schools,"(5.0, inf]",53,48,5,28,0.906,,,,,,,,,,,
-model_predictor_by_band,Total Population,Centre (41.5 <= lat < 44.5) | activated,49,,,,,176794,139226,87699,218345,10780,672802,,,,,
-model_predictor_by_band,Total Population,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,145895,86741,54305,191130,1391,872492,,,,,12
-model_predictor_by_band,Total Population,North (lat >= 44.5) | activated,83,,,,,207576,135197,58959,291744,1453,1.0232e+06,,,,,
-model_predictor_by_band,Total Population,North (lat >= 44.5) | never_activated,83,,,,,146508,103488,61817.5,178423,6425,907501,,,,,0
-model_predictor_by_band,Total Population,South/islands (lat < 41.5) | activated,38,,,,,201542,135544,42289.8,265190,3074,745268,,,,,
-model_predictor_by_band,Total Population,South/islands (lat < 41.5) | never_activated,110,,,,,127092,60226.5,19950.2,156364,1479,1.05765e+06,,,,,4
-model_predictor_by_band,Avg Income per Household,Centre (41.5 <= lat < 44.5) | activated,49,,,,,19716.1,19625.6,17368,21913.5,14561.2,25964.2,,,,,
-model_predictor_by_band,Avg Income per Household,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,18118.6,18281.3,15972.8,19766.1,10192.1,26114.8,,,,,16
-model_predictor_by_band,Avg Income per Household,North (lat >= 44.5) | activated,83,,,,,20335.3,19937,18406.1,21080.7,16722.6,26774.5,,,,,
-model_predictor_by_band,Avg Income per Household,North (lat >= 44.5) | never_activated,83,,,,,20828.9,19989.9,18627,22295.7,16171.3,27472,,,,,5
-model_predictor_by_band,Avg Income per Household,South/islands (lat < 41.5) | activated,38,,,,,14923.8,15554.8,12083.3,17353.1,9371.65,19663.8,,,,,
-model_predictor_by_band,Avg Income per Household,South/islands (lat < 41.5) | never_activated,110,,,,,13629.1,13111.5,11555.8,15162.7,9144.74,19426.6,,,,,2
-model_predictor_by_band,Households avg components,Centre (41.5 <= lat < 44.5) | activated,49,,,,,2.29092,2.32203,2.05371,2.48861,1.94613,2.58762,,,,,
-model_predictor_by_band,Households avg components,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,2.41844,2.44899,2.37034,2.53426,1.93814,2.7157,,,,,6
-model_predictor_by_band,Households avg components,North (lat >= 44.5) | activated,83,,,,,2.28804,2.28709,2.17091,2.39134,1.99909,2.88148,,,,,
-model_predictor_by_band,Households avg components,North (lat >= 44.5) | never_activated,83,,,,,2.22423,2.19139,2.14257,2.27276,1.91944,2.65889,,,,,6
-model_predictor_by_band,Households avg components,South/islands (lat < 41.5) | activated,38,,,,,2.52439,2.50918,2.42479,2.58703,2.35448,3.11259,,,,,
-model_predictor_by_band,Households avg components,South/islands (lat < 41.5) | never_activated,110,,,,,2.58327,2.56236,2.47063,2.66401,2.11255,3.08448,,,,,5
-model_predictor_by_band,Nr of Hygienists,Centre (41.5 <= lat < 44.5) | activated,49,,,,,1.89796,2,0,3,0,7,,,,,
-model_predictor_by_band,Nr of Hygienists,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,2.60684,1,0,4,0,19,,,,,10
-model_predictor_by_band,Nr of Hygienists,North (lat >= 44.5) | activated,83,,,,,1.19277,1,0,2,0,4,,,,,
-model_predictor_by_band,Nr of Hygienists,North (lat >= 44.5) | never_activated,83,,,,,2,0,0,1.5,0,18,,,,,10
-model_predictor_by_band,Nr of Hygienists,South/islands (lat < 41.5) | activated,38,,,,,3.31579,3,0,5,0,24,,,,,
-model_predictor_by_band,Nr of Hygienists,South/islands (lat < 41.5) | never_activated,110,,,,,1.67273,0,0,2,0,17,,,,,0
-model_predictor_by_band,Distance from a Dentist,Centre (41.5 <= lat < 44.5) | activated,49,,,,,11.4628,3.50119,0.731081,10.5294,0.116663,99.9341,,,,,
-model_predictor_by_band,Distance from a Dentist,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,62.0079,65.8101,48.1785,83.1133,0.615582,98.2709,,,,,0
-model_predictor_by_band,Distance from a Dentist,North (lat >= 44.5) | activated,83,,,,,113.072,140.128,27.499,163.665,0.278047,229.076,,,,,
-model_predictor_by_band,Distance from a Dentist,North (lat >= 44.5) | never_activated,83,,,,,80.5756,70.3069,36.2676,137.311,11.027,187.3,,,,,0
-model_predictor_by_band,Distance from a Dentist,South/islands (lat < 41.5) | activated,38,,,,,7.67293,5.73241,2.11611,13.1371,0.104647,28.5088,,,,,
-model_predictor_by_band,Distance from a Dentist,South/islands (lat < 41.5) | never_activated,110,,,,,24.5333,22.4058,10.864,36.1079,0.525601,70.0349,,,,,35
+comparison,trait,group,n,n_success,n_failure,n_never_activated,success_rate_among_activated,mean,median,p25,p75,min,max,auc_success_vs_failure,auc_within_north_lat43,direction,separation,never_activated_outside_labelled_range,note
+success_vs_failure,Water hardness IDX,success,108,,,,,41.3889,40,15,56.25,2,133,0.17,0.207,lower in successes,strong,,"index, base not stated in source; higher/lower only"
+success_vs_failure,Water hardness IDX,failure,62,,,,,81.5161,89,68.75,98,3,157,,,,,,"index, base not stated in source; higher/lower only"
+activated_vs_never,Water hardness IDX,activated_all,170,,,,,56.0235,49,28.25,87,2,157,,,,,,"index, base not stated in source; higher/lower only"
+activated_vs_never,Water hardness IDX,never_activated,310,,,,,42.0548,37,24.25,47,3,132,,,,,0,"index, base not stated in source; higher/lower only"
+success_vs_failure,Online Consumption IYA,success,108,,,,,272.417,277.5,260.5,292,179,308,0.782,0.71,higher in successes,strong,,"timing unknown (may be measured after the 2026 campaign); not a driver; kept out of the model, slides and Extra 2"
+success_vs_failure,Online Consumption IYA,failure,62,,,,,232.177,239.5,211.75,266.5,84,293,,,,,,"timing unknown (may be measured after the 2026 campaign); not a driver; kept out of the model, slides and Extra 2"
+activated_vs_never,Online Consumption IYA,activated_all,170,,,,,257.741,273.5,242.75,284.75,84,308,,,,,,"timing unknown (may be measured after the 2026 campaign); not a driver; kept out of the model, slides and Extra 2"
+activated_vs_never,Online Consumption IYA,never_activated,310,,,,,269.129,277,259,286.75,138,309,,,,,2,"timing unknown (may be measured after the 2026 campaign); not a driver; kept out of the model, slides and Extra 2"
+success_vs_failure,Nr of Schools,success,108,,,,,5.73148,4,2,8,0,23,0.764,0.776,higher in successes,strong,,
+success_vs_failure,Nr of Schools,failure,62,,,,,2.14516,2,0,4,0,8,,,,,,
+activated_vs_never,Nr of Schools,activated_all,170,,,,,4.42353,3,1,6,0,23,,,,,,
+activated_vs_never,Nr of Schools,never_activated,310,,,,,1.61613,0,0,2,0,11,,,,,0,
+success_vs_failure,Nr of Hygienists,success,108,,,,,1.99074,1,0,3,0,24,0.494,0.467,lower in successes,weak / none,,
+success_vs_failure,Nr of Hygienists,failure,62,,,,,1.66129,1,0,3,0,9,,,,,,
+activated_vs_never,Nr of Hygienists,activated_all,170,,,,,1.87059,1,0,3,0,24,,,,,,
+activated_vs_never,Nr of Hygienists,never_activated,310,,,,,2.1129,0,0,2,0,19,,,,,0,
+success_vs_failure,Latitude,success,108,,,,,42.735,43.5874,39.5167,44.6945,37.101,46.7166,0.237,0.314,lower in successes,strong,,
+success_vs_failure,Latitude,failure,62,,,,,45.0303,45.7366,45.5157,45.7842,37.3043,46.5831,,,,,,
+activated_vs_never,Latitude,activated_all,170,,,,,43.5721,44.4334,41.9711,45.7487,37.101,46.7166,,,,,,
+activated_vs_never,Latitude,never_activated,310,,,,,42.5362,42.0416,40.9292,44.5376,37.2582,46.6783,,,,,0,
+success_vs_failure,Longitude,success,108,,,,,11.9908,12.6236,9.12658,13.5649,7.30462,16.8118,0.702,0.739,higher in successes,strong,,
+success_vs_failure,Longitude,failure,62,,,,,9.93223,9.6927,7.7311,11.2427,6.96448,16.0927,,,,,,
+activated_vs_never,Longitude,activated_all,170,,,,,11.24,11.2334,9.04921,13.5008,6.96448,16.8118,,,,,,
+activated_vs_never,Longitude,never_activated,310,,,,,13.1239,13.3478,11.3822,14.8111,7.16379,17.6508,,,,,18,
+success_vs_failure,Distance from a Dentist,success,108,,,,,19.0698,9.01775,1.93929,16.7482,0.147566,184.46,0.122,0.087,lower in successes,strong,,unit not stated in source
+success_vs_failure,Distance from a Dentist,failure,62,,,,,131.915,155.015,112.142,169.328,0.104647,229.076,,,,,,unit not stated in source
+activated_vs_never,Distance from a Dentist,activated_all,170,,,,,60.2251,15.6199,3.49179,138.06,0.104647,229.076,,,,,,unit not stated in source
+activated_vs_never,Distance from a Dentist,never_activated,310,,,,,53.6818,48.4772,22.3653,75.039,0.525601,187.3,,,,,0,unit not stated in source
+success_vs_failure,Total Population,success,108,,,,,178650,130161,80841.5,221684,3074,745268,0.486,0.453,lower in successes,weak / none,,
+success_vs_failure,Total Population,failure,62,,,,,229937,168650,41207.5,356825,1453,1.0232e+06,,,,,,
+activated_vs_never,Total Population,activated_all,170,,,,,197355,138666,65080,261550,1453,1.0232e+06,,,,,,
+activated_vs_never,Total Population,never_activated,310,,,,,139387,83562.5,39950.5,176761,1391,1.05765e+06,,,,,2,
+success_vs_failure,Male Population,success,108,,,,,85755.7,62330,39394.5,106642,1572,356591,0.484,0.45,lower in successes,weak / none,,
+success_vs_failure,Male Population,failure,62,,,,,111737,80964,20144.2,172883,721,499988,,,,,,
+activated_vs_never,Male Population,activated_all,170,,,,,95231.3,66450.5,31819.8,126057,721,499988,,,,,,
+activated_vs_never,Male Population,never_activated,310,,,,,67068.8,40411,19549,85434.2,681,515248,,,,,3,
+success_vs_failure,Female Population,success,108,,,,,92894.8,67831,41649,115042,1502,388677,0.488,0.455,lower in successes,weak / none,,
+success_vs_failure,Female Population,failure,62,,,,,118200,87686,21047,181487,732,523207,,,,,,
+activated_vs_never,Female Population,activated_all,170,,,,,102124,71906.5,33260.2,134791,732,523207,,,,,,
+activated_vs_never,Female Population,never_activated,310,,,,,72318.3,42901,20253.8,91282.2,710,542399,,,,,2,
+success_vs_failure,Celibe Population,success,108,,,,,74374.5,52765,32127.2,97116.5,1385,323738,0.48,0.439,lower in successes,weak / none,,
+success_vs_failure,Celibe Population,failure,62,,,,,95240.7,71438.5,17772.5,149804,605,416576,,,,,,
+activated_vs_never,Celibe Population,activated_all,170,,,,,81984.5,54789.5,25685,111588,605,416576,,,,,,
+activated_vs_never,Celibe Population,never_activated,310,,,,,57820.2,33996,15865.2,74171,495,483345,,,,,3,
+success_vs_failure,Married Population,success,108,,,,,81514.6,60836,37161.5,103491,1399,344854,0.486,0.453,lower in successes,weak / none,,
+success_vs_failure,Married Population,failure,62,,,,,106487,72491.5,18267,164379,648,487535,,,,,,
+activated_vs_never,Married Population,activated_all,170,,,,,90622.3,64814,28024.5,118438,648,487535,,,,,,
+activated_vs_never,Married Population,never_activated,310,,,,,64486.7,39599,18871.8,81062.2,623,488096,,,,,2,
+success_vs_failure,Divorced Population,success,108,,,,,4536.6,3575.5,1615.75,5720.75,26,19741,0.466,0.469,lower in successes,weak / none,,
+success_vs_failure,Divorced Population,failure,62,,,,,6052.87,4678,1023,8468.25,36,28497,,,,,,
+activated_vs_never,Divorced Population,activated_all,170,,,,,5089.59,3810,1417,6744.75,26,28497,,,,,,
+activated_vs_never,Divorced Population,never_activated,310,,,,,3293.96,1848,559,3890,11,25991,,,,,4,
+success_vs_failure,Population_age_<5yo,success,108,,,,,8043.77,5615.5,3255.25,10097.5,138,38320,0.459,0.42,lower in successes,weak / none,,
+success_vs_failure,Population_age_<5yo,failure,62,,,,,11393.7,8014.5,1994,17456,52,51316,,,,,,
+activated_vs_never,Population_age_<5yo,activated_all,170,,,,,9265.51,6094,2823.5,11377.5,52,51316,,,,,,
+activated_vs_never,Population_age_<5yo,never_activated,310,,,,,6431.67,3746.5,1662.25,8246,14,61162,,,,,3,
+success_vs_failure,Population_age_5_9yo,success,108,,,,,8108.96,5694,3363,9824,180,41754,0.464,0.422,lower in successes,weak / none,,
+success_vs_failure,Population_age_5_9yo,failure,62,,,,,11305.1,7955.5,1891.75,17885,71,49368,,,,,,
+activated_vs_never,Population_age_5_9yo,activated_all,170,,,,,9274.63,6009.5,2887.75,11366.8,71,49368,,,,,,
+activated_vs_never,Population_age_5_9yo,never_activated,310,,,,,6460.62,3666.5,1647.75,8329.75,34,65959,,,,,5,
+success_vs_failure,Population_age_10_14yo,success,108,,,,,8113.1,5628.5,3333.5,9864,162,43264,0.465,0.425,lower in successes,weak / none,,
+success_vs_failure,Population_age_10_14yo,failure,62,,,,,11120.3,7907,1978,17761.2,82,47204,,,,,,
+activated_vs_never,Population_age_10_14yo,activated_all,170,,,,,9209.86,6031.5,2920.5,11561.2,82,47204,,,,,,
+activated_vs_never,Population_age_10_14yo,never_activated,310,,,,,6439.33,3722,1776.5,8416.5,52,67841,,,,,5,
+success_vs_failure,Population_age_15_19yo,success,108,,,,,8425.76,5903,3340.5,9746.25,176,46209,0.476,0.431,lower in successes,weak / none,,
+success_vs_failure,Population_age_15_19yo,failure,62,,,,,10752.1,7809.5,1880.25,17340.2,52,45976,,,,,,
+activated_vs_never,Population_age_15_19yo,activated_all,170,,,,,9274.19,6147,2850.75,11934.5,52,46209,,,,,,
+activated_vs_never,Population_age_15_19yo,never_activated,310,,,,,6626.87,3939.5,1984.75,8573,58,72211,,,,,2,
+success_vs_failure,Population_age_20_24yo,success,108,,,,,9010.27,6211.5,3429.25,10957.8,187,48008,0.48,0.429,lower in successes,weak / none,,
+success_vs_failure,Population_age_20_24yo,failure,62,,,,,11140.6,8060.5,1951.25,17986.5,55,48089,,,,,,
+activated_vs_never,Population_age_20_24yo,activated_all,170,,,,,9787.21,6572,2886,12922.8,55,48089,,,,,,
+activated_vs_never,Population_age_20_24yo,never_activated,310,,,,,7111.23,4433,2154,9067.25,76,74477,,,,,2,
+success_vs_failure,Population_age_25_29yo,success,108,,,,,9605.47,6758.5,3628,12109.5,172,46654,0.482,0.429,lower in successes,weak / none,,
+success_vs_failure,Population_age_25_29yo,failure,62,,,,,12187,8785,2186.75,19550,55,54520,,,,,,
+activated_vs_never,Population_age_25_29yo,activated_all,170,,,,,10547,7097.5,3192.25,14108.2,55,54520,,,,,,
+activated_vs_never,Population_age_25_29yo,never_activated,310,,,,,7788.63,4838.5,2392.5,9871,70,71934,,,,,2,
+success_vs_failure,Population_age_30_34yo,success,108,,,,,11205,7995.5,4343.5,14589.5,196,49289,0.483,0.434,lower in successes,weak / none,,
+success_vs_failure,Population_age_30_34yo,failure,62,,,,,14633.5,10133,2568.5,22063,73,67925,,,,,,
+activated_vs_never,Population_age_30_34yo,activated_all,170,,,,,12455.4,8596,3919,17024.5,73,67925,,,,,,
+activated_vs_never,Population_age_30_34yo,never_activated,310,,,,,9044.95,5474,2585,11062.5,63,73951,,,,,3,
+success_vs_failure,Population_age_35_39yo,success,108,,,,,13815.1,10061,5925.5,18806,266,54749,0.485,0.443,lower in successes,weak / none,,
+success_vs_failure,Population_age_35_39yo,failure,62,,,,,18171.5,12602.5,3160,27429.2,105,85612,,,,,,
+activated_vs_never,Population_age_35_39yo,activated_all,170,,,,,15403.9,10464,4691.25,20958,105,85612,,,,,,
+activated_vs_never,Population_age_35_39yo,never_activated,310,,,,,10832,6322.5,2886.75,13491.8,71,81902,,,,,2,
+success_vs_failure,Population_age_40_44yo,success,108,,,,,14586.8,10639.5,6438.75,18656,272,58108,0.481,0.445,lower in successes,weak / none,,
+success_vs_failure,Population_age_40_44yo,failure,62,,,,,19199.2,13694.5,3423.25,29616.5,111,87286,,,,,,
+activated_vs_never,Population_age_40_44yo,activated_all,170,,,,,16269,10984,5247.5,22212.5,111,87286,,,,,,
+activated_vs_never,Population_age_40_44yo,never_activated,310,,,,,11269.8,6603,3089.5,14472.5,80,81161,,,,,2,
+success_vs_failure,Population_age_45_49yo,success,108,,,,,14627.1,10513.5,6453.75,18467.8,250,58499,0.481,0.447,lower in successes,weak / none,,
+success_vs_failure,Population_age_45_49yo,failure,62,,,,,19193.6,13533.5,3454,30170.2,123,85540,,,,,,
+activated_vs_never,Population_age_45_49yo,activated_all,170,,,,,16292.6,10941.5,5194.75,21878.2,123,85540,,,,,,
+activated_vs_never,Population_age_45_49yo,never_activated,310,,,,,11208.4,6617,3181.75,14323.8,108,80474,,,,,2,
+success_vs_failure,Population_age_50_54yo,success,108,,,,,12732.2,8993,5711.75,16439,180,51888,0.486,0.452,lower in successes,weak / none,,
+success_vs_failure,Population_age_50_54yo,failure,62,,,,,16162.1,11556,3035.25,24851.8,94,71026,,,,,,
+activated_vs_never,Population_age_50_54yo,activated_all,170,,,,,13983.1,9627.5,4550,18961.5,94,71026,,,,,,
+activated_vs_never,Population_age_50_54yo,never_activated,310,,,,,9763,5866.5,2821,12409,82,68889,,,,,1,
+success_vs_failure,Population_age_55_59yo,success,108,,,,,11554.4,8599,5153,15084.2,151,48065,0.494,0.457,lower in successes,weak / none,,
+success_vs_failure,Population_age_55_59yo,failure,62,,,,,14292,10021.5,2626.5,22293.2,91,64199,,,,,,
+activated_vs_never,Population_age_55_59yo,activated_all,170,,,,,12552.8,8995.5,3985.5,17474.5,91,64199,,,,,,
+activated_vs_never,Population_age_55_59yo,never_activated,310,,,,,8701.94,5420.5,2525.75,10659.5,100,60564,,,,,0,
+success_vs_failure,Population_age_60_64yo,success,108,,,,,11389.8,8562.5,5355,14093.2,163,46686,0.492,0.461,lower in successes,weak / none,,
+success_vs_failure,Population_age_60_64yo,failure,62,,,,,14361.1,10490,2621.25,21864,98,64462,,,,,,
+activated_vs_never,Population_age_60_64yo,activated_all,170,,,,,12473.4,8923,3891.25,16800.2,98,64462,,,,,,
+activated_vs_never,Population_age_60_64yo,never_activated,310,,,,,8697.53,5540.5,2457.25,10670,87,56944,,,,,2,
+success_vs_failure,Population_age_65_69yo,success,108,,,,,9692.11,7385.5,4336.5,12446.5,153,36425,0.495,0.473,lower in successes,weak / none,,
+success_vs_failure,Population_age_65_69yo,failure,62,,,,,12092.9,9735,2102.75,17556,87,52790,,,,,,
+activated_vs_never,Population_age_65_69yo,activated_all,170,,,,,10567.7,7783,3280.75,14134,87,52790,,,,,,
+activated_vs_never,Population_age_65_69yo,never_activated,310,,,,,7299.74,4389,1810.75,9338.5,68,46551,,,,,1,
+success_vs_failure,Population_age_70_74yo,success,108,,,,,9448.03,7305,4388.25,12035.2,163,34783,0.495,0.482,lower in successes,weak / none,,
+success_vs_failure,Population_age_70_74yo,failure,62,,,,,12047.9,9010,2108.5,17121.2,95,54089,,,,,,
+activated_vs_never,Population_age_70_74yo,activated_all,170,,,,,10396.2,7774,3445,13255,95,54089,,,,,,
+activated_vs_never,Population_age_70_74yo,never_activated,310,,,,,7215.62,4384,1811,9063.25,83,47586,,,,,1,
+success_vs_failure,Population_age_>74yo,success,108,,,,,18292.6,15010,7993.75,22750.2,265,70469,0.498,0.497,lower in successes,weak / none,,
+success_vs_failure,Population_age_>74yo,failure,62,,,,,21884.1,17442,4046.25,32869.5,178,96862,,,,,,
+activated_vs_never,Population_age_>74yo,activated_all,170,,,,,19602.4,15561.5,6646.25,26230.5,178,96862,,,,,,
+activated_vs_never,Population_age_>74yo,never_activated,310,,,,,14495.9,9171,3832,17411.5,218,95388,,,,,0,
+success_vs_failure,Graduated population,success,108,,,,,22043.4,14974,7624.25,28391,78,98811,0.517,0.491,higher in successes,weak / none,,
+success_vs_failure,Graduated population,failure,62,,,,,23925.7,18541.5,3239.5,38686.2,131,94900,,,,,,
+activated_vs_never,Graduated population,activated_all,170,,,,,22729.9,15578,5955.25,30079.5,78,98811,,,,,,
+activated_vs_never,Graduated population,never_activated,310,,,,,17260.6,9990.5,3431,19833,68,142251,,,,,8,
+success_vs_failure,Unoccupied population,success,108,,,,,6634.56,3820,2393.5,8102.5,218,33954,0.558,0.475,higher in successes,weak / none,,
+success_vs_failure,Unoccupied population,failure,62,,,,,5866.47,3534.5,1117.25,8980.75,19,27064,,,,,,
+activated_vs_never,Unoccupied population,activated_all,170,,,,,6354.43,3820,1746.25,8980.75,19,33954,,,,,,
+activated_vs_never,Unoccupied population,never_activated,310,,,,,4692.31,2793,1274,5389,41,46034,,,,,2,
+success_vs_failure,Total Students,success,108,,,,,11452,8226.5,4298.75,13746.5,208,53511,0.497,0.449,lower in successes,weak / none,,
+success_vs_failure,Total Students,failure,62,,,,,13317.2,10285.5,2304,21582.5,75,56594,,,,,,
+activated_vs_never,Total Students,activated_all,170,,,,,12132.3,8424,3695,16428,75,56594,,,,,,
+activated_vs_never,Total Students,never_activated,310,,,,,9000.77,5992.5,2613.5,11701,74,75014,,,,,3,
+success_vs_failure,Total Households,success,108,,,,,75038,55359,33755,94630.8,1128,288359,0.485,0.46,lower in successes,weak / none,,
+success_vs_failure,Total Households,failure,62,,,,,96897.9,73026.5,18436.8,144465,720,422621,,,,,,
+activated_vs_never,Total Households,activated_all,170,,,,,83010.4,59976.5,25795,106606,720,422621,,,,,,
+activated_vs_never,Total Households,never_activated,310,,,,,58036.6,34136.5,15443.5,72536.2,693,385346,,,,,2,
+success_vs_failure,Households avg components,success,108,,,,,2.34833,2.34892,2.19597,2.52333,1.94613,3.11259,0.533,0.333,higher in successes,weak / none,,
+success_vs_failure,Households avg components,failure,62,,,,,2.33017,2.36144,2.20141,2.42064,2.00417,2.88148,,,,,,
+activated_vs_never,Households avg components,activated_all,170,,,,,2.3417,2.35271,2.20002,2.47312,1.94613,3.11259,,,,,,
+activated_vs_never,Households avg components,never_activated,310,,,,,2.42493,2.44761,2.266,2.56083,1.91944,3.08448,,,,,2,
+success_vs_failure,Avg Income per Household,success,108,,,,,18454.1,18268.7,16627.6,20786,9371.65,26499.3,0.379,0.54,lower in successes,moderate,,
+success_vs_failure,Avg Income per Household,failure,62,,,,,19806.2,19730.5,18391.7,20635.5,12134.2,26774.5,,,,,,
+activated_vs_never,Avg Income per Household,activated_all,170,,,,,18947.2,19089.6,17358.9,20747.8,9371.65,26774.5,,,,,,
+activated_vs_never,Avg Income per Household,never_activated,310,,,,,17251.2,17734.2,13907.1,19655.1,9144.74,27472,,,,,5,
+geography_region_band,region_band,Centre (41.5 <= lat < 44.5),166,44,5,117,0.898,,,,,,,,,,,,
+geography_region_band,region_band,North (lat >= 44.5),166,30,53,83,0.361,,,,,,,,,,,,
+geography_region_band,region_band,South/islands (lat < 41.5),148,34,4,110,0.895,,,,,,,,,,,,
+geography_fallback_band,fallback_band,North (lat >= 43.0),262,62,57,143,0.521,,,,,,,,,,,,
+geography_fallback_band,fallback_band,South (lat < 43.0),218,46,5,167,0.902,,,,,,,,,,,,
+trait_tercile,Distance from a Dentist,"(-inf, 6.64]",57,51,6,24,0.895,,,,,,,,,,,,unit not stated in source
+trait_tercile,Distance from a Dentist,"(6.64, 107.006]",56,49,7,262,0.875,,,,,,,,,,,,unit not stated in source
+trait_tercile,Distance from a Dentist,"(107.006, inf]",57,8,49,24,0.14,,,,,,,,,,,,unit not stated in source
+trait_tercile,Water hardness IDX,"(-inf, 39.0]",60,54,6,164,0.9,,,,,,,,,,,,"index, base not stated in source; higher/lower only"
+trait_tercile,Water hardness IDX,"(39.0, 84.0]",58,41,17,106,0.707,,,,,,,,,,,,"index, base not stated in source; higher/lower only"
+trait_tercile,Water hardness IDX,"(84.0, inf]",52,13,39,40,0.25,,,,,,,,,,,,"index, base not stated in source; higher/lower only"
+trait_tercile,Online Consumption IYA,"(-inf, 248.0]",61,26,35,54,0.426,,,,,,,,,,,,"timing unknown (may be measured after the 2026 campaign); not a driver; kept out of the model, slides and Extra 2"
+trait_tercile,Online Consumption IYA,"(248.0, 280.0]",55,38,17,150,0.691,,,,,,,,,,,,"timing unknown (may be measured after the 2026 campaign); not a driver; kept out of the model, slides and Extra 2"
+trait_tercile,Online Consumption IYA,"(280.0, inf]",54,44,10,106,0.815,,,,,,,,,,,,"timing unknown (may be measured after the 2026 campaign); not a driver; kept out of the model, slides and Extra 2"
+trait_tercile,Nr of Schools,"(-inf, 2.0]",72,33,39,236,0.458,,,,,,,,,,,,
+trait_tercile,Nr of Schools,"(2.0, 5.0]",45,27,18,46,0.6,,,,,,,,,,,,
+trait_tercile,Nr of Schools,"(5.0, inf]",53,48,5,28,0.906,,,,,,,,,,,,
+model_predictor_by_band,Total Population,Centre (41.5 <= lat < 44.5) | activated,49,,,,,176794,139226,87699,218345,10780,672802,,,,,,
+model_predictor_by_band,Total Population,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,145895,86741,54305,191130,1391,872492,,,,,12,
+model_predictor_by_band,Total Population,North (lat >= 44.5) | activated,83,,,,,207576,135197,58959,291744,1453,1.0232e+06,,,,,,
+model_predictor_by_band,Total Population,North (lat >= 44.5) | never_activated,83,,,,,146508,103488,61817.5,178423,6425,907501,,,,,0,
+model_predictor_by_band,Total Population,South/islands (lat < 41.5) | activated,38,,,,,201542,135544,42289.8,265190,3074,745268,,,,,,
+model_predictor_by_band,Total Population,South/islands (lat < 41.5) | never_activated,110,,,,,127092,60226.5,19950.2,156364,1479,1.05765e+06,,,,,4,
+model_predictor_by_band,Avg Income per Household,Centre (41.5 <= lat < 44.5) | activated,49,,,,,19716.1,19625.6,17368,21913.5,14561.2,25964.2,,,,,,
+model_predictor_by_band,Avg Income per Household,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,18118.6,18281.3,15972.8,19766.1,10192.1,26114.8,,,,,16,
+model_predictor_by_band,Avg Income per Household,North (lat >= 44.5) | activated,83,,,,,20335.3,19937,18406.1,21080.7,16722.6,26774.5,,,,,,
+model_predictor_by_band,Avg Income per Household,North (lat >= 44.5) | never_activated,83,,,,,20828.9,19989.9,18627,22295.7,16171.3,27472,,,,,5,
+model_predictor_by_band,Avg Income per Household,South/islands (lat < 41.5) | activated,38,,,,,14923.8,15554.8,12083.3,17353.1,9371.65,19663.8,,,,,,
+model_predictor_by_band,Avg Income per Household,South/islands (lat < 41.5) | never_activated,110,,,,,13629.1,13111.5,11555.8,15162.7,9144.74,19426.6,,,,,2,
+model_predictor_by_band,Households avg components,Centre (41.5 <= lat < 44.5) | activated,49,,,,,2.29092,2.32203,2.05371,2.48861,1.94613,2.58762,,,,,,
+model_predictor_by_band,Households avg components,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,2.41844,2.44899,2.37034,2.53426,1.93814,2.7157,,,,,6,
+model_predictor_by_band,Households avg components,North (lat >= 44.5) | activated,83,,,,,2.28804,2.28709,2.17091,2.39134,1.99909,2.88148,,,,,,
+model_predictor_by_band,Households avg components,North (lat >= 44.5) | never_activated,83,,,,,2.22423,2.19139,2.14257,2.27276,1.91944,2.65889,,,,,6,
+model_predictor_by_band,Households avg components,South/islands (lat < 41.5) | activated,38,,,,,2.52439,2.50918,2.42479,2.58703,2.35448,3.11259,,,,,,
+model_predictor_by_band,Households avg components,South/islands (lat < 41.5) | never_activated,110,,,,,2.58327,2.56236,2.47063,2.66401,2.11255,3.08448,,,,,5,
+model_predictor_by_band,Nr of Hygienists,Centre (41.5 <= lat < 44.5) | activated,49,,,,,1.89796,2,0,3,0,7,,,,,,
+model_predictor_by_band,Nr of Hygienists,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,2.60684,1,0,4,0,19,,,,,10,
+model_predictor_by_band,Nr of Hygienists,North (lat >= 44.5) | activated,83,,,,,1.19277,1,0,2,0,4,,,,,,
+model_predictor_by_band,Nr of Hygienists,North (lat >= 44.5) | never_activated,83,,,,,2,0,0,1.5,0,18,,,,,10,
+model_predictor_by_band,Nr of Hygienists,South/islands (lat < 41.5) | activated,38,,,,,3.31579,3,0,5,0,24,,,,,,
+model_predictor_by_band,Nr of Hygienists,South/islands (lat < 41.5) | never_activated,110,,,,,1.67273,0,0,2,0,17,,,,,0,
+model_predictor_by_band,Distance from a Dentist,Centre (41.5 <= lat < 44.5) | activated,49,,,,,11.4628,3.50119,0.731081,10.5294,0.116663,99.9341,,,,,,unit not stated in source
+model_predictor_by_band,Distance from a Dentist,Centre (41.5 <= lat < 44.5) | never_activated,117,,,,,62.0079,65.8101,48.1785,83.1133,0.615582,98.2709,,,,,0,unit not stated in source
+model_predictor_by_band,Distance from a Dentist,North (lat >= 44.5) | activated,83,,,,,113.072,140.128,27.499,163.665,0.278047,229.076,,,,,,unit not stated in source
+model_predictor_by_band,Distance from a Dentist,North (lat >= 44.5) | never_activated,83,,,,,80.5756,70.3069,36.2676,137.311,11.027,187.3,,,,,0,unit not stated in source
+model_predictor_by_band,Distance from a Dentist,South/islands (lat < 41.5) | activated,38,,,,,7.67293,5.73241,2.11611,13.1371,0.104647,28.5088,,,,,,unit not stated in source
+model_predictor_by_band,Distance from a Dentist,South/islands (lat < 41.5) | never_activated,110,,,,,24.5333,22.4058,10.864,36.1079,0.525601,70.0349,,,,,35,unit not stated in source

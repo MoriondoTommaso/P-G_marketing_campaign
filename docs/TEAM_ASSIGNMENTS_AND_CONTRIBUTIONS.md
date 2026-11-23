@@ -132,6 +132,7 @@ The professor requires one additional presentation appendix slide describing wha
 | 2026-11-22 | T04 / #4 | Recalculated the finance workbook in Microsoft Excel and ran the 108 → 107 test on a copy | `outputs/finance-qa.xlsx` | All 11 checks PASS; 107 gives €12,500 net (−€2,500) with spend unchanged; 108 restored |
 | 2026-11-22 | T05 / #5, T06 / #6 (review) | Re-checked Ele's updated outputs (commits 06207dc–43563ac): new `target` column, folder variables on all 5 file nodes, runbook workflow hash | `outputs/store-universe.csv`, `workflows/oral-b-italy.knwf`, `docs/runbook.md` | Only `target` added and it agrees with `success` on all 480 rows; other values unchanged; hash matches the runbook |
 | 2026-11-22 | T07 / #7 | Rebuilt the store profiles from Ele's updated `store-universe.csv` and test-merged both Team 2 branches | `outputs/store-profiles.csv` | Byte-identical to the delivered file; branches merge without conflicts |
+| 2026-11-23 | T07 / #7, T04 / #4 | Applied Ele's review: marked Online Consumption IYA as timing unknown and not a driver, added the dentist-distance unit note, published the T07 calculation script, and stored the calculated values in the finance workbook so they show without Excel | `docs/store-insights.md`, `scripts/t07_store_profiles.py`, `outputs/store-profiles.csv`, `outputs/finance-qa.xlsx` | Script reproduces every delivered number; new `note` column only; workbook shows €15,000 net and 11 × PASS when read without recalculation |
 
 ### Tommy
 
