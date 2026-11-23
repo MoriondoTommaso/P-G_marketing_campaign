@@ -72,7 +72,9 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** In KNIME execute each model path; inspect learner inputs and one fold's disjoint train/test ID sets. `wc -l outputs/held-out.csv` must show 171; check 170 distinct IDs with three nonmissing probabilities in [0,1].
 
 ## T10 — Select a model on decision value and geographic robustness
-- [ ] TODO · Team 3 · M · Depends: T07, T09
+- [x] DONE · Team 3 · M · Depends: T07 ([peer check](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/7#issuecomment-7096929089)), T09 (`51c0645`) · Implementation: `357a2f2`
+- **Red gate:** `python3 validation/T10/check.py` failed on the missing decision export before implementation.
+- **Verified:** KNIME Desktop at 12:14 CET: 7 fits per learner, 510 ordinary decisions, 510 separate band audit rows, 27 independently reconciled summary rows; six upstream exports byte-identical. Pooled all/none €15,000/€0. [Choose the shallow tree for a pilot](../docs/model-choice.md): €88,000 ordinary net, but just €16,500 on band holdouts.
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/held-out-decisions.csv`, `outputs/model-comparison.csv`, `docs/model-choice.md`
 - **Accept:** For baseline and both models report Brier score, calibration near 60% with sample counts, selected counts, and observed net versus activate-all/none overall and by fold. For the candidates, compare performance with nearby stores held out together, or document group sizes that preclude a meaningful comparison.
 - **Accept:** Name one model and justify complexity, selection bias and limits of performance estimates; do not portray model selection as independent validation. State when weak evidence warrants a pilot.
