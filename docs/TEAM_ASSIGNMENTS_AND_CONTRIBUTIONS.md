@@ -118,7 +118,7 @@ The professor requires one additional presentation appendix slide describing wha
 
 | Date | Task / Issue | Specific Work Performed | Evidence (File / Commit / PR) | Result |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| 2026-11-21 – 2026-11-22 | T05 / #5, T06 / #6 | Built the KNIME join of the 2026 activations to the 480-store file: code match first, then unique exact lat/lon pair for the 18 blank-code rows, with `match_method` recorded. Added the success/failure `target` column (310 unlabeled left blank), a coordinate-conflict Rule-based Row Filter and `input_dir`/`output_dir` folder variables driving both Excel Readers and all 3 CSV Writers. Added a link-check GroupBy (each of the 170 activations linked to exactly one store), a Statistics node auditing the 480-store file, and an annotation on the coordinate Joiner explaining why the 18 recovered stores matter. Exported the join audit, store universe and 2026 baseline. | `workflows/oral-b-italy.knwf`, `outputs/join-audit.csv`, `outputs/store-universe.csv`, `outputs/baseline-2026.csv`; commits b774b19, 06207dc, 2087788 | 170 labeled (152 code + 18 coordinate; 108 success / 62 failure), 310 unlabeled, 0 coordinate conflicts, every link count exactly 1; data audit found 0 missing values, no negatives and all coordinates inside Italy; baseline €270,000 sales / €255,000 spend / €15,000 net (ROI 5.9%). Independent Python QA passed 27/27 checks; 3 float columns are compared at 1e-12 relative tolerance because the KNIME CSV Writer drops the last digit (team decision, 2026-11-22). |
 
 ### Denis
 

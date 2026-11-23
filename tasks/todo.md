@@ -31,14 +31,16 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** `open outputs/finance-qa.xlsx`; a second reviewer changes success count from 108 to 107 with spend unchanged and observes net fall by €2,500; restore the example. Inspect boundary decisions and slide allocation.
 
 ## T05 — Recover the 2026 outcomes and audit the national join
-- [ ] TODO · Team 2 · M · Depends: T01
+- [ ] Delivered; in review (branch `ele/t05-join`, reviewer Tommaso) · Team 2 · M · Depends: T01
+- **Before closing:** Tommaso approves the PR and records pass/fail on #5.
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/join-audit.csv`, `outputs/store-universe.csv`
 - **Accept:** Import both `default` sheets; keep national attributes. Match 152 by nonblank code (106/46 successes/failures, including 38 incomplete coordinate pairs); recover exactly 18 blank codes by unique exact coordinate pairs (2/16). Flag ambiguous/conflicting links for review; do not guess.
 - **Accept:** Audit IDs, outcomes, duplicate keys, missing values, units and plausible ranges; resolve or document exceptions. Output 480 distinct national IDs, with 108 successes, 62 failures and 310 unknown outcomes. Keep join method for audit only.
 - **Verify:** KNIME **Reset → Execute all**; inspect grouped counts by match method and outcome and require zero ambiguous/unresolved links on the supplied inputs. `wc -l outputs/join-audit.csv outputs/store-universe.csv` must show 171 and 481 lines respectively.
 
 ## T06 — Publish the historical benchmark and hand off KNIME
-- [ ] TODO · Team 2 · S · Depends: T05
+- [ ] Delivered; in review (branch `ele/t05-join`, reviewer Tommaso) · Team 2 · S · Depends: T05
+- **Before closing:** Team 3 imports the `.knwf` snapshot, reruns it in a fresh workspace and records the handoff on #6.
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/baseline-2026.csv`, `docs/runbook.md`
 - **Accept:** From all linked outcomes compute counts, incremental sales, spend and net at €2,500/€1,500; publish the two euro inputs in one labeled workflow configuration. Annotate why the 18 recovered stores matter.
 - **Verify:** The receiving Team 3 imports the `.knwf` snapshot, sets `data/`, resets and selects **Execute all**. `cat outputs/baseline-2026.csv` must show 170 activated, 108 successful, €270,000 sales, €255,000 spend, €15,000 net. Team 2 records the handoff; Team 3 now owns the editable workflow.
