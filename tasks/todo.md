@@ -55,7 +55,7 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 
 ## T08 — Produce leakage-free baseline probabilities
 - [ ] BLOCKED · Team 3 · S · Depends: T02, T06
-- **To unblock:** Record Team 3's protocol receipt on #2 and fresh-workspace KNIME rerun on #6 for the snapshot at `717adc3`. Confirm 170 linked, 310 unlabeled and €15,000 historical net. Both issues are closed, but neither contains the receiving team's handoff record.
+- **Handoff:** Team 3 [confirmed protocol receipt on #2](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/2#issuecomment-7096835693). The [fresh-workspace rerun attempt on #6](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/6#issuecomment-7096857926) used snapshot `717adc3`; KNIME 5.12.0 reported that Batch Executor is not installed. To unblock, reset and execute the snapshot in KNIME Desktop and verify 170 linked, 310 unlabeled and €15,000 historical net from fresh outputs.
 - **Handoff:** Team 3 can configure the folds from the [evaluation protocol](../docs/evaluation.md) now. Run them on the verified T06 snapshot once both gates pass; compare the sorted fold mapping with the protocol reference, including after reordering the input rows.
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/folds.csv`, `outputs/baseline-oof.csv`
 - **Accept:** Assign each of 170 linked IDs to one of five fixed stratified test folds. For each store export its fold and the success rate of the other four folds. Do not include unlabeled stores in training.
