@@ -54,7 +54,8 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** `open outputs/store-profiles.csv`; trace one featured trait back to `outputs/store-universe.csv` and reproduce both group denominators and the direction. Review the geography comparison for evidence of extrapolation.
 
 ## T08 — Produce leakage-free baseline probabilities
-- [ ] TODO · Team 3 · S · Depends: T02, T06
+- [ ] BLOCKED · Team 3 · S · Depends: T02, T06
+- **To unblock:** Record Team 3's protocol receipt on #2 and fresh-workspace KNIME rerun on #6 for the snapshot at `717adc3`. Confirm 170 linked, 310 unlabeled and €15,000 historical net. Both issues are closed, but neither contains the receiving team's handoff record.
 - **Handoff:** Team 3 can configure the folds from the [evaluation protocol](../docs/evaluation.md) now. Run them on the verified T06 snapshot once both gates pass; compare the sorted fold mapping with the protocol reference, including after reordering the input rows.
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/folds.csv`, `outputs/baseline-oof.csv`
 - **Accept:** Assign each of 170 linked IDs to one of five fixed stratified test folds. For each store export its fold and the success rate of the other four folds. Do not include unlabeled stores in training.
