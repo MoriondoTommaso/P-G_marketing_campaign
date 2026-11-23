@@ -1,0 +1,6 @@
+absolute_haircut_pp,committed_stores,expected_successes,spend_eur,conditional_case_net_eur,still_above_break_even
+0,278,267.04,417000,250602.05,278
+10,278,239.24,417000,181102.05,267
+20,278,211.44,417000,111602.05,267
+30,278,183.64,417000,42102.05,261
+40,278,155.84,417000,-27397.95,0

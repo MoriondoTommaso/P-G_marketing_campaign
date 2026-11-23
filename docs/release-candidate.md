@@ -1,6 +1,6 @@
 # T12-RC1 — Team 4 finance handoff
 
-**Ready for Team 4 independent QA; merge is on hold.** RC1 artifacts are pinned
+**Historical RC1 handoff.** Issue #31 requires a corrected candidate and a fresh independent rerun before delivery. The 278-store list is a [planning scenario, not a national rollout recommendation](model-review/pilot.md). RC1 artifacts are pinned
 to commit `8b5fd515e25399e79d59a1c1d643d1afa7c676fb`, based on T11 at
 `96925fd`. RC1 is the first T12 candidate. A later change to the workflow,
 inputs or financial export requires a new candidate identifier, hashes and

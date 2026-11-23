@@ -141,3 +141,9 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Output:** live delivery confirmation and Q&A rehearsal record on the T19 issue
 - **Accept:** Confirm the course slot for the following week, rehearse Q&A on the join, model, profit assumptions and shopper actions, and deliver the management presentation within 10 minutes. Record the slot, actual duration and completion; do not close this task at upload.
 - **Verify:** `shasum -a 256 presentation/campaign.pdf` matches the submitted PDF. A teammate records who attended the Q&A rehearsal and confirms the live delivery time after the session.
+
+## #31 — Respond to independent model review
+- [x] Record the selection and transfer limitations, extreme leaf counts, uncertainty, broad probability stress and bounded pilot comparator in the [decision brief](../docs/model-review/pilot.md); revise slides 1, 5 and 8 of the storyboard.
+- [x] Label missing predictor reference dates, dentist-distance units and historical selection criteria unknown. Team 2 owns follow-up with the data provider.
+- [ ] Producer: prove the corrected native 6/10 decision, fail-closed exports and reconciliation on the reviewed workbooks. Evidence belongs in `validation/issue31/`.
+- [ ] Team 4: independently rerun the pinned corrected archive in a fresh workspace, record hashes and sign-off on T13/T15 and integrate the qualified decision into T16.

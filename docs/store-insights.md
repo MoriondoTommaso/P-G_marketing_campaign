@@ -1,5 +1,7 @@
 # Store insights: what separates successful stores, and where coverage is thin
 
+See the [five-field provenance register and unresolved historical selection questions](model-review/pilot.md#what-team-2-can-verify) before using any trait prospectively.
+
 T07 / [#7](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/7) · Team 2 · Deniz
 
 **Input:** the final `outputs/store-universe.csv` from T05 (480 stores: 108 success, 62 failure, 310 never activated). The KNIME workflow was not touched.
