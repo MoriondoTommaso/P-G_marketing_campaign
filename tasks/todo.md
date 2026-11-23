@@ -83,7 +83,9 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** KNIME **Reset → Execute all**; `wc -l outputs/held-out-decisions.csv` must show 511. Group the independent recomputation by fold/model; match counts and euro totals against `outputs/model-comparison.csv`. For pooled activate-all/none require €15,000/€0.
 
 ## T11 — Export the funding list and test threshold sensitivity
-- [ ] TODO · Team 3 · M · Depends: T10
+- [x] DONE · Team 3 · M · Depends: T10 (`e1ad414`) · Implementation: `38f5ce2`
+- **Red gate:** `python3 validation/T11/check.py` failed on the missing `national-scores.csv` before workflow changes.
+- **Verified:** Desktop at 19:41 CET: 480 unique IDs (170 held out, 310 refit); 278 base selections, €417,000 spend, €250,602.05 forecast net. All 1,440 scenario rows reconciled; 274 always funded, four lower-case drops, no upper additions. The base and shifted 60% ties are unfunded. Nine upstream exports byte-identical. [Forecast by source and scenario, exact IDs, fixture and reproduction](../validation/T11/README.md).
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/national-scores.csv`, `outputs/activation-list.csv`, `outputs/sensitivity.csv`
 - **Accept:** Refit the chosen model on all 170 labeled stores to score the 310 unseen; use the chosen model's held-out probabilities for the 170 historical stores. Export 480 unique `store_id` values traceable to `Pdv Code`, each with `p_success`, `score_source`, `expected_net_eur`, and `recommend_activate`. Export only positive unrounded net decisions to the list; zero selections is valid.
 - **Accept:** Use the T02 near-threshold band and shift affected probabilities ±5 percentage points (bound to [0,1]); report changes in IDs, count and net, distinguishing robust from marginal decisions. Label this a scenario, not an interval.
