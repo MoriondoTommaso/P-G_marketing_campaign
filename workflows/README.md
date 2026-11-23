@@ -38,6 +38,8 @@ in **06** as a Math Formula, with costs supplied by the shared settings node.
 3. From the repo root:
    ```sh
    python3 scripts/t08_validation.py check-rerun --run grouped
+   python3 validation/T09/check.py validation/T08/local/grouped/results/A/held-out.csv
+   python3 validation/T09/check.py validation/T08/local/grouped/results/B/held-out.csv
    python3 validation/T10/check.py validation/T08/local/grouped/results/A
    python3 validation/T10/check.py validation/T08/local/grouped/results/B
    python3 validation/T10/check_boundary.py validation/T10/local/boundary/boundary.csv
