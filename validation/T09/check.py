@@ -36,7 +36,8 @@ class HeldOutExport(unittest.TestCase):
 
     def test_training_medians_can_load_without_defaults(self):
         with ZipFile(ROOT / "workflows/oral-b-italy.knwf") as archive:
-            settings = ET.fromstring(archive.read("oral-b-italy/GroupBy (#71)/settings.xml"))
+            member, = (n for n in archive.namelist() if n.endswith("/GroupBy (#71)/settings.xml"))
+            settings = ET.fromstring(archive.read(member))
         model = settings.find("./{*}config[@key='model']")
         for field in ("population", "income", "household_size", "hygienists", "dentist_distance"):
             method = model.find(f"./{{*}}config[@key='aggregationOperatorSettings']/"

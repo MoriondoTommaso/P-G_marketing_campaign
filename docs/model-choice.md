@@ -26,10 +26,15 @@ success rate both equal 63.53%. This agreement does not distinguish stores.
 ## Geographic transfer and deployment
 
 The predefined three-band split fails its support gate: south has 34 successes
-but only 4 failures (minimum 5). Centre has 44/5 and north 30/53. The 43°N
-fallback qualifies: south has 46/5, north 62/57, and each training complement
-clears its minimums. The separate band holdout refits both learners and their
-preprocessing on the opposite band. Each cell below gives **funded count / realized net**.
+but only 4 failures (minimum 5). Centre has 44/5 and north 30/53; holding out
+the north leaves only 9 failures for training (minimum 10). The 43°N
+fallback also fails. The southern test band has 46 successes and 5 failures,
+and the northern test band has 62/57. When testing in the north, the southern
+**training** complement has only 5 failures (minimum 10).
+
+**Qualifying geographic validation: unavailable.** The following opposite-band
+refits are retained for exploration only (`validation=spatial_exploratory`).
+Each cell gives **funded count / realized net**.
 
 | Held-out latitude band | Activate all | Training-rate baseline | Logistic | Shallow tree |
 |---|---:|---:|---:|---:|
@@ -55,8 +60,9 @@ of 110 never-activated sites lie outside the activated range for dentist distanc
 the median shifts from 5.7 to 22.4 source units. In the central band it shifts
 from 3.5 to 65.8. The five source fields have no confirmed measurement dates.
 
-**Choose the shallow tree for pilot planning, not national rollout.** Its geographic
-advantage rests on one decision. Use a **bounded pilot**, with outcomes collected near 60% and
+**Choose the shallow tree for pilot planning, not national rollout.** The choice
+rests on ordinary folds; the exploratory €1,500 difference does not establish
+geographic robustness. Use a **bounded pilot**, with outcomes collected near 60% and
 in underrepresented profiles before expanding. The campaign locations were not
 randomly selected. These folds both compare and select the model, their training
 sets overlap, and a latitude boundary does not fully separate nearby stores.
@@ -66,6 +72,6 @@ Neither validation design measures performance at the 310 never-activated sites.
 rows and the [separate spatial audit](../validation/T10/spatial-decisions.csv)
 against all 27 comparison rows. To reproduce in KNIME, import the workflow,
 point #34 to `data/` and #35 to a writable output folder, then reset and execute
-all. For a fresh spatial audit, export the table at **“Band decisions (6=south,
-7=north); separate audit port”** as `spatial-decisions.csv` in that folder and
-pass the folder path to the checker.
+all. Block **06 Decide funding** writes `spatial-decisions.csv` beside the ordinary
+decisions. Pass that fresh output folder to the checker; it also requires the
+score and universe files from that same run.

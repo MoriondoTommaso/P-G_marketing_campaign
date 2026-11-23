@@ -23,3 +23,7 @@ To execute fresh runs with KNIME Desktop 5.12:
 The `local/` directory is checkout-specific. The saved evidence, release
 artifacts, and validation script are versioned. Neither check uses Downloads,
 a temporary directory, or another workspace.
+
+Use `--run grouped` on both `prepare` and `check-rerun` to preserve earlier
+workspaces and results. This creates `local/grouped/workspace` and
+`local/grouped/results/{A,B}`.
