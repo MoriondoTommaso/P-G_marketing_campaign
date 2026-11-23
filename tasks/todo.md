@@ -47,7 +47,7 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** The receiving Team 3 imports the `.knwf` snapshot, sets `data/`, resets and selects **Execute all**. `cat outputs/baseline-2026.csv` must show 170 activated, 108 successful, €270,000 sales, €255,000 spend, €15,000 net. Team 2 records the handoff; Team 3 now owns the editable workflow.
 
 ## T07 — Identify store traits and gaps in national coverage
-- [ ] Profiles and insights delivered; peer trace pending · Team 2 · S · Depends: T05
+- [ ] Profiles and insights delivered and merged (PR #21); Ele's review applied; peer trace on #7 pending · Team 2 · S · Depends: T05
 - **Outputs:** `outputs/store-profiles.csv`, `docs/store-insights.md`
 - **Before closing:** Ele traces one trait back to `outputs/store-universe.csv` and records the result on #7. Needs the T05 branch merged so `store-universe.csv` is in the repository.
 - **Accept:** Compare successes with failures on interpretable national traits; report direction, denominators, sample sizes and a plausible explanation labeled as a hypothesis. Compare the 170 labeled and 310 unlabeled stores on geography and major features, flagging low-support profiles or documenting observed overlap. Work on an export, not the shared workflow.

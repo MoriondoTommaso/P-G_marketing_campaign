@@ -4,11 +4,14 @@ T07 / [#7](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/7) �
 
 **Input:** the final `outputs/store-universe.csv` from T05 (480 stores: 108 success, 62 failure, 310 never activated). The KNIME workflow was not touched.
 **Output:** [`outputs/store-profiles.csv`](../outputs/store-profiles.csv), one row per trait × group, plus geography rows, tercile rows and Team 3's five model predictors by region.
+**How it was calculated:** [`scripts/t07_store_profiles.py`](../scripts/t07_store_profiles.py). See [How the numbers were calculated](#how-the-numbers-were-calculated) at the end.
 
 **Rules followed:**
 - The 310 never-activated stores are **unknown**, never failure.
 - Nothing from the activation file (coordinates, match method, codes) is used as a trait. Latitude and longitude below come from the national store file.
 - No value was normalised, filled or removed.
+- **Online Consumption IYA is not used as a driver.** We do not know whether it was measured before or after the 2026 campaign, so it could partly reflect the campaign itself. Team 2 agreed to keep it out of the model, the slides and Extra 2 (timing decision in [`docs/runbook.md`](runbook.md#online-consumption-iya-timing-decision)). Its numbers stay in `store-profiles.csv` for completeness only.
+- **Units:** the unit of `Distance from a Dentist` is **not stated in the source** (it could be metres, kilometres or minutes), so all distances below are in source units. `Water hardness IDX` is an index whose base is not stated, so we only say higher or lower.
 - Everything here is **descriptive history from 2026** about store catchment areas. It says nothing about individual shoppers, causes or market share. Any reason given for a pattern is a **hypothesis**, not a finding.
 
 ## How to read the numbers
@@ -26,9 +29,8 @@ The south is almost all successes (46 of 51 labelled stores below latitude 43°)
 
 | Trait | Median, successes | Median, failures | Direction | Score, all labelled | Score, north only | Hypothesis (not tested) |
 |---|---|---|---|---|---|---|
-| Distance from a Dentist | 9.0 | 155.0 | Lower in successes | 0.12 | 0.09 | Areas with easy access to dental care may have more oral-care awareness, so a toothpaste activation finds more receptive shoppers. |
-| Water hardness IDX | 40 | 89 | Lower in successes | 0.17 | 0.21 | Unclear. It may stand in for region or for other local factors we do not observe. |
-| Online Consumption IYA | 277.5 | 239.5 | Higher in successes | 0.78 | 0.71 | Areas with higher online consumption may respond better to brand and premium communication. |
+| Distance from a Dentist (unit not stated in source) | 9.0 | 155.0 | Lower in successes | 0.12 | 0.09 | Areas with easy access to dental care may have more oral-care awareness, so a toothpaste activation finds more receptive shoppers. |
+| Water hardness IDX (index, base not stated) | 40 | 89 | Lower in successes | 0.17 | 0.21 | Unclear. It may stand in for region or for other local factors we do not observe. |
 | Nr of Schools | 4 | 2 | Higher in successes | 0.76 | 0.78 | More schools may point to busier areas with more families, so more shoppers pass the display. |
 | Latitude | 43.6 | 45.7 | Lower (further south) | 0.24 | 0.31 | Regional differences in retailers or shopping habits. |
 | Longitude | 12.6 | 9.7 | Higher (further east) | 0.70 | 0.74 | Same as above. The far north-west holds many failures. |
@@ -39,10 +41,11 @@ Success rate by tercile of the labelled stores (from `store-profiles.csv`, `comp
 |---|---|---|---|
 | Distance from a Dentist | 51 / 57 = **89%** | 49 / 56 = **88%** | 8 / 57 = **14%** |
 | Water hardness IDX | 54 / 60 = **90%** | 41 / 58 = **71%** | 13 / 52 = **25%** |
-| Online Consumption IYA | 26 / 61 = **43%** | 38 / 55 = **69%** | 44 / 54 = **81%** |
 | Nr of Schools | 33 / 72 = **46%** | 27 / 45 = **60%** | 48 / 53 = **91%** |
 
 The overall 2026 rate is 108 / 170 = 64%. The break-even rate is 60%.
+
+**Not used: Online Consumption IYA (timing unknown, not a driver).** In the 2026 data it is higher in successes (median 277.5 vs. 239.5, score 0.78; 0.71 inside the north). Because it may have been measured after the campaign, this could be partly an effect of the campaign rather than a trait of the store. We do not use it to explain success, and it stays out of the model, the slides and Extra 2.
 
 ### Traits that do **not** separate success from failure
 
@@ -76,7 +79,7 @@ With the two-band split from `docs/evaluation.md` (43°), the result is the same
 | Nr of Schools | 3 | 0 | 157 never-activated stores have 0 schools nearby |
 | Total Population | 138,666 | 83,563 | Never-activated stores serve smaller areas |
 | Avg Income per Household | €19,090 | €17,734 | 5 never-activated stores fall outside the labelled range |
-| Online Consumption IYA | 273.5 | 277 | Similar |
+| Online Consumption IYA | 273.5 | 277 | Similar; timing unknown, not used |
 | Water hardness IDX | 49 | 37 | Similar range; all never-activated stores fall inside the labelled range |
 
 Never-activated stores **outside the range** of the activated stores: Longitude 18, Graduated population 8, Avg Income per Household 5, and a few on the population traits (full list in `store-profiles.csv`, column `never_activated_outside_labelled_range`). Being inside the range on each trait separately does not guarantee the combination of traits is covered.
@@ -119,14 +122,36 @@ Never-activated stores **outside the range** of the activated stores: Longitude 
 ## How to check this (T07 verify step)
 
 1. Open `outputs/store-universe.csv`. Filter `success = 1` (108 rows) and `success = 0` (62 rows).
-2. Take the median of `Distance from a Dentist` in each group. The result should be 9.0178 and 155.0148. Successes are closer to a dentist.
+2. Take the median of `Distance from a Dentist` in each group. The result should be 9.0178 and 155.0148 (source units). Successes are closer to a dentist.
 3. Count rows with `Latitude ≥ 44.5`: 30 successes, 53 failures, 83 blank.
 4. Compare with `outputs/store-profiles.csv`: the medians are in the rows `comparison = success_vs_failure`, `trait = Distance from a Dentist`, and the band counts in the row `comparison = geography_region_band`, `group = North (lat >= 44.5)`.
 
 ## What this means for the model and the deck
 
 - **For Team 3:** the frozen model in `docs/evaluation.md` uses five predictors. Of these, only **Distance from a Dentist** clearly separates successes from failures (score 0.12, and 0.09 inside the north). **Income** separates them only through the north/south split (0.38 overall, 0.54 inside the north). **Total Population**, **Nr of Hygienists** and **Households avg components** do not separate them (0.49, 0.49 and 0.53).
-- Three traits that separate strongly and hold inside the north are **not** in the model: **Water hardness IDX** (0.17), **Online Consumption IYA** (0.78) and **Nr of Schools** (0.76). We are not changing the model. The protocol is frozen, and any change would have to be agreed, recorded and justified as an amendment by Team 3 before rerunning, as `docs/evaluation.md` requires. Adding traits picked from the same 170 outcomes also risks overfitting.
+- Two traits that separate strongly and hold inside the north are **not** in the model: **Water hardness IDX** (0.17) and **Nr of Schools** (0.76). **Online Consumption IYA** also separates them (0.78), but it is excluded under the timing decision and should not be added. We are not changing the model. The protocol is frozen, and any change would have to be agreed, recorded and justified as an amendment by Team 3 before rerunning, as `docs/evaluation.md` requires. Adding traits picked from the same 170 outcomes also risks overfitting.
 - All of these are **associations from 2026**, not causes.
 - Forecasts for never-activated stores in the dentist range 25–100, with 0 schools, or in the centre and south carry the most **extrapolation risk**. This belongs on the uncertainty slide (storyboard slide 8).
 - A **bounded pilot** that deliberately includes some of these under-covered stores would fill the gaps faster than buying data alone.
+
+## How the numbers were calculated
+
+All numbers in this file and in `outputs/store-profiles.csv` come from one script, [`scripts/t07_store_profiles.py`](../scripts/t07_store_profiles.py), run on the KNIME export `outputs/store-universe.csv`. It only reads that file and writes `outputs/store-profiles.csv`. It does not change the data or the workflow.
+
+From the repository root:
+
+```bash
+pip install pandas numpy
+python scripts/t07_store_profiles.py
+```
+
+What it does, step by step:
+
+1. Splits the 480 stores into success (108), failure (62) and never activated (310), using the `success` column.
+2. For every trait, takes the count, mean, median, quartiles, minimum and maximum of each group.
+3. Computes the **separation score**: it compares every successful store with every failed store (108 × 62 = 6,696 pairs) and counts how often the successful one has the higher value, with ties counted as half. This is the same number as the AUC of that single trait.
+4. Repeats the score for the north only (latitude ≥ 43°).
+5. Counts stores per latitude band, and the success rate in each third of the labelled stores for the four strongest traits (Online Consumption IYA is listed but not used, see above).
+6. Compares Team 3's five model predictors between activated and never-activated stores inside each latitude band.
+
+The counts and medians can also be checked by hand in Excel or with a KNIME **GroupBy** node on `outputs/store-universe.csv`.
