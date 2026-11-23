@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">The shallow tree earned the most in the 2026 backtest</title>
+  <desc id="desc">Across 170 held-out stores, net was €15,000 for the baseline, €84,000 for logistic regression and €88,000 for the shallow tree. In fold 4, store 15596 scored 80% because eight of ten training stores in its reconstructed leaf succeeded. The rule would fund the store at €500 expected net, although its actual activation failed.</desc>
+  <rect width="1600" height="900" fill="#fff"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#132d42">
+    <text x="80" y="83" font-size="24" font-weight="700" fill="#00685f">ORAL-B ITALY  /  PILOT DECISION</text>
+    <text x="1520" y="83" font-size="24" text-anchor="end" fill="#536572">2026 retrospective</text>
+    <text x="80" y="170" font-size="56" font-weight="700">The shallow tree earned the most in the 2026 backtest</text>
+    <text x="80" y="220" font-size="29" fill="#435c69">Each of the 170 stores was scored by a model trained on the other four folds.</text>
+    <path d="M80 260H1520 M797 302V720" stroke="#c8d4d9" stroke-width="2"/>
+
+    <g id="model-comparison" aria-label="Three bars on a common zero-based scale, in euros">
+      <text x="80" y="328" font-size="32" font-weight="700">Net under each funding rule</text>
+      <text x="80" y="366" font-size="23" fill="#536572">Observed outcomes, valued at the case economics</text>
+      <!-- All bars start at x=80 and use 0.007 px per euro. -->
+      <text x="80" y="433" font-size="26">Training-rate baseline · funded all 170</text>
+      <rect x="80" y="450" width="105" height="31" fill="#8193a1"/>
+      <text x="200" y="476" font-size="29" font-weight="700">€15k</text>
+      <text x="80" y="545" font-size="26">Logistic regression · funded 104</text>
+      <rect x="80" y="562" width="588" height="31" fill="#496679"/>
+      <text x="681" y="588" font-size="29" font-weight="700">€84k</text>
+      <text x="80" y="657" font-size="26">Shallow tree · funded 108</text>
+      <rect x="80" y="674" width="616" height="31" fill="#00685f"/>
+      <text x="709" y="700" font-size="29" font-weight="700" fill="#00685f">€88k</text>
+    </g>
+
+    <g id="store-example" aria-label="An example of how the tree makes a funding decision">
+      <text x="843" y="328" font-size="32" font-weight="700">Why would we fund store 15596?</text>
+      <text x="843" y="366" font-size="23" fill="#536572">A held-out decision from fold 4</text>
+      <text x="843" y="431" font-size="26">Its dentist-distance value was 0.105 source units.</text>
+      <text x="843" y="469" font-size="26">It followed the low-distance branch twice.*</text>
+      <text x="843" y="540" font-size="43" font-weight="700" fill="#00685f">8 of 10 → 80%</text>
+      <text x="843" y="582" font-size="26">Eight of ten training stores in that leaf succeeded.</text>
+      <text x="843" y="643" font-size="31" font-weight="700">0.80 × €2,500 − €1,500 = +€500</text>
+      <text x="843" y="694" font-size="26">Above 60%: fund. At exactly 60%: do not fund.</text>
+    </g>
+
+    <rect x="80" y="754" width="1440" height="66" fill="#e8f2f0"/>
+    <text x="104" y="797" font-size="28" font-weight="700">This store actually failed. Use the rule to plan a pilot; a score is not a guarantee.</text>
+    <text x="80" y="862" font-size="21" fill="#536572">*Audited fold-4 reconstruction; the workbook does not specify a distance unit. Sources: held-out.csv and model-comparison.csv.</text>
+  </g>
+</svg>
