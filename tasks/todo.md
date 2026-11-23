@@ -64,7 +64,9 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** Execute the KNIME validation stage; record `shasum -a 256 outputs/folds.csv`, reset and re-execute, and compare the second hash with the first. `wc -l outputs/folds.csv outputs/baseline-oof.csv` must show 171 lines each. Recalculate one fold's constant prediction from the other folds' success and store counts.
 
 ## T09 — Generate comparable logistic and tree predictions
-- [ ] TODO · Team 3 · M · Depends: T08
+- [x] DONE · Team 3 · M · Depends: T08 (verified at `831ecc7`) · Implementation: `bf8d2da`
+- **Red gate:** `python3 validation/T09/check.py` failed on missing `outputs/held-out.csv` before workflow changes.
+- **Desktop verification:** The 12:02 rerun loaded the explicit training-median settings without error. Both learners and predictors completed five folds with no learner/convergence warnings. All 170 stores matched the T08 mapping and baseline, with three valid probabilities each; the two runs' exports were byte-identical. Fold 4 had 136 training and 34 disjoint test IDs; store `15596` had tree probability 8/10. [Reproduction and evidence](../validation/T09/README.md).
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/held-out.csv`
 - **Accept:** Apply logistic regression and a shallow decision tree to the same saved folds. Fit preprocessing and feature selection inside training folds, with any tuning nested. Exclude identifiers, join method and activation-file fields from predictors. Export actual outcome, fold, baseline and both candidate probabilities on one row per labeled store.
 - **Verify:** In KNIME execute each model path; inspect learner inputs and one fold's disjoint train/test ID sets. `wc -l outputs/held-out.csv` must show 171; check 170 distinct IDs with three nonmissing probabilities in [0,1].
