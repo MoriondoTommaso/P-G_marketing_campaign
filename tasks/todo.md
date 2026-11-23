@@ -92,7 +92,9 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** Execute the KNIME funding-rule check: 59/60/61% yield −€25/€0/+€25 and only 61% funds. `wc -l outputs/national-scores.csv outputs/activation-list.csv` must give 481 and selected count + 1. Compare actual ID sets before and after filtering; check 170/310 score sources. Recompute lower/base/upper counts and net from the scenario rows; match each scenario's added/dropped IDs to the base list.
 
 ## T12 — Release the workflow candidate and both Size of Prize comparisons
-- [ ] TODO · Team 3 · S · Depends: T11
+- [ ] RC1 verified; in PR review, merge on hold · Team 3 · S · Depends: T11 (`96925fd`) · Artifacts: `8b5fd51`
+- **Red gate:** `python3 validation/T12/check.py` failed on the missing `financial-summary.csv` before workflow changes.
+- **Verified:** Desktop at 19:57 CET; all five financial rows reconciled, 12 upstream exports unchanged. Optimized forecast vs 2026 actual +€235,602.05; vs repeat forecast +€234,612.18; at 170 stores per policy and €255,000 spend each +€153,433.21. [Team 4 handoff, pinned revision and both SHA-256 hashes](../docs/release-candidate.md).
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/financial-summary.csv`, `docs/release-candidate.md`
 - **Accept:** Export optimized and repeat-170 forecast count, sales, spend and net, plus 2026 actual. Reuse the same probabilities for repeat IDs. Report optimized net minus €15,000 actual separately from optimized net minus repeat-list forecast. Apply the like-budget rule defined in T02; include its result or why it did not trigger.
 - **Verify:** KNIME **Reset → Execute all**, export the `.knwf`, then `shasum -a 256 workflows/oral-b-italy.knwf outputs/financial-summary.csv`. Record both hashes, the release revision, and output locations in the handoff to Team 4. Revisions supersede, never silently replace, an earlier candidate.
