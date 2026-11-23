@@ -54,7 +54,10 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** `open outputs/store-profiles.csv`; trace one featured trait back to `outputs/store-universe.csv` and reproduce both group denominators and the direction. Review the geography comparison for evidence of extrapolation.
 
 ## T08 — Produce leakage-free baseline probabilities
-- [ ] TODO · Team 3 · S · Depends: T02, T06
+- [x] DONE · Team 3 · S · Depends: T02, T06 (verified) · Implementation: `612658a`
+- **Execution gate:** The focused test first failed on missing `folds.csv`. Fresh KNIME Desktop runs A (11:09) and B (11:19, reversed input) produced byte-identical exports, 171 lines each. Both fold hashes matched `a5be2eeea3a41874ddb88db300c1f35fc9f7c052aab8f962a67f25b653ff9745`. Independent CSV checks verified all 170 probabilities per run: 34 held-out stores per fold, 136 training labels, 310 unlabeled excluded. Fold 1: (108 − 22) / (170 − 34) = 86/136.
+- **Reproduce:** [Repo-local workspace and evidence](../validation/T08/README.md); `python3 scripts/t08_validation.py check` verifies the archived A/B runs.
+- **Verified handoff:** Team 3 [received the protocol](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/2#issuecomment-7096835693) and [reproduced T06 in KNIME Desktop](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/6#issuecomment-7097223938) at `717adc3`: 170 linked, 310 unlabeled and €15,000 historical net; all three exports byte-identical.
 - **Handoff:** Team 3 can configure the folds from the [evaluation protocol](../docs/evaluation.md) now. Run them on the verified T06 snapshot once both gates pass; compare the sorted fold mapping with the protocol reference, including after reordering the input rows.
 - **Outputs:** `workflows/oral-b-italy.knwf`, `outputs/folds.csv`, `outputs/baseline-oof.csv`
 - **Accept:** Assign each of 170 linked IDs to one of five fixed stratified test folds. For each store export its fold and the success rate of the other four folds. Do not include unlabeled stores in training.
