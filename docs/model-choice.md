@@ -9,7 +9,7 @@ depth-limited tree on the five approved features, not an unrestricted ensemble.
 |---|---:|---:|---:|---:|---:|
 | Training-rate baseline | 170 | 108 / 62 | €15,000 | 0.23181 | €1,500–€4,000 |
 | Logistic regression | 104 | 96 / 8 | €84,000 | 0.11341 | €8,500–€21,000 |
-| Shallow tree | 108 | 100 / 8 | €88,000 | 0.08082 | €8,500–€21,000 |
+| Shallow tree | 108 | 100 / 8 | €88,000 | 0.08081 | €8,500–€21,000 |
 
 Activate-all returned €15,000; activate-none returned €0. The baseline funded
 everyone. The tree exceeded activate-all in all five folds, but its weakest fold
