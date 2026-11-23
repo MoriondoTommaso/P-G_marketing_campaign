@@ -25,8 +25,9 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** `open 'docs/PG_Luiss_Business Case_13_11_26.pdf'` on macOS (otherwise open in a PDF reader); a teammate checks citations against pp. 41–46 and confirms no unsupported product claim is labeled as fact.
 
 ## T04 — Prepare the independent finance worksheet and decision outline
-- [ ] TODO · Team 2 · S · Depends: none
+- [ ] Worksheet and storyboard delivered; second-reviewer check pending · Team 2 · S · Depends: none
 - **Outputs:** `outputs/finance-qa.xlsx`, `presentation/storyboard.md`
+- **Before closing:** a second reviewer runs the 108 → 107 test in Excel and records the result on #4.
 - **Accept:** Create a worksheet independent of the KNIME calculations. On 108 successes out of 170, reproduce €270,000 sales, €255,000 spend and €15,000 net; include zero-selected and 59/60/61% boundary cases. Reserve space in the storyboard for the two distinct comparators, shopper action, uncertainty and the contributions appendix.
 - **Verify:** `open outputs/finance-qa.xlsx`; a second reviewer changes success count from 108 to 107 with spend unchanged and observes net fall by €2,500; restore the example. Inspect boundary decisions and slide allocation.
 
@@ -46,8 +47,9 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** The receiving Team 3 imports the `.knwf` snapshot, sets `data/`, resets and selects **Execute all**. `cat outputs/baseline-2026.csv` must show 170 activated, 108 successful, €270,000 sales, €255,000 spend, €15,000 net. Team 2 records the handoff; Team 3 now owns the editable workflow.
 
 ## T07 — Identify store traits and gaps in national coverage
-- [ ] TODO · Team 2 · S · Depends: T05
+- [ ] Profiles and insights delivered; peer trace pending · Team 2 · S · Depends: T05
 - **Outputs:** `outputs/store-profiles.csv`, `docs/store-insights.md`
+- **Before closing:** Ele traces one trait back to `outputs/store-universe.csv` and records the result on #7. Needs the T05 branch merged so `store-universe.csv` is in the repository.
 - **Accept:** Compare successes with failures on interpretable national traits; report direction, denominators, sample sizes and a plausible explanation labeled as a hypothesis. Compare the 170 labeled and 310 unlabeled stores on geography and major features, flagging low-support profiles or documenting observed overlap. Work on an export, not the shared workflow.
 - **Verify:** `open outputs/store-profiles.csv`; trace one featured trait back to `outputs/store-universe.csv` and reproduce both group denominators and the direction. Review the geography comparison for evidence of extrapolation.
 
