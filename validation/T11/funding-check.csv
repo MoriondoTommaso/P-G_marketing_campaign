@@ -1,0 +1,16 @@
+store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,scenario_p_success,expected_net_eur,recommend_activate,change
+0.55,0.55,fixture,-125,0,base,0.55,-125.000,0,not_selected
+0.55,0.55,fixture,-125,0,lower,0.50,-250.000,0,not_selected
+0.55,0.55,fixture,-125,0,upper,0.60,0.000,0,not_selected
+0.59,0.59,fixture,-25,0,base,0.59,-25.000,0,not_selected
+0.59,0.59,fixture,-25,0,lower,0.54,-150.000,0,not_selected
+0.59,0.59,fixture,-25,0,upper,0.64,100.000,1,added
+0.60,0.6,fixture,0,0,base,0.6,0.00,0,not_selected
+0.60,0.6,fixture,0,0,lower,0.55,-125.000,0,not_selected
+0.60,0.6,fixture,0,0,upper,0.65,125.000,1,added
+0.61,0.61,fixture,25,1,base,0.61,25.000,1,retained
+0.61,0.61,fixture,25,1,lower,0.56,-100.000,0,dropped
+0.61,0.61,fixture,25,1,upper,0.66,150.000,1,retained
+0.65,0.65,fixture,125,1,base,0.65,125.000,1,retained
+0.65,0.65,fixture,125,1,lower,0.60,0.000,0,dropped
+0.65,0.65,fixture,125,1,upper,0.70,250.000,1,retained
