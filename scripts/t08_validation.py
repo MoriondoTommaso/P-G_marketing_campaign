@@ -20,12 +20,12 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def prepare():
-    workspace = LOCAL / "workspace"
+def prepare(local):
+    workspace = local / "workspace"
     require(not any((workspace / f"T08-{tag}").exists() for tag in "AB"),
             f"Workflow already exists in {workspace}; refusing to overwrite.")
     for tag in "AB":
-        out = LOCAL / "results" / tag
+        out = local / "results" / tag
         require(not out.exists() or not any(out.iterdir()), f"Results already present: {out}")
     with ZipFile(ROOT / "workflows/oral-b-italy.knwf") as archive:
         def base(folder):
@@ -35,9 +35,11 @@ def prepare():
                           "{*}config[@key='path']/{*}entry[@key='path']").attrib["value"].encode()
 
         old_input, old_output = base(34), base(35)
+        require(sum(n.endswith("/Sorter (#21)/settings.xml") for n in archive.namelist()) == 1,
+                "Expected exactly one upstream input-order sorter")
         for tag in "AB":
             dest = workspace / f"T08-{tag}"
-            out = LOCAL / "results" / tag
+            out = local / "results" / tag
             out.mkdir(parents=True, exist_ok=True)
             replacements = [(old, escape(str(new), {'"': '&quot;'}).encode())
                             for old, new in [(old_input, ROOT / "data"), (old_output, out)]]
@@ -70,7 +72,7 @@ def check(root):
         folder = root / tag
         universe = rows(folder / "store-universe.csv")
         ids = [r["store_id"] for r in universe]
-        order.append(ids)
+        order.append([(r["store_id"], r["success"]) for r in universe])
         y = {r["store_id"]: int(r["success"]) for r in universe if r["success"] != ""}
         require(len(ids) == len(set(ids)) == 480 and len(y) == 170
                 and set(y.values()) == {0, 1} and sum(y.values()) == 108, f"{tag}: unexpected labels")
@@ -97,8 +99,13 @@ def check(root):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["prepare", "check", "check-rerun"])
-    cmd = parser.parse_args().command
+    parser.add_argument("--run", default=".", help="Fresh run directory name under validation/T08/local")
+    args = parser.parse_args()
+    require(args.run == "." or (bool(args.run) and Path(args.run).name == args.run and args.run != ".."),
+            "Use a directory name, not a path")
+    local = LOCAL / args.run
+    cmd = args.command
     if cmd == "prepare":
-        prepare()
+        prepare(local)
     else:
-        check(QA / "evidence" if cmd == "check" else LOCAL / "results")
+        check(QA / "evidence" if cmd == "check" else local / "results")

@@ -15,10 +15,23 @@ def rows(path):
         return list(csv.DictReader(f))
 
 
+def supported_partition(test, train):
+    """Each tuple is (successes, failures), not (successes, total)."""
+    return sum(test) >= 20 and min(test) >= 5 and sum(train) >= 40 and min(train) >= 10
+
+
 class Decisions(unittest.TestCase):
+    def test_holdout_must_have_a_supported_training_complement(self):
+        self.assertFalse(supported_partition((62, 57), (46, 5)))
+        self.assertFalse(supported_partition((34, 4), (74, 58)))
+        self.assertFalse(supported_partition((5, 5), (30, 10)))
+        self.assertFalse(supported_partition((15, 5), (10, 10)))
+        self.assertTrue(supported_partition((15, 5), (30, 10)))
+
     def test_decisions_and_comparisons(self):
         self.assertTrue((OUT / "held-out-decisions.csv").is_file(), "Missing T10 decision export")
-        scores = {r["store_id"]: r for r in rows(ROOT / "outputs/held-out.csv")}
+        scores = {r["store_id"]: r for r in rows(OUT / "held-out.csv")}
+        self.assertEqual(scores, {r["store_id"]: r for r in rows(ROOT / "outputs/held-out.csv")})
         decisions = rows(OUT / "held-out-decisions.csv")
         self.assertEqual(len(decisions), 510)
         self.assertEqual({(r["store_id"], r["model"]) for r in decisions},
@@ -47,7 +60,21 @@ class Decisions(unittest.TestCase):
         self.assertEqual(len(spatial), 510)
         self.assertEqual({(r["store_id"],r["model"]) for r in spatial},
                          {(sid,m) for sid in scores for m in MODELS})
-        u=rows(ROOT / "outputs/store-universe.csv")
+        u=rows(OUT / "store-universe.csv")
+        self.assertEqual(sorted(u, key=lambda r:r["store_id"]),
+                         sorted(rows(ROOT / "outputs/store-universe.csv"), key=lambda r:r["store_id"]))
+        for boundaries in ((41.5,44.5), (43.0,)):
+            band_by_id = {r["store_id"]:sum(float(r["Latitude"]) >= cut for cut in boundaries)
+                          for r in u if r["store_id"] in scores}
+            def counts(ids):
+                labels = [int(scores[s]["success"]) for s in ids]
+                return sum(labels), len(labels)-sum(labels)
+            failed = []
+            for k in range(len(boundaries)+1):
+                test = {s for s,b in band_by_id.items() if b == k}
+                if not supported_partition(counts(test), counts(scores.keys()-test)):
+                    failed.append(k)
+            self.assertEqual(failed, [0, 2] if len(boundaries)==2 else [1])
         group={x["store_id"]:"south" if float(x["Latitude"])<43 else "north" for x in u}
         for band,n,success in [("south",51,46),("north",119,62)]:
             ids=[s for s in scores if group[s]==band]
@@ -63,7 +90,7 @@ class Decisions(unittest.TestCase):
                 self.assertAlmostEqual(p,62/119 if band=="south" else 46/51)
             self.assertEqual(int(r["funded"]),int(p>.60))
             self.assertEqual(int(r["realized_net_eur"]),int(p>.60)*(2500*int(r["success"])-1500))
-        self.check_summary(table,"spatial",spatial,("south","north","pooled"))
+        self.check_summary(table,"spatial_exploratory",spatial,("south","north","pooled"))
 
     def check_summary(self, table, design, decisions, folds):
         summary={(r["fold"],r["model"]):r for r in table if r["validation"]==design}
