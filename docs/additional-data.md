@@ -2,7 +2,7 @@
 
 Team 2 · Ele (lead) and Deniz
 
-**Status:** longlist and test plan drafted by Deniz on 21 Nov. Shortlist, buy-first recommendation, dataset links, licences and the PR #32 test-plan update added by Ele on 24 Nov. Review fixes on 24 Nov: unlock-or-buy wording, 2026 selection criteria (G7, #12), panel break-even, G6 marked speculative, inconclusive-test note, shorter slide 9. Slide 9 draft is below and in the [storyboard](../presentation/storyboard.md).
+**Status:** longlist and test plan drafted by Deniz on 21 Nov. Shortlist, buy-first recommendation, dataset links, licences and the PR #32 test-plan update added by Ele on 24 Nov. Review fixes on 24 Nov: unlock-or-buy wording, 2026 selection criteria (G7, #12), panel break-even, G6 marked speculative, inconclusive-test note, shorter slide 9. Slide 9 draft is below; Team 4 owns the slides.
 
 **Rule:** we claim no improvement we have not tested. Every benefit below is a **hypothesis** until the test in the last section has been run.
 
@@ -32,21 +32,21 @@ Licences were checked on 24 Nov 2026 on the publisher pages linked below. Rechec
 | 4 | **OpenStreetMap** points of interest: dentists, pharmacies, supermarkets, competing stores, schools, Italy extract from [Geofabrik](https://download.geofabrik.de/europe/italy.html) | G1, G2, G4 (competing outlets) | Free. [ODbL](https://www.openstreetmap.org/copyright) (credit "© OpenStreetMap contributors") | National. Completeness varies by area. | Count points within a radius of the store lat/lon | Medium | High for G1: an independent dentist count could explain the middle range. Check completeness first. It counts competing **outlets** nearby, not competing **brands** on our shelf (those come from #10). |
 | 5 | **Ministry of Health pharmacy register** (pharmacy list with addresses, updated daily), [Farmacie dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/) | G1, G4 | Free. [IODL 2.0](http://www.dati.gov.it/iodl/2.0/) | National | Count pharmacies within a radius; geocode where coordinates are missing | Medium | Medium. Pharmacies are another channel for oral care advice. |
 | 6 | **Agenzia delle Entrate OMI property values** (house prices by area), OMI data downloads in the Agenzia's online services area, [agenziaentrate.gov.it](https://www.agenziaentrate.gov.it) | G5 | Free, but needs a Fisconline/Entratel login. **No open licence found:** reuse follows the Agenzia's own terms of use (credit "Agenzia Entrate - OMI"); commercial use unconfirmed. | National, OMI micro-zones | Store lat/lon → OMI zone | Medium | Low–medium. An affluence proxy finer than the municipality. |
-| 7 | **Store-level retail sales panel** (e.g. NielsenIQ, Circana) | G4 (G3 only indirectly: it describes centre and south stores but adds no outcomes) | P&G probably already licenses a panel in Italy, so first ask whether a store-level cut can be unlocked; otherwise paid, price on quote, not public. Commercial licence set by contract. | Panel stores only. Coverage of our 480 is unknown. | Store code mapping from the provider | High | High, if it covers our stores: past oral care sales per store is the most direct signal. |
+| 7 | **Store-level retail sales panel** (e.g. NielsenIQ, Circana) | G4 (G3 only indirectly: it describes centre and south stores but adds no outcomes) | P&G probably already licenses a panel in Italy (assumption), so first ask whether a store-level cut can be unlocked; otherwise paid, price on quote, not public. Commercial licence set by contract. | Panel stores only. Coverage of our 480 is unknown. | Store code mapping from the provider | High | High, if it covers our stores: past oral care sales per store is the most direct signal. |
 | 8 | **Footfall / mobility data** (mobile-network or app-based panels) | G4, G2 | Paid. Price on quote. | National, depending on the provider | Visits within a radius of the store lat/lon | Medium–high | Medium–high. Measures shopper traffic directly. |
 | 9 | **Retailer loyalty-card data** (via a retailer partnership) | G4 | Paid or partnership. Cost depends on the deal. | One retailer's stores only | Retailer store code | High | High for that retailer: basket and category data. Limited coverage. |
 | 10 | **P&G store audits / retail execution data** (shelf share, competing brands on shelf, display, out-of-stock, store format) | G4, G6 (speculative) | Internal. Cost is staff time and access. | Stores P&G's field team visits | P&G store code (likely the same as `store_id`) | Low–medium | High. Probably the cheapest store-level data. Any link to water hardness (G6) is speculation. |
 | 11 | **ISTAT administrative boundaries** (municipality and census-section shapes, yearly at 1 January), [boundaries for statistical purposes](https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici/) | Enabler for 1, 2, 3, 6 | Free. [CC BY 4.0](https://www.istat.it/note-legali/) under ISTAT's site-wide terms; no file-specific licence found on the download page. | National | Point-in-polygon on store lat/lon | Low | Needed to link any area data. Not a predictor. |
 | 12 | **P&G's 2026 store selection criteria** (how and why the 170 stores were chosen: retailer, sales tier, account plan, field-team judgement) | G7 | Free, internal. Ask the 2026 campaign owner. | The 170 activated stores; the rules may also apply to the 310 | `store_id` | Low | High. It shows whether the 170 differ from the 310 in a way the model cannot see, and any criterion recorded before the 2026 campaign could become a predictor. |
 
-**Not in scope:** a 2027 pilot that deliberately includes under-covered stores (G1–G3) is not a data purchase, but it may fill G3 faster than any of the sources above. Hand it to Team 4 for the uncertainty slide.
+**Not in scope:** a 2027 pilot that deliberately includes under-covered stores (G1–G3) is not a data purchase, but it is the only way to fill G3 (see below). Hand it to Team 4 for the uncertainty slide.
 
 ### For Ele: shortlist and recommendation (24 Nov)
 
-- [x] Pick the 3–4 best sources, mixing free and paid.
-- [x] Link each source to a gap (G1–G6) above.
-- [x] Recommend **one source to buy first** and say why.
-- [x] Draft one slide with an action title (storyboard slide 9).
+- [x] Pick the best sources (five), mixing free, internal and paid.
+- [x] Link each source to a gap (G1–G7) above.
+- [x] Recommend **one source to get first** and say why.
+- [x] Draft one slide with an action title (slide 9 draft below).
 - [x] Replace homepage links with the dataset pages and note each licence (24 Nov). OMI has no open licence; its download page sits behind a login.
 
 | Priority | Source (longlist #) | Type and cost | Gaps | Why it is on the shortlist (hypothesis until tested) |
@@ -84,13 +84,15 @@ Counting only avoided failures, a quote of €1,500 × N needs N fewer failed ac
 
 **Speaker notes (details, not on the slide):**
 
-- **Why sales history first:** past oral care sales per store are the most direct sign of whether a store responds, and today we have no store-level data. P&G probably already licenses a panel, so ask to unlock the store-level cut before buying anything. Every value is dated, so only pre-2026 weeks are used as predictors (no leakage).
+- **Why sales history first:** past oral care sales per store are the most direct sign of whether a store responds, and today we have no store-level data. P&G probably already licenses a panel (assumption), so ask to unlock the store-level cut before buying anything. Every value is dated, so only pre-2026 weeks are used as predictors (no leakage).
 - **Keep rule:** same 5 folds, same model. Keep the source only if pooled held-out net € improves **and** the gain holds in at least 3 of 5 folds. The result is **retrospective** (2026 activated stores); the pilot confirms it.
 - **The test may be inconclusive:** each fold holds only 34 stores, so a gain or loss of one or two stores can flip a fold. "No clear difference" is a possible and honest result.
 - **Break-even:** the panel pays for itself if its price is below €1,500 per failed activation avoided (plus €1,000 per extra success found).
 - **Footnote:** no improvement is claimed until tested; licences and links in `docs/additional-data.md`.
 
 ## How we would test it
+
+**OSM test: counts in progress, impact test planned; no result yet.**
 
 The test is the same for any new source. We compare the **expected net €** with and without the new data, using the **same 5 folds** as the main model, so the only thing that changes is the data.
 
@@ -104,6 +106,6 @@ The test is the same for any new source. We compare the **expected net €** wit
 5. **Compare.** For each fold and pooled, report: funded stores, funded successes and failures, realised net €, and the Brier score. Report the difference in net € (with − without) per fold.
 6. **Decide.** **Keep the new data only if the pooled held-out net € improves** and the improvement holds in at least 3 of 5 folds, the same stability rule as in `docs/evaluation.md`. If the net does not improve, report that honestly and drop the source. We do not use a north/south split here: both geographic splits failed the minimum-data rule in [`model-choice.md`](model-choice.md), so they cannot show whether a gain transfers between regions.
 7. **Report the limits.** Label the result **retrospective**. Even a held-out improvement describes the 170 stores activated in 2026. It does not prove the gain for never-activated stores, especially in the gaps G1–G3, or across regions. Confirm it in the bounded pilot before relying on it. For a paid source, compare the measured net € gain with the source's price (see the break-even above) before buying at scale.
-8. **Expect that the test may be inconclusive.** Each fold holds only 34 labelled stores, so changing the decision for one or two stores can flip a fold's result, and the chosen tree already gives some leaves a 100% score (storyboard slide 8). A real gain can fail the rule, and a lucky one can pass it. If the result is mixed, report "no clear difference" rather than forcing a verdict, and let the pilot decide.
+8. **Expect that the test may be inconclusive.** Each fold holds only 34 labelled stores, so changing the decision for one or two stores can flip a fold's result, and the chosen tree already gives some leaves a 100% score ([`model-review/pilot.md`](model-review/pilot.md)). A real gain can fail the rule, and a lucky one can pass it. If the result is mixed, report "no clear difference" rather than forcing a verdict, and let the pilot decide.
 
 **Before buying:** ask the provider for a free sample covering our 480 stores, and check coverage first. If a source covers fewer than about half of the labelled stores, the 5-fold test has too little data to show a difference.
