@@ -26,6 +26,17 @@ snippets handle the frozen ID/hash/ranking algorithm, numerically stable `log1p`
 null-safe standardization and composite row keys. The business rule is visible
 in **06** as a Math Formula, with costs supplied by the shared settings node.
 
+The native tree predictor exports a single-precision leaf frequency, widened
+to double. For example, 6 successes in 10 rows becomes `0.6000000238418579`.
+Blocks **04** and **09** restore the exact 55%, 60% and 65% boundary values
+before passing tree scores to **any** downstream calculation. Their Rule
+Engines match only the three binary32 encodings; they do not round neighboring
+scores or modify logistic or baseline scores. With at most 170 labels, a
+different leaf fraction is at least `1/(20 × 170)` away from one of these
+boundaries, much farther than binary32 representation error. Thus a genuine
+break-even tie stays unfunded and the prescribed ±5-point stress preserves
+exact ties too. Recheck the denominator bound if the training population changes.
+
 ### Recheck the grouped workflow in Desktop
 
 1. Run `python3 scripts/t08_validation.py prepare --run grouped` to prepare a

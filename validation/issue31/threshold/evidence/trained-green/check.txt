@@ -1,0 +1,4 @@
+REVIEW_NATIVE_RESULT true
+raw=0.6000000238418579 policy_probability=0.6 expected_net_eur=0 recommend_activate=0
+PASS: trained 6/10 leaf; held-out tie is unfunded
+checker_exit=0

@@ -1,0 +1,2 @@
+population,income,household_size,hygienists,dentist_distance,case,p_success,P (target=failure),Prediction (target),model count,expected_net_eur,recommend_activate
+101,30,2,1,5,held_out,0.6,0.4000000059604645,success,1,0,0

@@ -1,6 +1,22 @@
-# T12-RC1 — Team 4 finance handoff
+# T12 — Team 4 finance handoff
 
-**Ready for Team 4 independent QA; merge is on hold.** RC1 artifacts are pinned
+**RC3 supersedes RC2.** Artifact revision `e1185d746bdb37d1cae4e55fac14741ae3a9def5`;
+workflow SHA-256 `8ffc1942669c6c266dc91a146d1f9ecfefa4573ba7878e4bc28f6400e83fc394`.
+Financial CSV SHA-256 `11a33bd099dba704063b4698631bc300c508521c9f6f3320ce59fb23cecb80dd`.
+All 13 clean exports remain byte-identical. Gate #1029 now reads the same tables
+as the national, activation, sensitivity and financial writers before releasing
+any output. Use RC3 for the [non-author verification](../validation/issue31/team4.md).
+
+**Historical RC2 (superseded).** Artifact revision
+`33a757ef39fe9fe8af76baa0874535689be9cb68`. Workflow SHA-256:
+`056955825012242cb1a5b6befe14537dcf86d55b15571ef2c0af9611de3afcf8`;
+financial CSV SHA-256: `11a33bd099dba704063b4698631bc300c508521c9f6f3320ce59fb23cecb80dd`.
+All [13 native exports](../validation/issue31/integrated-exports.sha256) matched RC1;
+each of the [eight invalid-input fixtures](../validation/issue31/guards/native-results.txt)
+failed before publication. Follow the [independent T13/T15 procedure](../validation/issue31/team4.md).
+The figures below are unchanged. Independent sign-off is pending.
+
+**Historical RC1 handoff.** Issue #31 requires a corrected candidate and a fresh independent rerun before delivery. The 278-store list is a [planning scenario, not a national rollout recommendation](model-review/pilot.md). RC1 artifacts are pinned
 to commit `8b5fd515e25399e79d59a1c1d643d1afa7c676fb`, based on T11 at
 `96925fd`. RC1 is the first T12 candidate. A later change to the workflow,
 inputs or financial export requires a new candidate identifier, hashes and

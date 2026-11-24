@@ -1,5 +1,7 @@
 # T10 — choosing a model for the funding decision
 
+**Release interpretation:** use the tree for [bounded pilot design](model-review/pilot.md). That note gives geographic losses, refit leaf counts and uncertainty, broad forecast stress, and the proposed comparator.
+
 **Ordinary-fold choice: the shallow tree.** On the same 170 held-out stores, it
 returned €88,000 net, €4,000 more than logistic regression. That exceeds the
 prespecified €2,500 tie tolerance, so no Brier tie-break was needed. This is one
