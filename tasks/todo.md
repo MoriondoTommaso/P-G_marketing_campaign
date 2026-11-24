@@ -145,5 +145,6 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 ## #31 — Respond to independent model review
 - [x] Record the selection and transfer limitations, extreme leaf counts, uncertainty, broad probability stress and bounded pilot comparator in the [decision brief](../docs/model-review/pilot.md); revise slides 1, 5 and 8 of the storyboard.
 - [x] Label missing predictor reference dates, dentist-distance units and historical selection criteria unknown. Team 2 owns follow-up with the data provider.
-- [x] Producer: native 6/10 regression and all 13 exports reconciled; [eight corrupt-input runs](../validation/issue31/guards/native-results.txt) each wrote zero files. RC2 artifact revision `33a757e`.
+- [x] RC2: supplied-probability boundary fixture, 13 reconciled exports and [eight corruption checks](../validation/issue31/guards/native-results.txt). RC2 did not validate final finance, activation or sensitivity rows.
+- [x] RC3 (`e1185d7`): final writer-input tables feed the shared release gate; all 13 clean CSVs reconciled.
 - [ ] Team 4: independently rerun the pinned corrected archive in a fresh workspace, record hashes and sign-off on T13/T15 and integrate the qualified decision into T16.
