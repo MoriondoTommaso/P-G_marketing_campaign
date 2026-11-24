@@ -12,7 +12,8 @@ ET.register_namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance")
 
 ROOT = Path(__file__).resolve().parents[3]
 CASES = ("valid", "conflict", "unmatched", "duplicate-label", "wrong-source",
-         "missing-oof", "duplicate-oof", "duplicate-national", "wrong-fold")
+         "missing-oof", "duplicate-oof", "duplicate-national", "wrong-fold",
+         "inverted-activation", "zero-spend", "sensitivity-net", "finance-difference")
 
 
 def prepare(archive, dest, case):
@@ -56,7 +57,17 @@ def prepare(archive, dest, case):
         e = r.find(f".//{{*}}entry[@key='{key}']")
         e.set("value", value)
         r.write(p, encoding="utf-8", xml_declaration=True)
-    if case == "wrong-source":
+    if case == "inverted-activation":
+        setting(340, "0", '$recommend_activate$ = 0 => TRUE')
+    elif case == "zero-spend":
+        setting(531, "expression", "$store_count$ * 0.0")
+    elif case == "sensitivity-net":
+        # Leave probabilities and all three scenario branches intact.
+        setting(349, "expression", 'return "0";')
+    elif case == "finance-difference":
+        # Leave spend, sales, and net intact; corrupt just the optimized-v-repeat delta.
+        setting(550, "expression", "$net_eur$ - $repeat_net$ + 1.0")
+    elif case == "wrong-source":
         setting(334, "0", 'TRUE => "held_out_2026"')
     elif case == "missing-oof":
         setting(145, "0", '$fold$ <= 4 => TRUE')

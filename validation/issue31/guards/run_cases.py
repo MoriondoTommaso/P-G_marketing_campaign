@@ -1,12 +1,21 @@
 """Run native release controls and corrupt-input cases, using fresh destinations."""
 import argparse
 import os
+import re
 import signal
 from pathlib import Path
 import subprocess
 import sys
 
 from fixtures import CASES, ROOT, check, prepare
+
+
+REVIEW_ERRORS = {
+    "inverted-activation": r"activation (?:mismatch|membership)",
+    "zero-spend": r"finance mismatch",
+    "sensitivity-net": r"sensitivity mismatch",
+    "finance-difference": r"finance difference",
+}
 
 
 def run(archive, scratch, case):
@@ -36,12 +45,16 @@ def run(archive, scratch, case):
     expected = case == "valid"
     if expected:
         assert proc.returncode == 0, log
-    assert f"REVIEW_NATIVE_RESULT {str(expected).lower()}" in trace, log
+    files = sorted(p.name for p in (dest/"output").iterdir())
+    assert f"REVIEW_NATIVE_RESULT {str(expected).lower()}" in trace, (log, files)
     if not expected:
         # Duplicate training labels can be rejected even earlier by the native
         # learner-input RowID node; require the injected ID in that diagnostic.
         upstream_duplicate = case == "duplicate-label" and 'Encountered duplicate row ID "106570"' in trace
         assert "Release guard:" in trace or upstream_duplicate, f"unrelated workflow failure; inspect {log}"
+        if case in REVIEW_ERRORS:
+            assert re.search(r"Release guard: " + REVIEW_ERRORS[case] + r"\b",
+                             trace, re.IGNORECASE), f"missing {case} diagnostic; inspect {log}"
     check(dest, case)
     print(f"{case}: native {'pass, exports reconciled' if expected else 'rejected before all writers'}", flush=True)
 
