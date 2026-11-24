@@ -284,7 +284,13 @@ def build(src, dest):
         a.files[a.path[i]] = a.files.pop(old)
         a.wire(g, port, (i, 1))
         a.wire(g, (check, 0), (i, 0))
-    a.save(dest)
+    # Build the writer ports first, then take evidence from those exact feeds.
+    from tempfile import TemporaryDirectory
+    from final_tables import extend
+    with TemporaryDirectory(dir=dest.resolve().parent) as temp:
+        staged = Path(temp) / "writer-ports.knwf"
+        a.save(staged)
+        extend(staged, dest)
 
 
 if __name__ == "__main__":
