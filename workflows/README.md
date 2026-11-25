@@ -1,4 +1,12 @@
-# Reading the Oral-B Italy workflow
+# Workflows
+
+**Submit [`oral-b-italy-final.knwf`](oral-b-italy-final.knwf).** Import it in KNIME and click **Execute all**:
+the input data and the outputs live inside the workflow, so nothing needs configuring. What it does, the model
+comparison and the Size of Prize are in [`docs/final-workflow.md`](../docs/final-workflow.md).
+
+`oral-b-italy.knwf` is the earlier team pipeline (RC3), kept for reference and for the validation scripts below.
+
+## Reading the RC3 workflow (`oral-b-italy.knwf`)
 
 Open `oral-b-italy.knwf`. At the left, set **input_dir** to the checkout's `data/`
 and **output_dir** to an empty writable directory. The third settings node holds

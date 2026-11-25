@@ -116,3 +116,8 @@ The boundary arithmetic has been checked above. The hypothetical held-out exampl
 The [delivery plan](../tasks/plan.md) links this protocol for Teams 2–4. Receipt and execution checks are downstream handoff records.
 
 The audit retained the seed, five-fold mapping, feature shortlist, learner families, probability bands, spatial groups, model-family tie tolerances and equal-spend trigger. It fixed the tree's sampling configuration and logistic data handling, clarified how to validate any later calibration, and made the deployment reference and uncertainty flags explicit. Review these implementation and interpretation clarifications before the first fit.
+
+## Amendment, 25 Nov 2026: final submitted workflow
+
+The submitted workflow ([`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf)) is a class-style rebuild of the model stage. It uses X-Partitioner folds (stratified, seed 2026) instead of the hash folds above, and its feature allowlist differs from the five listed under *Predictors*: it adds `Water hardness IDX` and `Nr of Schools` and drops `Households avg components` and `Nr of Hygienists`. The team agreed to keep it after a robustness check showed the result does not depend on the feature set. The decision, evidence and settings are recorded in [`final-workflow.md`](final-workflow.md#amendment-the-5-model-features).
+
