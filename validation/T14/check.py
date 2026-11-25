@@ -111,7 +111,7 @@ class ShopperActions(unittest.TestCase):
         cls.activation = rows(OUT / "activation-list.csv")
         cls.universe = rows(OUT / "store-universe.csv")
         if OUT.resolve() != (ROOT / "outputs").resolve():
-            for name in ("activation-list.csv", "store-universe.csv"):
+            for name in ("activation-list.csv", "store-universe.csv", "financial-summary.csv"):
                 self_file = OUT / name
                 repo_file = ROOT / "outputs" / name
                 assert self_file.read_bytes() == repo_file.read_bytes(), \

@@ -2,7 +2,7 @@
 
 T14 / [#14](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/14) · Team 4 · status: delivered, peer trace pending.
 
-**Inputs:** [T03 shopper evidence](shopper-evidence.md) · [T07 store insights](store-insights.md) with [`outputs/store-profiles.csv`](../outputs/store-profiles.csv) · [T11 funded list](../outputs/activation-list.csv) · [decision brief](model-review/pilot.md). Every figure below is recomputed and enforced by [`validation/T14/check.py`](../validation/T14/check.py).
+**Inputs:** [T03 shopper evidence](shopper-evidence.md) · [T07 store insights](store-insights.md) with [`outputs/store-profiles.csv`](../outputs/store-profiles.csv) · [T11 funded list](../outputs/activation-list.csv) · [decision brief](model-review/pilot.md). The coverage table, the T07 tercile citations and the two financial figures below are recomputed and enforced by [`validation/T14/check.py`](../validation/T14/check.py); the remaining figures are quoted from the cited T03/T07 sources and await the peer trace on #14.
 
 ## What we can and cannot claim
 
