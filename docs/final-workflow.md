@@ -17,13 +17,50 @@ the submission.
 |---|---|---|
 | Link 2026 activations to stores | Joiner on store code, Joiner on coordinates for the 18 without code, GroupBy checks | 170 stores: 108 success / 62 failure, 310 never activated |
 | Anti-leakage | Column Filter keeps only store traits + target | Campaign details, IDs, coordinates and `Online Consumption IYA` are out |
-| EDA | GroupBy medians success vs failure, Rule Engine region | `eda-success-profile.csv`, `eda-region-success.csv` |
+| EDA | GroupBy medians success vs failure, Rule Engine region, Conditional Box Plot, Bar Chart, GroupBy by region | `eda-success-profile.csv`, `eda-region-success.csv`, two charts |
 | 2026 baseline | Variable Creator (€2,500 / €1,500), GroupBy, Math Formula | €270,000 sales, €255,000 spend, **€15,000 net** |
 | Compare 3 models | X-Partitioner (5 folds, stratified, seed 2026) → Learner → Predictor → X-Aggregator, same folds for all 3 | Scorer, ROC Curve, net € per model |
 | Business rule | Rule Engine: fund only if p > 60% (break-even) | Net € per store: +1,000 / −1,500 / 0 |
 | 2027 plan | Final tree refit on all 170, scores the 310; held-out scores kept for the 170 | `national-scores-class.csv` (480), `activation-list-class.csv` (287) |
 
-Every one of the 93 nodes has a plain-language comment.
+Every one of the 97 nodes has a plain-language comment.
+
+## EDA findings (170 activated stores)
+
+**Successful stores are close to a dentist, and this holds inside every region**, so it is not only a
+North/South effect. Source: the KNIME EDA branch (GroupBy #39 and #41 → `outputs/eda-success-profile.csv`,
+`outputs/eda-region-success.csv`; GroupBy #106 for the within-region check). The same numbers are reproduced by
+[`scripts/eda_region_check.py`](../scripts/eda_region_check.py).
+
+**Charts in the workflow** (open the node's view in KNIME):
+- *Conditional Box Plot* (#103), the lab 5 node: "Successful stores are much closer to a dentist". Distance, water
+  hardness and schools, success vs failure.
+- *Bar Chart* (#105): "Northern stores succeed far less often". Success rate by region, axis from 0 to 1.
+
+| Trait (median) | Success (108) | Failure (62) |
+|---|---:|---:|
+| Distance from a Dentist | **9.0** | **155.0** |
+| Water hardness IDX | 40 | 89 |
+| Nr of Schools | 4 | 2 |
+| Avg Income per Household | €18,269 | €19,730 |
+| Total Population | 130,161 | 168,650 |
+
+| Region (Rule Engine #40) | Successes / activated | Success rate | Never activated |
+|---|---:|---:|---:|
+| North (lat ≥ 44.5) | 30 / 83 | **36%** | 83 |
+| Centre (41.5–44.5) | 44 / 49 | 90% | 117 |
+| South (< 41.5) | 34 / 38 | 89% | 110 |
+
+| Distance from a Dentist, median | Success | Failure |
+|---|---:|---:|
+| North | 18.8 (30 stores) | 157.1 (53 stores) |
+| Centre | 3.5 (44) | 70.9 (5) |
+| South | 8.3 (34) | 0.3 (4) |
+
+The North is where the model earns its money: it holds most failures, and inside it the dentist distance still
+separates successes from failures. Centre and South have only 9 failures together, too few to read. The distance
+unit is not stated in the source. These are 2026 associations, not causes. The full trait-by-trait profile,
+with separation scores, is in [`store-insights.md`](store-insights.md); its medians match the ones above.
 
 ## Model comparison (170 stores, each scored by a model that never saw it)
 

@@ -27,6 +27,8 @@ The south is almost all successes (46 of 51 labelled stores below latitude 43°)
 
 ## 1. Successes vs. failures (n = 108 vs. 62)
 
+> The final KNIME workflow reproduces these medians (`outputs/eda-success-profile.csv`) and adds success rates by region and a within-region dentist check: see [`final-workflow.md`](final-workflow.md#eda-findings-170-activated-stores).
+
 ### Traits that clearly separate success from failure
 
 | Trait | Median, successes | Median, failures | Direction | Score, all labelled | Score, north only | Hypothesis (not tested) |
