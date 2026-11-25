@@ -82,10 +82,16 @@ successes, 8 funded failures, 8 missed successes, 54 avoided failures.
 |---|---:|
 | 2026 actual (all 170 activated) | €15,000 |
 | Same 170 stores with the model (held-out) | €88,000 (**+€73,000**) |
-| 2027 plan, 287 stores, €430,500 spend (forecast) | €234,154 |
+| 2027 plan, 287 stores, €430,500 spend (forecast) | €234,153.75 |
 
-The 2027 total splits into €88.3k from 108 stores already activated in 2026 (known result) and €145.9k from
-179 new stores (forecast). Propensity buckets: High > 65% = 287, Marginal 55–65% = 0, Low ≤ 55% = 193.
+The 2027 forecast includes €88,301.90 from 108 repeat stores and €145,851.85 from 179 new stores.
+Both are expected values. The separate €88,000 backtest uses the observed outcomes of the 108 historical stores the tree would have funded.
+
+Compared with repeating all 170 historical stores in 2027, the 287-store plan forecasts **€219,048.27 more net** and costs €175,500 more.
+At equal spend (€255,000 per plan), targeting the top 170 stores forecasts **€125,200.77 more net** than repeating the original 170.
+See the [financial report (PDF)](financial-report-class.pdf), [editable source](financial-report-class.html), and [unrounded financial summary (CSV)](../outputs/financial-summary-class.csv).
+
+Propensity buckets: High > 65% = 287, Marginal 55–65% = 0, Low ≤ 55% = 193.
 The geographic-transfer and pilot caveats in [`model-choice.md`](model-choice.md) still apply.
 
 ## Amendment: the 5 model features
