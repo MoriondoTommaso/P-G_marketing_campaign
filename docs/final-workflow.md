@@ -9,7 +9,8 @@ the submission.
 
 1. KNIME: **Import workflow** → `workflows/oral-b-italy-final.knwf`.
 2. **Execute all.** Nothing to configure: the two Excel inputs travel inside the file (`data/inputs`) and the
-   CSV outputs are written inside it (`data/outputs`). No path points to a personal computer.
+   CSV outputs are written inside it (`data/outputs`). A few nodes still store an old local path as a hidden
+   default, but the workflow-relative variables override it, so nothing needs changing on another computer.
 
 ## What it does
 
@@ -27,8 +28,8 @@ Every one of the 97 nodes has a plain-language comment.
 
 ## EDA findings (170 activated stores)
 
-**Successful stores are close to a dentist, and this holds inside every region**, so it is not only a
-North/South effect. Source: the KNIME EDA branch (GroupBy #39 and #41 → `outputs/eda-success-profile.csv`,
+**Successful stores are close to a dentist, and the gap holds inside the North**, where 53 of the 62 failures are
+(median 18.8 vs 157.1), so it is not only a North/South effect. Centre and South have too few failures to test. Source: the KNIME EDA branch (GroupBy #39 and #41 → `outputs/eda-success-profile.csv`,
 `outputs/eda-region-success.csv`; GroupBy #106 for the within-region check). The same numbers are reproduced by
 [`scripts/eda_region_check.py`](../scripts/eda_region_check.py).
 
@@ -72,7 +73,7 @@ with separation scores, is in [`store-insights.md`](store-insights.md); its medi
 | Activate all (2026) | 63.5% | 63.5% | 100% | 77.7% | 0.5 | €15,000 |
 
 **Choice: Decision Tree (team decision with Tommaso).** It is €2,500 below the forest, one store out of 170,
-and it is the only model managers can read. Its one rule: distance from a dentist
+and it is the easiest to explain: one rule a manager can read. Its one rule: distance from a dentist
 ≤ 56.07 → 100 of 108 stores succeeded; > 56.07 → 54 of 62 failed. Confusion matrix at 60%: 100 funded
 successes, 8 funded failures, 8 missed successes, 54 avoided failures.
 
@@ -106,7 +107,7 @@ The geographic-transfer and pilot caveats in [`model-choice.md`](model-choice.md
 **Why this needs recording.** Water hardness and schools were added after the protocol was frozen.
 Features chosen by looking at the same 170 outcomes can make a cross-validated result look better than it is.
 
-**Evidence that the result does not depend on the choice.** [`scripts/feature_robustness_check.py`](../scripts/feature_robustness_check.py),
+**Evidence that the choice barely changes the result.** [`scripts/feature_robustness_check.py`](../scripts/feature_robustness_check.py),
 20 × stratified 5-fold CV, p > 60% rule. It is a scikit-learn approximation of the KNIME nodes, so compare rows
 with each other, not with KNIME's €88,000.
 
@@ -117,9 +118,9 @@ with each other, not with KNIME's €88,000.
 | Protocol 5 | €85,425 | 0.929 |
 
 "Allowed" = every column of `Italian_Stores.xlsx` except store code, latitude, longitude and
-`Online Consumption IYA`. Given all 32, the tree chooses Distance from a Dentist by itself (86% of its splits)
+`Online Consumption IYA`. Given all 32, the tree chooses Distance from a Dentist by itself (86% of the tree's feature importance)
 and reaches the same net. The dentist distance carries the model whichever set is used.
 
 **Q&A answer:** "We checked: if we give the tree all 32 store traits, it picks distance from a dentist by itself
-and earns the same profit. The result does not depend on our choice of features."
+and earns the same profit. The result hardly changes with our choice of features."
 **Do not say** the 5 features were fixed beforehand: they were not.
