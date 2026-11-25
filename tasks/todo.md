@@ -137,10 +137,11 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - **Verify:** Before upload run `shasum -a 256 presentation/campaign.pdf workflows/oral-b-italy.knwf`. Download the submitted copies, compare hashes, reopen the PDF and import the workflow. Confirm the portal shows the submission and timestamp; keep credentials and receipt off the public issue.
 
 ## T19 — Present the decision to P&G managers
-- [ ] TODO · Team 4 · S · Depends: T18
+- [ ] BLOCKED · Team 4 · S · Depends: T18
 - **Output:** live delivery confirmation and Q&A rehearsal record on the T19 issue
 - **Accept:** Confirm the course slot for the following week, rehearse Q&A on the join, model, profit assumptions and shopper actions, and deliver the management presentation within 10 minutes. Record the slot, actual duration and completion; do not close this task at upload.
 - **Verify:** `shasum -a 256 presentation/campaign.pdf` matches the submitted PDF. A teammate records who attended the Q&A rehearsal and confirms the live delivery time after the session.
+- **Unblock when:** T18 is accepted and the team supplies the confirmed presentation slot, submitted PDF hash, and the actual rehearsal/delivery details for verification. Do not record future or unverified events as complete.
 
 ## #31 — Respond to independent model review
 - [x] Record the selection and transfer limitations, extreme leaf counts, uncertainty, broad probability stress and bounded pilot comparator in the [decision brief](../docs/model-review/pilot.md); revise slides 1, 5 and 8 of the storyboard.
