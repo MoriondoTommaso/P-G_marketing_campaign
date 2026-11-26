@@ -1,5 +1,7 @@
 # Final submitted KNIME workflow (updated 26 Nov 2026: Random Forest release)
 
+> **T-052 branch: pre-finance candidate, not for submission.** This branch changes the native holdout assignments and store row keys. The earlier release figures below describe `7fc7ff8`; they are not results from this archive. See the [Team 2 checkpoint and current comparison](../handoff/pre-finance-check.md) before running finance or using this branch for submission.
+
 **The workflow to submit on MyLuiss is [`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf).**
 It rebuilds the modelling part with the nodes taught in class (week 2 and week 5). Since 26 Nov 2026 the
 **Random Forest scores every store.** Under [confirmed Decision B](final-model-decision.md), the 2026 result selects repeats and forest votes select new stores;

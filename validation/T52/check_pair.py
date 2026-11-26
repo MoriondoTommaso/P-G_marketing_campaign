@@ -7,6 +7,12 @@ import struct
 from native_folds import rows
 
 
+def check_funded(records, expected):
+    ids = [r["store_id"] for r in records]
+    if len(set(ids)) != len(ids) or set(ids) != expected:
+        raise ValueError("funded IDs do not match Decision B")
+
+
 def votes(raw, denominator):
     if denominator != "100":
         raise ValueError(f"expected 100 contributing trees; got {denominator}")

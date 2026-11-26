@@ -4,6 +4,7 @@ import csv
 import os
 import signal
 import re
+import hashlib
 from pathlib import Path
 import subprocess
 import sys
@@ -47,6 +48,7 @@ def reverse_records(path):
 def prepare(scratch, candidate, reverse=False):
     with ZipFile(candidate) as archive:
         archive.extractall(scratch)
+    (scratch / "candidate.sha256").write_text(hashlib.sha256(Path(candidate).read_bytes()).hexdigest()+"\n")
     wf = scratch / "oral-b-italy-final"
     if reverse:
         for p in (wf / "data/inputs").glob("*.xlsx"):
@@ -99,12 +101,7 @@ def rows(path):
         return list(csv.DictReader(f))
 
 
-if __name__ == "__main__":
-    scratch = Path(sys.argv[1]).resolve()
-    scratch.mkdir(exist_ok=False)
-    args = [x for x in sys.argv[2:] if x != "--reverse"]
-    wf = prepare(scratch, args[0] if args else ROOT / "workflows/oral-b-italy-final.knwf",
-                 "--reverse" in sys.argv[2:])
+def execute(wf, scratch):
     cmd = [sys.executable, "-B", ENGINE, wf, scratch / "runtime", ECLIPSE]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
                           start_new_session=True,
@@ -118,6 +115,15 @@ if __name__ == "__main__":
             success |= line.strip() == "REVIEW_NATIVE_RESULT true"
         if proc.wait() or not success:
             raise RuntimeError("native execution failed")
+
+
+if __name__ == "__main__":
+    scratch = Path(sys.argv[1]).resolve()
+    scratch.mkdir(exist_ok=False)
+    args = [x for x in sys.argv[2:] if x != "--reverse"]
+    wf = prepare(scratch, args[0] if args else ROOT / "workflows/oral-b-italy-final.knwf",
+                 "--reverse" in sys.argv[2:])
+    execute(wf,scratch)
     ids = {r["row ID"]: r["Pdv Code"] for r in rows(scratch / "identities.csv")}
     expected = {r["store_id"]: int(r["fold"]) for r in rows(ROOT / "outputs/folds.csv")}
     for model in ("tree", "forest", "logistic"):
