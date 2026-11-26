@@ -1,5 +1,7 @@
 # Final submitted KNIME workflow (25 Nov 2026)
 
+> **Release status, 26 Nov:** This page describes the existing **tree** archive. The [definitive model decision and migration checklist](final-model-decision.md) selects the Random Forest for submission. The tree outputs below are not forest forecasts.
+
 **The workflow to submit on MyLuiss is [`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf).**
 It rebuilds the modelling part with the nodes taught in class (week 2 and week 5) and was agreed with Tommaso
 on 25 Nov 2026. `workflows/oral-b-italy.knwf` (RC3) stays in the repo as the earlier team pipeline and is not

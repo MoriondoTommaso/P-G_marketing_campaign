@@ -1,5 +1,7 @@
 # Delivery plan: Oral-B Italy 2027
 
+**26 November model decision:** [Random Forest submission and release plan](../docs/final-model-decision.md). This amendment governs the next scoring/finance package and T13–T19 handoff; the historical delivery record below is retained.
+
 The user approved [the specification](../docs/SPEC.md) and [roadmap](../ROADMAP.md) on 19 November 2026. This records approval of their content despite their original draft banners. Delivery is one annotated KNIME workflow, a traceable funding decision and a 10-minute management presentation. The course deadline is **27 November 2026 at 23:59 on MyLuiss**. The [internal schedule](../docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md#internal-deadlines-and-handoffs) sets a verified submission target of **16:00** and an absolute internal deadline of **18:00** (Europe/Rome).
 
 ## Team 1 handoff

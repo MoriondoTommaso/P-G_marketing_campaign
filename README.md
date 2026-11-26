@@ -36,7 +36,8 @@ The project uses KNIME Analytics Platform, Excel datasets, statistical analysis,
 ## Documentation
 
 - [Project Roadmap](ROADMAP.md)
-- [Final KNIME workflow (submission)](docs/final-workflow.md)
+- [Final model choice: Random Forest — implementation and release checklist](docs/final-model-decision.md)
+- [Existing class workflow (Decision Tree release)](docs/final-workflow.md)
 - [Project Specification](docs/SPEC.md)
 - [Team Assignments & Contributions](docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md)
 - [Reproducibility & Data Preparation](docs/runbook.md)
