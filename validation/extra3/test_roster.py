@@ -1,5 +1,6 @@
 """Check the figures a reader actually receives in the PDF (requires Poppler)."""
 from pathlib import Path
+import csv
 import re
 import subprocess
 import unittest
@@ -10,6 +11,17 @@ PDF = ROOT / "outputs/Roaster_Influencers.pdf"
 
 
 class RosterEvidence(unittest.TestCase):
+    def test_reported_trend_reconciles_to_dated_post_tally(self):
+        path = Path(__file__).with_name("instagram-posts-2026-11-26.csv")
+        with path.open(encoding="utf-8") as source:
+            rows = list(csv.DictReader(source))
+        self.assertEqual(len(rows), len({r["post_url"] for r in rows}))
+        eligible = [r for r in rows if r["location"] == "Italy"]
+        self.assertEqual(len({r["handle"] for r in eligible}), 19)
+        hits = [r for r in eligible if r["routine_in_caption"] == "1"]
+        text = subprocess.check_output(["pdftotext", PDF, "-"], text=True)
+        self.assertIn(f"{len(hits)} of {len(eligible)} captions", " ".join(text.split()))
+
     def test_instagram_shortlist_matches_public_snapshot(self):
         # Modash Italy skincare, 11 Nov 2026. Values in thousands except ER.
         snapshot = [

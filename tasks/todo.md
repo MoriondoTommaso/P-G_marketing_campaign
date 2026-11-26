@@ -4,6 +4,7 @@
 - [ ] IN REVIEW · Team 1 → Team 4 · [#42](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/42)
 - **Accept:** Trace the Italian trend and comparable creator metrics to dated sources, justify the lead, and supply slide 10 copy with a timed campaign KPI. Link roster and slide; record a second reader’s check.
 - **Evidence:** [Corrected roster](../outputs/Roaster_Influencers.pdf) · [editable source](../docs/influencer-roster.html) · [slide 10](../presentation/storyboard.md#L20). Roster `9a8bb99`. `python3 -B validation/extra3/test_roster.py` reproduced the former 397k denominator and slide placeholder before the fixes. Awaiting checkpoint.
+- **Checkpoint follow-up:** Slide `40d51e4`; [dated post tally](../validation/extra3/instagram-posts-2026-11-26.csv) includes every featured post, location and caption-match flag, including the excluded Swiss profile.
 
 Each issue has one owning two-person team; T01 records the names. Start as soon as all listed dependencies pass. Consecutive numbers denote ownership, not a requirement to finish the entire preceding block. See [team handoffs and checkpoints](plan.md).
 
