@@ -9,8 +9,10 @@ Reads only the store-level release files written by the final KNIME workflow
                                           cohort subtotals and stress totals
   outputs/sensitivity-class.csv        - per-store base / lower / upper scenarios
 
-Rules (docs/evaluation.md): expected net = 2500 * p - 1500; fund only if p > 0.60
-(forest: more than 60 of 100 votes); stress band = original p in [0.55, 0.65],
+Rules (docs/evaluation.md): expected net = 2500 * p - 1500 with the forest probability p.
+New stores are funded only if p > 0.60 (forest: more than 60 of 100 votes). Team decision B (#51):
+the 170 stores activated in 2026 follow their real 2026 result instead (outputs/join-audit.csv).
+Stress band = original p in [0.55, 0.65],
 shifted by -0.05 / +0.05 with decimal arithmetic; equal spend uses k = min(N, 170),
 ranking by descending p with ascending text store_id for ties.
 
@@ -45,11 +47,18 @@ def ranked(rows):
 
 def main():
     stores = read("outputs/national-scores-class.csv")
+    outcome = {r["store_id"]: int(r["success"]) for r in read("outputs/join-audit.csv")}
+    assert len(outcome) == 170
     for r in stores:
         r["p"] = Decimal(r["p_success"])
         votes = r["p"] * 100
         assert votes == votes.to_integral_value(), f"not a vote share: {r['store_id']} {r['p_success']}"
-        assert int(r["recommend_activate"]) == int(r["p"] > THRESHOLD), f"funding flag mismatch: {r['store_id']}"
+        if r["score_source"] == "held_out_2026":
+            r["fixed"] = outcome[r["store_id"]]          # decision B: the real 2026 result decides
+            assert int(r["recommend_activate"]) == r["fixed"], f"repeat flag mismatch: {r['store_id']}"
+        else:
+            r["fixed"] = None
+            assert int(r["recommend_activate"]) == int(r["p"] > THRESHOLD), f"funding flag mismatch: {r['store_id']}"
     assert len(stores) == 480 and len({r["store_id"] for r in stores}) == 480
 
     base = read("outputs/baseline-2026.csv")[0]
@@ -72,6 +81,9 @@ def main():
     ]
     for src in ("held_out_2026", "refit_unseen"):
         rows.append((f"optimized_forecast_{src}", totals([r for r in optimized if r["score_source"] == src]), "", "", ""))
+    # best case: every 2026 success repeats (p = 1 for the funded repeat stores)
+    best = totals([{**r, "p": Decimal(1)} if r["score_source"] == "held_out_2026" else r for r in optimized])
+    rows.append(("best_case_repeat_successes_repeat", best, "", "", ""))
 
     # stress scenarios
     sens, scen_rows = [], {}
@@ -81,7 +93,7 @@ def main():
             in_band = BAND_LO <= r["p"] <= BAND_HI
             p = r["p"] + shift if in_band else r["p"]
             p = min(max(p, Decimal(0)), Decimal(1))
-            flag = int(p > THRESHOLD)
+            flag = r["fixed"] if r["fixed"] is not None else int(p > THRESHOLD)
             was = int(r["recommend_activate"])
             change = {(1, 1): "retained", (0, 0): "not_selected", (1, 0): "dropped", (0, 1): "added"}[(was, flag)]
             sens.append([r["store_id"], r["p_success"], r["score_source"], f"{net(r['p']):.2f}", was,

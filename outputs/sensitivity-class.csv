@@ -38,7 +38,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 108644,0.98,held_out_2026,950.00,1,base,0.98,950.00,1,retained
 108840,0.29,refit_unseen,-775.00,0,base,0.29,-775.00,0,not_selected
 109083,0.89,refit_unseen,725.00,1,base,0.89,725.00,1,retained
-109086,0.54,held_out_2026,-150.00,0,base,0.54,-150.00,0,not_selected
+109086,0.54,held_out_2026,-150.00,1,base,0.54,-150.00,1,retained
 109191,0.89,refit_unseen,725.00,1,base,0.89,725.00,1,retained
 109339,0.79,held_out_2026,475.00,1,base,0.79,475.00,1,retained
 109405,0.89,refit_unseen,725.00,1,base,0.89,725.00,1,retained
@@ -132,7 +132,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 2000035,0.08,refit_unseen,-1300.00,0,base,0.08,-1300.00,0,not_selected
 2000102,0.82,refit_unseen,550.00,1,base,0.82,550.00,1,retained
 2000648,0.13,refit_unseen,-1175.00,0,base,0.13,-1175.00,0,not_selected
-20013,0.42,held_out_2026,-450.00,0,base,0.42,-450.00,0,not_selected
+20013,0.42,held_out_2026,-450.00,1,base,0.42,-450.00,1,retained
 2002191,0.96,held_out_2026,900.00,1,base,0.96,900.00,1,retained
 2002448,0.3,refit_unseen,-750.00,0,base,0.3,-750.00,0,not_selected
 2002551,0.3,refit_unseen,-750.00,0,base,0.3,-750.00,0,not_selected
@@ -144,11 +144,11 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 2005662,0.94,refit_unseen,850.00,1,base,0.94,850.00,1,retained
 2005760,0.17,refit_unseen,-1075.00,0,base,0.17,-1075.00,0,not_selected
 2005775,0.88,refit_unseen,700.00,1,base,0.88,700.00,1,retained
-2006331,1,held_out_2026,1000.00,1,base,1,1000.00,1,retained
+2006331,1,held_out_2026,1000.00,0,base,1,1000.00,0,not_selected
 2006802,0.96,refit_unseen,900.00,1,base,0.96,900.00,1,retained
 2007063,0.02,held_out_2026,-1450.00,0,base,0.02,-1450.00,0,not_selected
 2007244,0.93,refit_unseen,825.00,1,base,0.93,825.00,1,retained
-2007481,0.33,held_out_2026,-675.00,0,base,0.33,-675.00,0,not_selected
+2007481,0.33,held_out_2026,-675.00,1,base,0.33,-675.00,1,retained
 2007563,0.88,held_out_2026,700.00,1,base,0.88,700.00,1,retained
 2007584,0.67,refit_unseen,175.00,1,base,0.67,175.00,1,retained
 2007654,0.03,refit_unseen,-1425.00,0,base,0.03,-1425.00,0,not_selected
@@ -181,7 +181,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 23421,1,held_out_2026,1000.00,1,base,1,1000.00,1,retained
 2343,0.97,held_out_2026,925.00,1,base,0.97,925.00,1,retained
 23780,0.35,refit_unseen,-625.00,0,base,0.35,-625.00,0,not_selected
-23781,0.98,held_out_2026,950.00,1,base,0.98,950.00,1,retained
+23781,0.98,held_out_2026,950.00,0,base,0.98,950.00,0,not_selected
 23801,0.79,refit_unseen,475.00,1,base,0.79,475.00,1,retained
 23848,0.73,refit_unseen,325.00,1,base,0.73,325.00,1,retained
 24052,0.88,refit_unseen,700.00,1,base,0.88,700.00,1,retained
@@ -214,7 +214,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 27870,0.12,held_out_2026,-1200.00,0,base,0.12,-1200.00,0,not_selected
 28196,0.96,held_out_2026,900.00,1,base,0.96,900.00,1,retained
 28213,0.29,held_out_2026,-775.00,0,base,0.29,-775.00,0,not_selected
-28340,0.41,held_out_2026,-475.00,0,base,0.41,-475.00,0,not_selected
+28340,0.41,held_out_2026,-475.00,1,base,0.41,-475.00,1,retained
 29823,0.79,refit_unseen,475.00,1,base,0.79,475.00,1,retained
 29854,0.8,refit_unseen,500.00,1,base,0.8,500.00,1,retained
 29865,0.76,refit_unseen,400.00,1,base,0.76,400.00,1,retained
@@ -228,7 +228,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 30536,0.98,refit_unseen,950.00,1,base,0.98,950.00,1,retained
 30887,0.87,refit_unseen,675.00,1,base,0.87,675.00,1,retained
 30892,0.8,refit_unseen,500.00,1,base,0.8,500.00,1,retained
-30967,0.43,held_out_2026,-425.00,0,base,0.43,-425.00,0,not_selected
+30967,0.43,held_out_2026,-425.00,1,base,0.43,-425.00,1,retained
 31056,1,held_out_2026,1000.00,1,base,1,1000.00,1,retained
 31222,1,refit_unseen,1000.00,1,base,1,1000.00,1,retained
 31274,0.28,refit_unseen,-800.00,0,base,0.28,-800.00,0,not_selected
@@ -356,14 +356,14 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 66912,1,refit_unseen,1000.00,1,base,1,1000.00,1,retained
 67144,0.85,refit_unseen,625.00,1,base,0.85,625.00,1,retained
 68329,0.03,refit_unseen,-1425.00,0,base,0.03,-1425.00,0,not_selected
-68672,1,held_out_2026,1000.00,1,base,1,1000.00,1,retained
+68672,1,held_out_2026,1000.00,0,base,1,1000.00,0,not_selected
 69063,0.76,refit_unseen,400.00,1,base,0.76,400.00,1,retained
 69112,0.01,held_out_2026,-1475.00,0,base,0.01,-1475.00,0,not_selected
 69660,0.93,held_out_2026,825.00,1,base,0.93,825.00,1,retained
 71362,0.62,refit_unseen,50.00,1,base,0.62,50.00,1,retained
 71368,0.95,held_out_2026,875.00,1,base,0.95,875.00,1,retained
 71748,0.03,held_out_2026,-1425.00,0,base,0.03,-1425.00,0,not_selected
-71884,0.95,held_out_2026,875.00,1,base,0.95,875.00,1,retained
+71884,0.95,held_out_2026,875.00,0,base,0.95,875.00,0,not_selected
 71889,0.96,refit_unseen,900.00,1,base,0.96,900.00,1,retained
 72004,0.74,refit_unseen,350.00,1,base,0.74,350.00,1,retained
 72082,0.55,refit_unseen,-125.00,0,base,0.55,-125.00,0,not_selected
@@ -383,7 +383,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 7695,0.74,refit_unseen,350.00,1,base,0.74,350.00,1,retained
 77011,0.04,refit_unseen,-1400.00,0,base,0.04,-1400.00,0,not_selected
 77021,0.98,held_out_2026,950.00,1,base,0.98,950.00,1,retained
-77034,0.34,held_out_2026,-650.00,0,base,0.34,-650.00,0,not_selected
+77034,0.34,held_out_2026,-650.00,1,base,0.34,-650.00,1,retained
 7709,0.94,held_out_2026,850.00,1,base,0.94,850.00,1,retained
 7711,0.74,refit_unseen,350.00,1,base,0.74,350.00,1,retained
 77122,0.15,refit_unseen,-1125.00,0,base,0.15,-1125.00,0,not_selected
@@ -396,7 +396,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 78017,0.85,refit_unseen,625.00,1,base,0.85,625.00,1,retained
 78375,0.89,held_out_2026,725.00,1,base,0.89,725.00,1,retained
 78921,0.91,refit_unseen,775.00,1,base,0.91,775.00,1,retained
-79237,0.82,held_out_2026,550.00,1,base,0.82,550.00,1,retained
+79237,0.82,held_out_2026,550.00,0,base,0.82,550.00,0,not_selected
 79362,0.98,refit_unseen,950.00,1,base,0.98,950.00,1,retained
 80020,0.11,refit_unseen,-1225.00,0,base,0.11,-1225.00,0,not_selected
 80022,0.17,refit_unseen,-1075.00,0,base,0.17,-1075.00,0,not_selected
@@ -434,7 +434,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 87281,0.15,refit_unseen,-1125.00,0,base,0.15,-1125.00,0,not_selected
 8844,0.69,held_out_2026,225.00,1,base,0.69,225.00,1,retained
 88618,0.94,refit_unseen,850.00,1,base,0.94,850.00,1,retained
-8914,0.52,held_out_2026,-200.00,0,base,0.52,-200.00,0,not_selected
+8914,0.52,held_out_2026,-200.00,1,base,0.52,-200.00,1,retained
 8938,0.36,refit_unseen,-600.00,0,base,0.36,-600.00,0,not_selected
 89413,0.89,refit_unseen,725.00,1,base,0.89,725.00,1,retained
 8957,0.28,refit_unseen,-800.00,0,base,0.28,-800.00,0,not_selected
@@ -464,7 +464,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 96235,0.05,refit_unseen,-1375.00,0,base,0.05,-1375.00,0,not_selected
 96619,0.8,held_out_2026,500.00,1,base,0.8,500.00,1,retained
 97141,0.26,refit_unseen,-850.00,0,base,0.26,-850.00,0,not_selected
-97240,0.98,held_out_2026,950.00,1,base,0.98,950.00,1,retained
+97240,0.98,held_out_2026,950.00,0,base,0.98,950.00,0,not_selected
 97244,0.93,refit_unseen,825.00,1,base,0.93,825.00,1,retained
 97278,0.81,refit_unseen,525.00,1,base,0.81,525.00,1,retained
 97349,0,held_out_2026,-1500.00,0,base,0,-1500.00,0,not_selected
@@ -476,7 +476,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 98004,0.31,refit_unseen,-725.00,0,base,0.31,-725.00,0,not_selected
 98018,0.34,refit_unseen,-650.00,0,base,0.34,-650.00,0,not_selected
 98171,0.92,refit_unseen,800.00,1,base,0.92,800.00,1,retained
-98235,0.84,held_out_2026,600.00,1,base,0.84,600.00,1,retained
+98235,0.84,held_out_2026,600.00,0,base,0.84,600.00,0,not_selected
 99157,0.51,refit_unseen,-225.00,0,base,0.51,-225.00,0,not_selected
 99192,0.96,refit_unseen,900.00,1,base,0.96,900.00,1,retained
 100046,0.02,held_out_2026,-1450.00,0,lower,0.02,-1450.00,0,not_selected
@@ -518,7 +518,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 108644,0.98,held_out_2026,950.00,1,lower,0.98,950.00,1,retained
 108840,0.29,refit_unseen,-775.00,0,lower,0.29,-775.00,0,not_selected
 109083,0.89,refit_unseen,725.00,1,lower,0.89,725.00,1,retained
-109086,0.54,held_out_2026,-150.00,0,lower,0.54,-150.00,0,not_selected
+109086,0.54,held_out_2026,-150.00,1,lower,0.54,-150.00,1,retained
 109191,0.89,refit_unseen,725.00,1,lower,0.89,725.00,1,retained
 109339,0.79,held_out_2026,475.00,1,lower,0.79,475.00,1,retained
 109405,0.89,refit_unseen,725.00,1,lower,0.89,725.00,1,retained
@@ -612,7 +612,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 2000035,0.08,refit_unseen,-1300.00,0,lower,0.08,-1300.00,0,not_selected
 2000102,0.82,refit_unseen,550.00,1,lower,0.82,550.00,1,retained
 2000648,0.13,refit_unseen,-1175.00,0,lower,0.13,-1175.00,0,not_selected
-20013,0.42,held_out_2026,-450.00,0,lower,0.42,-450.00,0,not_selected
+20013,0.42,held_out_2026,-450.00,1,lower,0.42,-450.00,1,retained
 2002191,0.96,held_out_2026,900.00,1,lower,0.96,900.00,1,retained
 2002448,0.3,refit_unseen,-750.00,0,lower,0.3,-750.00,0,not_selected
 2002551,0.3,refit_unseen,-750.00,0,lower,0.3,-750.00,0,not_selected
@@ -624,11 +624,11 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 2005662,0.94,refit_unseen,850.00,1,lower,0.94,850.00,1,retained
 2005760,0.17,refit_unseen,-1075.00,0,lower,0.17,-1075.00,0,not_selected
 2005775,0.88,refit_unseen,700.00,1,lower,0.88,700.00,1,retained
-2006331,1,held_out_2026,1000.00,1,lower,1,1000.00,1,retained
+2006331,1,held_out_2026,1000.00,0,lower,1,1000.00,0,not_selected
 2006802,0.96,refit_unseen,900.00,1,lower,0.96,900.00,1,retained
 2007063,0.02,held_out_2026,-1450.00,0,lower,0.02,-1450.00,0,not_selected
 2007244,0.93,refit_unseen,825.00,1,lower,0.93,825.00,1,retained
-2007481,0.33,held_out_2026,-675.00,0,lower,0.33,-675.00,0,not_selected
+2007481,0.33,held_out_2026,-675.00,1,lower,0.33,-675.00,1,retained
 2007563,0.88,held_out_2026,700.00,1,lower,0.88,700.00,1,retained
 2007584,0.67,refit_unseen,175.00,1,lower,0.67,175.00,1,retained
 2007654,0.03,refit_unseen,-1425.00,0,lower,0.03,-1425.00,0,not_selected
@@ -661,7 +661,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 23421,1,held_out_2026,1000.00,1,lower,1,1000.00,1,retained
 2343,0.97,held_out_2026,925.00,1,lower,0.97,925.00,1,retained
 23780,0.35,refit_unseen,-625.00,0,lower,0.35,-625.00,0,not_selected
-23781,0.98,held_out_2026,950.00,1,lower,0.98,950.00,1,retained
+23781,0.98,held_out_2026,950.00,0,lower,0.98,950.00,0,not_selected
 23801,0.79,refit_unseen,475.00,1,lower,0.79,475.00,1,retained
 23848,0.73,refit_unseen,325.00,1,lower,0.73,325.00,1,retained
 24052,0.88,refit_unseen,700.00,1,lower,0.88,700.00,1,retained
@@ -694,7 +694,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 27870,0.12,held_out_2026,-1200.00,0,lower,0.12,-1200.00,0,not_selected
 28196,0.96,held_out_2026,900.00,1,lower,0.96,900.00,1,retained
 28213,0.29,held_out_2026,-775.00,0,lower,0.29,-775.00,0,not_selected
-28340,0.41,held_out_2026,-475.00,0,lower,0.41,-475.00,0,not_selected
+28340,0.41,held_out_2026,-475.00,1,lower,0.41,-475.00,1,retained
 29823,0.79,refit_unseen,475.00,1,lower,0.79,475.00,1,retained
 29854,0.8,refit_unseen,500.00,1,lower,0.8,500.00,1,retained
 29865,0.76,refit_unseen,400.00,1,lower,0.76,400.00,1,retained
@@ -708,7 +708,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 30536,0.98,refit_unseen,950.00,1,lower,0.98,950.00,1,retained
 30887,0.87,refit_unseen,675.00,1,lower,0.87,675.00,1,retained
 30892,0.8,refit_unseen,500.00,1,lower,0.8,500.00,1,retained
-30967,0.43,held_out_2026,-425.00,0,lower,0.43,-425.00,0,not_selected
+30967,0.43,held_out_2026,-425.00,1,lower,0.43,-425.00,1,retained
 31056,1,held_out_2026,1000.00,1,lower,1,1000.00,1,retained
 31222,1,refit_unseen,1000.00,1,lower,1,1000.00,1,retained
 31274,0.28,refit_unseen,-800.00,0,lower,0.28,-800.00,0,not_selected
@@ -836,14 +836,14 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 66912,1,refit_unseen,1000.00,1,lower,1,1000.00,1,retained
 67144,0.85,refit_unseen,625.00,1,lower,0.85,625.00,1,retained
 68329,0.03,refit_unseen,-1425.00,0,lower,0.03,-1425.00,0,not_selected
-68672,1,held_out_2026,1000.00,1,lower,1,1000.00,1,retained
+68672,1,held_out_2026,1000.00,0,lower,1,1000.00,0,not_selected
 69063,0.76,refit_unseen,400.00,1,lower,0.76,400.00,1,retained
 69112,0.01,held_out_2026,-1475.00,0,lower,0.01,-1475.00,0,not_selected
 69660,0.93,held_out_2026,825.00,1,lower,0.93,825.00,1,retained
 71362,0.62,refit_unseen,50.00,1,lower,0.57,-75.00,0,dropped
 71368,0.95,held_out_2026,875.00,1,lower,0.95,875.00,1,retained
 71748,0.03,held_out_2026,-1425.00,0,lower,0.03,-1425.00,0,not_selected
-71884,0.95,held_out_2026,875.00,1,lower,0.95,875.00,1,retained
+71884,0.95,held_out_2026,875.00,0,lower,0.95,875.00,0,not_selected
 71889,0.96,refit_unseen,900.00,1,lower,0.96,900.00,1,retained
 72004,0.74,refit_unseen,350.00,1,lower,0.74,350.00,1,retained
 72082,0.55,refit_unseen,-125.00,0,lower,0.50,-250.00,0,not_selected
@@ -863,7 +863,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 7695,0.74,refit_unseen,350.00,1,lower,0.74,350.00,1,retained
 77011,0.04,refit_unseen,-1400.00,0,lower,0.04,-1400.00,0,not_selected
 77021,0.98,held_out_2026,950.00,1,lower,0.98,950.00,1,retained
-77034,0.34,held_out_2026,-650.00,0,lower,0.34,-650.00,0,not_selected
+77034,0.34,held_out_2026,-650.00,1,lower,0.34,-650.00,1,retained
 7709,0.94,held_out_2026,850.00,1,lower,0.94,850.00,1,retained
 7711,0.74,refit_unseen,350.00,1,lower,0.74,350.00,1,retained
 77122,0.15,refit_unseen,-1125.00,0,lower,0.15,-1125.00,0,not_selected
@@ -876,7 +876,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 78017,0.85,refit_unseen,625.00,1,lower,0.85,625.00,1,retained
 78375,0.89,held_out_2026,725.00,1,lower,0.89,725.00,1,retained
 78921,0.91,refit_unseen,775.00,1,lower,0.91,775.00,1,retained
-79237,0.82,held_out_2026,550.00,1,lower,0.82,550.00,1,retained
+79237,0.82,held_out_2026,550.00,0,lower,0.82,550.00,0,not_selected
 79362,0.98,refit_unseen,950.00,1,lower,0.98,950.00,1,retained
 80020,0.11,refit_unseen,-1225.00,0,lower,0.11,-1225.00,0,not_selected
 80022,0.17,refit_unseen,-1075.00,0,lower,0.17,-1075.00,0,not_selected
@@ -914,7 +914,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 87281,0.15,refit_unseen,-1125.00,0,lower,0.15,-1125.00,0,not_selected
 8844,0.69,held_out_2026,225.00,1,lower,0.69,225.00,1,retained
 88618,0.94,refit_unseen,850.00,1,lower,0.94,850.00,1,retained
-8914,0.52,held_out_2026,-200.00,0,lower,0.52,-200.00,0,not_selected
+8914,0.52,held_out_2026,-200.00,1,lower,0.52,-200.00,1,retained
 8938,0.36,refit_unseen,-600.00,0,lower,0.36,-600.00,0,not_selected
 89413,0.89,refit_unseen,725.00,1,lower,0.89,725.00,1,retained
 8957,0.28,refit_unseen,-800.00,0,lower,0.28,-800.00,0,not_selected
@@ -944,7 +944,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 96235,0.05,refit_unseen,-1375.00,0,lower,0.05,-1375.00,0,not_selected
 96619,0.8,held_out_2026,500.00,1,lower,0.8,500.00,1,retained
 97141,0.26,refit_unseen,-850.00,0,lower,0.26,-850.00,0,not_selected
-97240,0.98,held_out_2026,950.00,1,lower,0.98,950.00,1,retained
+97240,0.98,held_out_2026,950.00,0,lower,0.98,950.00,0,not_selected
 97244,0.93,refit_unseen,825.00,1,lower,0.93,825.00,1,retained
 97278,0.81,refit_unseen,525.00,1,lower,0.81,525.00,1,retained
 97349,0,held_out_2026,-1500.00,0,lower,0,-1500.00,0,not_selected
@@ -956,7 +956,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 98004,0.31,refit_unseen,-725.00,0,lower,0.31,-725.00,0,not_selected
 98018,0.34,refit_unseen,-650.00,0,lower,0.34,-650.00,0,not_selected
 98171,0.92,refit_unseen,800.00,1,lower,0.92,800.00,1,retained
-98235,0.84,held_out_2026,600.00,1,lower,0.84,600.00,1,retained
+98235,0.84,held_out_2026,600.00,0,lower,0.84,600.00,0,not_selected
 99157,0.51,refit_unseen,-225.00,0,lower,0.51,-225.00,0,not_selected
 99192,0.96,refit_unseen,900.00,1,lower,0.96,900.00,1,retained
 100046,0.02,held_out_2026,-1450.00,0,upper,0.02,-1450.00,0,not_selected
@@ -998,7 +998,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 108644,0.98,held_out_2026,950.00,1,upper,0.98,950.00,1,retained
 108840,0.29,refit_unseen,-775.00,0,upper,0.29,-775.00,0,not_selected
 109083,0.89,refit_unseen,725.00,1,upper,0.89,725.00,1,retained
-109086,0.54,held_out_2026,-150.00,0,upper,0.54,-150.00,0,not_selected
+109086,0.54,held_out_2026,-150.00,1,upper,0.54,-150.00,1,retained
 109191,0.89,refit_unseen,725.00,1,upper,0.89,725.00,1,retained
 109339,0.79,held_out_2026,475.00,1,upper,0.79,475.00,1,retained
 109405,0.89,refit_unseen,725.00,1,upper,0.89,725.00,1,retained
@@ -1092,7 +1092,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 2000035,0.08,refit_unseen,-1300.00,0,upper,0.08,-1300.00,0,not_selected
 2000102,0.82,refit_unseen,550.00,1,upper,0.82,550.00,1,retained
 2000648,0.13,refit_unseen,-1175.00,0,upper,0.13,-1175.00,0,not_selected
-20013,0.42,held_out_2026,-450.00,0,upper,0.42,-450.00,0,not_selected
+20013,0.42,held_out_2026,-450.00,1,upper,0.42,-450.00,1,retained
 2002191,0.96,held_out_2026,900.00,1,upper,0.96,900.00,1,retained
 2002448,0.3,refit_unseen,-750.00,0,upper,0.3,-750.00,0,not_selected
 2002551,0.3,refit_unseen,-750.00,0,upper,0.3,-750.00,0,not_selected
@@ -1104,11 +1104,11 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 2005662,0.94,refit_unseen,850.00,1,upper,0.94,850.00,1,retained
 2005760,0.17,refit_unseen,-1075.00,0,upper,0.17,-1075.00,0,not_selected
 2005775,0.88,refit_unseen,700.00,1,upper,0.88,700.00,1,retained
-2006331,1,held_out_2026,1000.00,1,upper,1,1000.00,1,retained
+2006331,1,held_out_2026,1000.00,0,upper,1,1000.00,0,not_selected
 2006802,0.96,refit_unseen,900.00,1,upper,0.96,900.00,1,retained
 2007063,0.02,held_out_2026,-1450.00,0,upper,0.02,-1450.00,0,not_selected
 2007244,0.93,refit_unseen,825.00,1,upper,0.93,825.00,1,retained
-2007481,0.33,held_out_2026,-675.00,0,upper,0.33,-675.00,0,not_selected
+2007481,0.33,held_out_2026,-675.00,1,upper,0.33,-675.00,1,retained
 2007563,0.88,held_out_2026,700.00,1,upper,0.88,700.00,1,retained
 2007584,0.67,refit_unseen,175.00,1,upper,0.67,175.00,1,retained
 2007654,0.03,refit_unseen,-1425.00,0,upper,0.03,-1425.00,0,not_selected
@@ -1141,7 +1141,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 23421,1,held_out_2026,1000.00,1,upper,1,1000.00,1,retained
 2343,0.97,held_out_2026,925.00,1,upper,0.97,925.00,1,retained
 23780,0.35,refit_unseen,-625.00,0,upper,0.35,-625.00,0,not_selected
-23781,0.98,held_out_2026,950.00,1,upper,0.98,950.00,1,retained
+23781,0.98,held_out_2026,950.00,0,upper,0.98,950.00,0,not_selected
 23801,0.79,refit_unseen,475.00,1,upper,0.79,475.00,1,retained
 23848,0.73,refit_unseen,325.00,1,upper,0.73,325.00,1,retained
 24052,0.88,refit_unseen,700.00,1,upper,0.88,700.00,1,retained
@@ -1174,7 +1174,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 27870,0.12,held_out_2026,-1200.00,0,upper,0.12,-1200.00,0,not_selected
 28196,0.96,held_out_2026,900.00,1,upper,0.96,900.00,1,retained
 28213,0.29,held_out_2026,-775.00,0,upper,0.29,-775.00,0,not_selected
-28340,0.41,held_out_2026,-475.00,0,upper,0.41,-475.00,0,not_selected
+28340,0.41,held_out_2026,-475.00,1,upper,0.41,-475.00,1,retained
 29823,0.79,refit_unseen,475.00,1,upper,0.79,475.00,1,retained
 29854,0.8,refit_unseen,500.00,1,upper,0.8,500.00,1,retained
 29865,0.76,refit_unseen,400.00,1,upper,0.76,400.00,1,retained
@@ -1188,7 +1188,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 30536,0.98,refit_unseen,950.00,1,upper,0.98,950.00,1,retained
 30887,0.87,refit_unseen,675.00,1,upper,0.87,675.00,1,retained
 30892,0.8,refit_unseen,500.00,1,upper,0.8,500.00,1,retained
-30967,0.43,held_out_2026,-425.00,0,upper,0.43,-425.00,0,not_selected
+30967,0.43,held_out_2026,-425.00,1,upper,0.43,-425.00,1,retained
 31056,1,held_out_2026,1000.00,1,upper,1,1000.00,1,retained
 31222,1,refit_unseen,1000.00,1,upper,1,1000.00,1,retained
 31274,0.28,refit_unseen,-800.00,0,upper,0.28,-800.00,0,not_selected
@@ -1316,14 +1316,14 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 66912,1,refit_unseen,1000.00,1,upper,1,1000.00,1,retained
 67144,0.85,refit_unseen,625.00,1,upper,0.85,625.00,1,retained
 68329,0.03,refit_unseen,-1425.00,0,upper,0.03,-1425.00,0,not_selected
-68672,1,held_out_2026,1000.00,1,upper,1,1000.00,1,retained
+68672,1,held_out_2026,1000.00,0,upper,1,1000.00,0,not_selected
 69063,0.76,refit_unseen,400.00,1,upper,0.76,400.00,1,retained
 69112,0.01,held_out_2026,-1475.00,0,upper,0.01,-1475.00,0,not_selected
 69660,0.93,held_out_2026,825.00,1,upper,0.93,825.00,1,retained
 71362,0.62,refit_unseen,50.00,1,upper,0.67,175.00,1,retained
 71368,0.95,held_out_2026,875.00,1,upper,0.95,875.00,1,retained
 71748,0.03,held_out_2026,-1425.00,0,upper,0.03,-1425.00,0,not_selected
-71884,0.95,held_out_2026,875.00,1,upper,0.95,875.00,1,retained
+71884,0.95,held_out_2026,875.00,0,upper,0.95,875.00,0,not_selected
 71889,0.96,refit_unseen,900.00,1,upper,0.96,900.00,1,retained
 72004,0.74,refit_unseen,350.00,1,upper,0.74,350.00,1,retained
 72082,0.55,refit_unseen,-125.00,0,upper,0.60,0.00,0,not_selected
@@ -1343,7 +1343,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 7695,0.74,refit_unseen,350.00,1,upper,0.74,350.00,1,retained
 77011,0.04,refit_unseen,-1400.00,0,upper,0.04,-1400.00,0,not_selected
 77021,0.98,held_out_2026,950.00,1,upper,0.98,950.00,1,retained
-77034,0.34,held_out_2026,-650.00,0,upper,0.34,-650.00,0,not_selected
+77034,0.34,held_out_2026,-650.00,1,upper,0.34,-650.00,1,retained
 7709,0.94,held_out_2026,850.00,1,upper,0.94,850.00,1,retained
 7711,0.74,refit_unseen,350.00,1,upper,0.74,350.00,1,retained
 77122,0.15,refit_unseen,-1125.00,0,upper,0.15,-1125.00,0,not_selected
@@ -1356,7 +1356,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 78017,0.85,refit_unseen,625.00,1,upper,0.85,625.00,1,retained
 78375,0.89,held_out_2026,725.00,1,upper,0.89,725.00,1,retained
 78921,0.91,refit_unseen,775.00,1,upper,0.91,775.00,1,retained
-79237,0.82,held_out_2026,550.00,1,upper,0.82,550.00,1,retained
+79237,0.82,held_out_2026,550.00,0,upper,0.82,550.00,0,not_selected
 79362,0.98,refit_unseen,950.00,1,upper,0.98,950.00,1,retained
 80020,0.11,refit_unseen,-1225.00,0,upper,0.11,-1225.00,0,not_selected
 80022,0.17,refit_unseen,-1075.00,0,upper,0.17,-1075.00,0,not_selected
@@ -1394,7 +1394,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 87281,0.15,refit_unseen,-1125.00,0,upper,0.15,-1125.00,0,not_selected
 8844,0.69,held_out_2026,225.00,1,upper,0.69,225.00,1,retained
 88618,0.94,refit_unseen,850.00,1,upper,0.94,850.00,1,retained
-8914,0.52,held_out_2026,-200.00,0,upper,0.52,-200.00,0,not_selected
+8914,0.52,held_out_2026,-200.00,1,upper,0.52,-200.00,1,retained
 8938,0.36,refit_unseen,-600.00,0,upper,0.36,-600.00,0,not_selected
 89413,0.89,refit_unseen,725.00,1,upper,0.89,725.00,1,retained
 8957,0.28,refit_unseen,-800.00,0,upper,0.28,-800.00,0,not_selected
@@ -1424,7 +1424,7 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 96235,0.05,refit_unseen,-1375.00,0,upper,0.05,-1375.00,0,not_selected
 96619,0.8,held_out_2026,500.00,1,upper,0.8,500.00,1,retained
 97141,0.26,refit_unseen,-850.00,0,upper,0.26,-850.00,0,not_selected
-97240,0.98,held_out_2026,950.00,1,upper,0.98,950.00,1,retained
+97240,0.98,held_out_2026,950.00,0,upper,0.98,950.00,0,not_selected
 97244,0.93,refit_unseen,825.00,1,upper,0.93,825.00,1,retained
 97278,0.81,refit_unseen,525.00,1,upper,0.81,525.00,1,retained
 97349,0,held_out_2026,-1500.00,0,upper,0,-1500.00,0,not_selected
@@ -1436,6 +1436,6 @@ store_id,p_success,score_source,base_net_eur,base_recommend_activate,scenario,sc
 98004,0.31,refit_unseen,-725.00,0,upper,0.31,-725.00,0,not_selected
 98018,0.34,refit_unseen,-650.00,0,upper,0.34,-650.00,0,not_selected
 98171,0.92,refit_unseen,800.00,1,upper,0.92,800.00,1,retained
-98235,0.84,held_out_2026,600.00,1,upper,0.84,600.00,1,retained
+98235,0.84,held_out_2026,600.00,0,upper,0.84,600.00,0,not_selected
 99157,0.51,refit_unseen,-225.00,0,upper,0.51,-225.00,0,not_selected
 99192,0.96,refit_unseen,900.00,1,upper,0.96,900.00,1,retained

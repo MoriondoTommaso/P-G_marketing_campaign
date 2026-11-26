@@ -129,4 +129,4 @@ economic criterion to a third family is a retrospective amendment. In the final 
 scores are used for the 170 historical stores and a forest refit on all 170 scores the 310. Every published score is
 the exact vote share (success votes ÷ 100), and a store is funded only with more than 60 of 100 votes, so a 60-vote
 tie is unfunded, as required above. The three models share the same X-Partitioner folds (identical settings and input);
-the hash-based ID folds and the input-order checks are not implemented in the class workflow and are tracked in #51.
+the hash-based ID folds, the input-order checks and the release gate are not implemented in the class workflow; the team deferred them on 26 Nov and documents the row-order limitation in [`final-workflow.md`](final-workflow.md#size-of-prize). Also on 26 Nov the team decided (decision B) that the 170 historical stores follow their observed 2026 outcome in the 2027 list, while expected euros keep the forest probabilities.

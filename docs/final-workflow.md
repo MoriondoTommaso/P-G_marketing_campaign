@@ -22,8 +22,8 @@ the Decision Tree stays as the simple one-rule benchmark and logistic regression
 | EDA | GroupBy medians success vs failure, Rule Engine region, Conditional Box Plot, Bar Chart, GroupBy by region | `eda-success-profile.csv`, `eda-region-success.csv`, two charts |
 | 2026 baseline | Variable Creator (€2,500 / €1,500), GroupBy, Math Formula | €270,000 sales, €255,000 spend, **€15,000 net** |
 | Compare 3 models | X-Partitioner (5 folds, stratified, seed 2026) → Learner → Predictor → X-Aggregator, same folds for all 3 | Scorer, ROC Curve, net € per model |
-| Business rule | Rule Engine: fund only if more than 60 of the 100 trees vote success (break-even 60%; a 60-vote tie is not funded) | Net € per store: +1,000 / −1,500 / 0 |
-| 2027 plan | Forest test-fold scores for the 170 activated stores; a final forest (same settings, all 170) scores the 310; Math Formula rounds every score to the exact vote share (votes ÷ 100) | `national-scores-class.csv` (480), `activation-list-class.csv` (276) |
+| Business rule | Rule Engine: a new store is funded only if more than 60 of the 100 trees vote success (break-even 60%; a 60-vote tie is not funded); the 170 stores activated in 2026 follow their real result (decision B) | Net € per store: +1,000 / −1,500 / 0 |
+| 2027 plan | Forest test-fold scores for the 170 activated stores; a final forest (same settings, all 170) scores the 310; Math Formula rounds every score to the exact vote share (votes ÷ 100); Rule Engine #94 funds the 108 stores that succeeded in 2026 and the new stores with more than 60 votes | `national-scores-class.csv` (480), `activation-list-class.csv` (276) |
 | Model charts (right of the comparison) | ROC of all three models, net € by model, forest variable importance, logistic coefficients, tree with and without pruning | See *Model comparison* |
 | Extra 2 (bottom row) | CSV Reader of OpenStreetMap counts, Joiner, Column Filter, a copy of the forest row | Forest + 3 OSM counts: €88,000 vs €90,500 without, so OSM is dropped ([`additional-data.md`](additional-data.md#osm-test-result-26-nov-2026)) |
 
@@ -98,27 +98,39 @@ stores, 8 of them successes: the kind of rule pruning removes to avoid overfitti
 |---|---:|---:|---:|
 | 2026 actual (all 170 activated) | 170 | €255,000 | €15,000 |
 | Same 170 stores with the forest (held-out, observed outcomes) | 108 | €162,000 | €90,500 (**+€75,500**) |
-| **2027 plan (forecast)** | **276** | **€414,000** | **€191,200** |
-| of which activated in 2026 | 108 | €162,000 | €86,475 |
+| **2027 plan (forecast, forest probabilities)** | **276** | **€414,000** | **€182,250** |
+| of which the 108 stores that succeeded in 2026 | 108 | €162,000 | €77,525 |
 | of which new stores | 168 | €252,000 | €104,725 |
+| 2027 plan, best case (every 2026 success repeats) | 276 | €414,000 | €212,725 |
 
-The 2027 figures are expected values (2,500 × p − 1,500 per funded store); the €90,500 backtest uses observed outcomes.
+The 2027 figures are expected values (2,500 × p − 1,500 per funded store, p = forest probability); the €90,500
+backtest uses observed outcomes. The realistic range for the plan is **€182,250 to €212,725**.
 
-Compared with the 2026 actual result, the plan forecasts **€176,200 more net**. Compared with repeating all 170
-historical stores in 2027 (forecast €13,275), it forecasts **€177,925 more net** and costs €159,000 more.
-At equal spend (€255,000, k = 170), targeting the top 170 stores forecasts **€131,675 more net** than repeating the
-original 170. By construction these are model-implied comparisons, not measured lift.
+Compared with the 2026 actual result, the plan forecasts **€167,250 more net**. Compared with repeating all 170
+historical stores in 2027 (forecast €13,275), it forecasts **€168,975 more net** and costs €159,000 more.
+At equal spend (€255,000, k = 170), targeting the top 170 stores forecasts **€130,100 more net** than repeating the
+original 170. These are model-implied comparisons, not measured lift.
 
-**Stress test** (scores in 55–65% moved by ±5 points): 272 stores and €190,850 (lower) to 284 stores and €192,150
-(upper); 4 stores drop out, 8 come in. Store-level detail in [`sensitivity-class.csv`](../outputs/sensitivity-class.csv);
-totals in [`financial-summary-class.csv`](../outputs/financial-summary-class.csv), both generated from this run by
-[`scripts/rf_finance_package.py`](../scripts/rf_finance_package.py). The [financial report](financial-report-class.html) ([PDF](financial-report-class.pdf)) uses the same figures.
+**Stress test** (new-store scores in 55–65% moved by ±5 points; repeat stores stay fixed): 272 stores and €181,900
+(lower) to 284 stores and €183,200 (upper); 4 stores drop out, 8 come in. Store-level detail in
+[`sensitivity-class.csv`](../outputs/sensitivity-class.csv); totals in
+[`financial-summary-class.csv`](../outputs/financial-summary-class.csv), both generated from this run by
+[`scripts/rf_finance_package.py`](../scripts/rf_finance_package.py). The [financial report](financial-report-class.html)
+([PDF](financial-report-class.pdf)) uses the same figures.
 
 Display buckets (they do not decide funding): High > 65% = 272, Marginal 55–65% = 18, Low < 55% = 190.
 
-**Known limitation.** The 170 activated stores are scored by the forest, not by their real 2026 result, so the plan
-re-funds 7 stores that failed in 2026 and leaves out 7 that succeeded. Using the observed outcome for those stores
-is a team decision pending in #51. The geographic-transfer and pilot caveats in [`model-choice.md`](model-choice.md) still apply.
+**Decision B (team, 26 Nov 2026, #51): the 170 stores activated in 2026 follow their real result.** All 108 that
+succeeded are in the plan and none of the 62 that failed. Before this decision the forest's score decided, which
+re-funded 7 stores that had failed (68672, 2006331, 23781, 97240, 71884, 98235, 79237) and left out 7 that had
+succeeded (2007481, 77034, 28340, 20013, 30967, 8914, 109086). On the real 2026 results the swap is worth +€17,500
+(7 failures avoided, 7 successes kept); the model-based forecast falls by €8,950 because the forest still rates the
+7 kept successes as risky (33–54%). The plan size and spend are unchanged.
+
+**Deferred engineering checks (team, 26 Nov 2026, #51).** Store-ID-based (hash) folds, the reversed-input proof and an
+automatic release gate with fault tests are not implemented: they cannot be built with the class nodes. Known limitation:
+results are exactly reproducible with the files as delivered; changing the row order of the input files can move a few
+scores by one vote. The geographic-transfer and pilot caveats in [`model-choice.md`](model-choice.md) still apply.
 
 ## Amendment: the 5 model features
 
