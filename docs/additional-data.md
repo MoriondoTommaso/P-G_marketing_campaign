@@ -54,7 +54,7 @@ Licences were checked on 24 Nov 2026 on the publisher pages linked below. Rechec
 | 1 | **NielsenIQ / Circana store sales panel** (#7) | Unlock if P&G already licenses it; otherwise paid, price on quote | G4 (G3 only indirectly) | Past oral care sales per store, the most direct sign of whether a store responds. **Get first** (below). |
 | 2 | **P&G's 2026 store selection criteria** (#12) | Free, internal | G7 | Explains how the 170 were picked, so we know whether they represent the 310. Costs one request. |
 | 3 | **P&G store audits / retail execution data** (#10) | Internal. Staff time and access. | G4, G6 (speculative) | Store format, shelf share, competing brands on shelf, displays and out-of-stocks per store. Whether it explains the water-hardness signal is speculation: hardness may just stand in for geography. |
-| 4 | **OpenStreetMap dentists, schools and competing outlets** (#4) | Free, ODbL | G1, G2, G4 (competing outlets) | **Tested 26 Nov: no gain, dropped.** Dentists and drugstores are too thin in OSM (74% and 72% of stores show none within 1 km), so only pharmacies, schools and supermarkets went into the test, and the tree's net stayed at €88,000. |
+| 4 | **OpenStreetMap dentists, schools and competing outlets** (#4) | Free, ODbL | G1, G2, G4 (competing outlets) | **Tested 26 Nov: no gain, dropped.** Dentists and drugstores are too thin in OSM (74% and 72% of stores show none within 1 km), so only pharmacies, schools and supermarkets went into the test. With the chosen forest, net fell from €90,500 to €88,000 (tree: €88,000 either way). |
 | 5 | **MEF income by municipality** (#3) | Free, CC BY 3.0 IT | G5 | Yearly, dated municipality income. Tests whether income matters once north/south is accounted for. Needs the ISTAT boundaries (#11) to link. |
 
 **Get first: store-level sales history from the retail panel (NielsenIQ or Circana). Unlock it if P&G already licenses the panel; buy it only if not.** The business reason: a store's past oral care sales are the most direct sign of whether it will respond to a campaign, and today we have no store data at all, only area census traits. The safeguard: every sales value has a date, so we can keep only weeks before the 2026 activation as predictors. That protects the new data against the leakage question raised in PR #32. It does **not** date the five workbook fields we already use: Team 2's request to the data provider still stands. Before signing, get a free sample for our 480 stores and check coverage (see "Before buying"). The selection criteria, the P&G audits and the two free sources should be requested in parallel, because they cost little.
@@ -96,12 +96,16 @@ Counting only avoided failures, a quote of €1,500 × N needs N fewer failed ac
 
 **Interactive version:** open [`extra2/data-value.html`](../extra2/data-value.html) in a browser (download the file first): store map with the OSM layers, the test, the 16 stores the tree misses and a payback calculator.
 
-**OpenStreetMap is dropped: it did not change a single funding decision.** Built in the final workflow ([`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf), bottom row, nodes #107–#118), following the steps below.
+**OpenStreetMap is dropped: it does not improve funding decisions.** Built in the final workflow ([`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf), bottom row, nodes #107–#123), following the steps below. First run on the tree; re-run on the chosen forest on 26 Nov (#51).
 
 | | Funded successes | Funded failures | Missed successes | Avoided failures | AUC | Net € on the 170 |
 |---|---:|---:|---:|---:|---:|---:|
 | Tree, 5 store traits | 100 | 8 | 8 | 54 | 0.864 | €88,000 |
 | Tree + 3 OSM counts | 100 | 8 | 8 | 54 | 0.864 | €88,000 |
+| **Forest (chosen), 5 store traits** | 101 | 7 | 7 | 55 | 0.926 | **€90,500** |
+| Forest + 3 OSM counts | 100 | 8 | 8 | 54 | 0.932 | €88,000 |
+
+With OSM the forest ranks stores slightly better (AUC 0.932 vs 0.926) but makes one more funding mistake on each side, so it earns €2,500 less. The keep rule looks at net €, so OSM is dropped.
 
 - **Columns decided before the test:** only the three types the coverage check found usable (pharmacies, schools and supermarkets within 1 km). Dentists and drugstores were left out because most stores show zero, which usually means "not mapped" ([`extra2/README.md`](../extra2/README.md)).
 - **Same folds:** the OSM counts are joined on store code with the Joiner's row order set to *Input order*, then sent through a copy of the tree's own X-Partitioner (5 folds, stratified, seed 2026), Learner, Predictor, X-Aggregator, 60% rule and Scorer.
@@ -110,7 +114,7 @@ Counting only avoided failures, a quote of €1,500 × N needs N fewer failed ac
 
 ### Where the remaining value is (26 Nov 2026)
 
-**The tree already earns 81% of the most any model could earn on the 2026 stores: €88,000 of €108,000.** A perfect model would fund the 108 successes and skip the 62 failures. The remaining €20,000 sits in 16 stores, the tree's errors at its 60% rule (split: distance from a dentist ≤ 56.07):
+**The chosen forest earns 84% of the most any model could earn on the 2026 stores (€90,500 of €108,000; 14 errors). The analysis below and the dashboard were built on the tree benchmark (81%, 16 errors) and are kept as they are.** A perfect model would fund the 108 successes and skip the 62 failures. The remaining €20,000 sits in 16 stores, the tree's errors at its 60% rule (split: distance from a dentist ≤ 56.07):
 
 | Group | Stores | Value lost | Profile (medians, vs the stores the tree gets right on the same side) |
 |---|---:|---:|---|
@@ -125,7 +129,7 @@ Income and schools are already model inputs, but 8 stores are fewer than the tre
 - **Against:** outcomes are strongly local. Of the 47 activated stores with another activated store within 1 km, 96% share its result, so most of the signal is area-level and the tree already captures it. The closest proxy for sales we have, `Online Consumption IYA` (excluded from the model for possible leakage), does not separate the error stores either (median 221.5 for missed successes vs 237 for the failures the tree skips).
 - **So:** our data cannot say how much a paid source would gain, so we do not simulate one. Ask for P&G's internal data first (retailer, field team, 2026 selection criteria), which is free and could explain the North-East pocket, then test a free sample of the sales panel on our stores before buying. A 2027 pilot that includes northern stores in wealthier areas with many schools would add the labels the tree lacks. Groups of 8 are small: read these profiles as leads, not proof.
 
-**The most new data could add in 2027.** Using the model's own probabilities, the 287 funded stores carry about 21 expected failures (€31,708 at €1,500 each) and the 193 skipped stores about 25 expected successes (€24,825 at €1,000 each). Even perfect information is worth at most about €56,500 per campaign, so a data source priced above that cannot pay back in one year (break-even rule above).
+**The most new data could add in 2027.** Using the chosen forest's own probabilities, the 276 funded stores carry about 34 expected failures (€50,880 at €1,500 each) and the 204 skipped stores about 45 expected successes (€45,140 at €1,000 each). Even perfect information is worth at most about €96,000 per campaign, so a data source priced above that cannot pay back in one year (break-even rule above). (With the tree benchmark the same ceiling was about €56,500: the forest's probabilities are less extreme, so more value sits near the threshold.)
 
 ### The test for any new source
 
@@ -133,7 +137,7 @@ The test is the same for any new source. We compare the **expected net €** wit
 
 **Every fold result is retrospective.** The same 5 folds already compared and selected the tree ([`model-review/pilot.md`](model-review/pilot.md)), so a gain on them may overstate the gain on new stores. Label every number from this test "retrospective (2026 activated stores)". Only fresh stores, such as the bounded pilot, give a prospective answer.
 
-1. **Freeze the reference.** Take the chosen tree in the final workflow exactly as it is: its X-Partitioner (5 folds, stratified, seed 2026) and learner settings ([`final-workflow.md`](final-workflow.md)). Record its pooled held-out net € (€88,000) and the net in each fold. This is the **without** result.
+1. **Freeze the reference.** Take the chosen forest in the final workflow exactly as it is: its X-Partitioner (5 folds, stratified, seed 2026) and learner settings ([`final-workflow.md`](final-workflow.md)). Record its pooled held-out net € (€90,500) and the net in each fold. This is the **without** result.
 2. **Add the new data.** Join the new variables to `store-universe.csv` by `store_id`, using the link method in the longlist. Do not use anything from the activation file. Decide which new columns to add **before** looking at any results, and write them down.
    **Measurement dates are required.** For every new column, record its measurement or reference date and confirm it was available before the 2026 activation. Drop any column without a date, or measured during or after the campaign: it could leak the outcome (see PR #32).
 3. **Prepare inside the folds.** Fill missing values and scale the new columns inside each training fold only, exactly as for the existing traits (Team 3's fold-local preparation). Stores the new source does not cover stay missing and are filled inside the fold. Record how many stores are missing per fold.

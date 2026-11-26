@@ -1,9 +1,10 @@
-# Final submitted KNIME workflow (25 Nov 2026)
+# Final submitted KNIME workflow (updated 26 Nov 2026: Random Forest release)
 
 **The workflow to submit on MyLuiss is [`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf).**
-It rebuilds the modelling part with the nodes taught in class (week 2 and week 5) and was agreed with Tommaso
-on 25 Nov 2026. `workflows/oral-b-italy.knwf` (RC3) stays in the repo as the earlier team pipeline and is not
-the submission.
+It rebuilds the modelling part with the nodes taught in class (week 2 and week 5). Since 26 Nov 2026 the
+**Random Forest scores and selects the stores** (team decision, [issue #51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51));
+the Decision Tree stays as the simple one-rule benchmark and logistic regression as a cross-check.
+`workflows/oral-b-italy.knwf` (RC3) stays in the repo as the earlier team pipeline and is not the submission.
 
 ## How to open it
 
@@ -21,11 +22,12 @@ the submission.
 | EDA | GroupBy medians success vs failure, Rule Engine region, Conditional Box Plot, Bar Chart, GroupBy by region | `eda-success-profile.csv`, `eda-region-success.csv`, two charts |
 | 2026 baseline | Variable Creator (€2,500 / €1,500), GroupBy, Math Formula | €270,000 sales, €255,000 spend, **€15,000 net** |
 | Compare 3 models | X-Partitioner (5 folds, stratified, seed 2026) → Learner → Predictor → X-Aggregator, same folds for all 3 | Scorer, ROC Curve, net € per model |
-| Business rule | Rule Engine: fund only if p > 60% (break-even) | Net € per store: +1,000 / −1,500 / 0 |
-| 2027 plan | Final tree refit on all 170, scores the 310; held-out scores kept for the 170 | `national-scores-class.csv` (480), `activation-list-class.csv` (287) |
-| Extra 2 (bottom row) | CSV Reader of OpenStreetMap counts, Joiner, Column Filter, a copy of the tree row | Tree + 3 OSM counts: €88,000, same as without, so OSM is dropped ([`additional-data.md`](additional-data.md#osm-test-result-26-nov-2026)) |
+| Business rule | Rule Engine: fund only if more than 60 of the 100 trees vote success (break-even 60%; a 60-vote tie is not funded) | Net € per store: +1,000 / −1,500 / 0 |
+| 2027 plan | Forest test-fold scores for the 170 activated stores; a final forest (same settings, all 170) scores the 310; Math Formula rounds every score to the exact vote share (votes ÷ 100) | `national-scores-class.csv` (480), `activation-list-class.csv` (276) |
+| Model charts (right of the comparison) | ROC of all three models, net € by model, forest variable importance, logistic coefficients, tree with and without pruning | See *Model comparison* |
+| Extra 2 (bottom row) | CSV Reader of OpenStreetMap counts, Joiner, Column Filter, a copy of the forest row | Forest + 3 OSM counts: €88,000 vs €90,500 without, so OSM is dropped ([`additional-data.md`](additional-data.md#osm-test-result-26-nov-2026)) |
 
-Every one of the 109 nodes has a plain-language comment.
+Every one of the 130 nodes has a plain-language comment.
 
 ## EDA findings (170 activated stores)
 
@@ -68,33 +70,56 @@ with separation scores, is in [`store-insights.md`](store-insights.md); its medi
 
 | Model | Accuracy | Precision | Sensitivity | F1 | AUC | Net € |
 |---|---:|---:|---:|---:|---:|---:|
-| Random Forest (100 trees) | 91.8% | 93.5% | 93.5% | 93.5% | 0.926 | €90,500 |
-| **Decision Tree (chosen)** | 90.6% | 92.6% | 92.6% | 92.6% | 0.864 | **€88,000** |
-| Logistic Regression | 89.4% | 90.9% | 92.6% | 91.7% | 0.912 | €85,000 |
+| **Random Forest, 100 trees (chosen)** | 91.8% | 93.5% | 93.5% | 93.5% | 0.926 | **€90,500** |
+| Decision Tree (benchmark) | 90.6% | 92.6% | 92.6% | 92.6% | 0.864 | €88,000 |
+| Logistic Regression (cross-check) | 89.4% | 90.9% | 92.6% | 91.7% | 0.912 | €85,000 |
 | Activate all (2026) | 63.5% | 63.5% | 100% | 77.7% | 0.5 | €15,000 |
 
-**Choice: Decision Tree (team decision with Tommaso).** It is €2,500 below the forest, one store out of 170,
-and it is the easiest to explain: one rule a manager can read. Its one rule: distance from a dentist
-≤ 56.07 → 100 of 108 stores succeeded; > 56.07 → 54 of 62 failed. Confusion matrix at 60%: 100 funded
-successes, 8 funded failures, 8 missed successes, 54 avoided failures.
+**Choice: Random Forest (team decision, 26 Nov 2026, [#51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51)).**
+On the 170 held-out stores it earns the most (€90,500) and ranks stores best (AUC 0.926). Confusion matrix at the
+vote rule: 101 funded successes, 7 funded failures, 7 missed successes, 55 avoided failures. Its gain over the
+tree is modest (€2,500) and the tree wins in Tommaso's harder geographic tests
+([`model-review/model-selection-2026-11-26.md`](model-review/model-selection-2026-11-26.md)), so the list is a
+**bounded pilot plan**, not proven national profitability.
+
+**What the forest relies on** (chart #127, splits ÷ candidates over the top 3 levels of the 100 trees): distance from
+a dentist 2.17, water hardness 1.51, schools 1.37, income 0.95, population 0.69. The logistic cross-check (chart #131,
+standardised, + = higher odds of success) agrees: distance from a dentist −2.61, schools +1.59. These are associations,
+not causes.
+
+**Tree benchmark, with and without pruning** (#87 and #141). With MDL pruning the tree keeps one rule: distance from a
+dentist ≤ 56.07 → 100 of 108 succeeded; > 56.07 → 54 of 62 failed. Without pruning it grows 7 leaves, but most extra
+splits do not change any decision, and the one that does (far from a dentist but more than 5.5 schools) rests on 13
+stores, 8 of them successes: the kind of rule pruning removes to avoid overfitting.
 
 ## Size of Prize
 
-| Scope | Net € |
-|---|---:|
-| 2026 actual (all 170 activated) | €15,000 |
-| Same 170 stores with the model (held-out) | €88,000 (**+€73,000**) |
-| 2027 plan, 287 stores, €430,500 spend (forecast) | €234,153.75 |
+| Scope | Stores | Spend | Net € |
+|---|---:|---:|---:|
+| 2026 actual (all 170 activated) | 170 | €255,000 | €15,000 |
+| Same 170 stores with the forest (held-out, observed outcomes) | 108 | €162,000 | €90,500 (**+€75,500**) |
+| **2027 plan (forecast)** | **276** | **€414,000** | **€191,200** |
+| of which activated in 2026 | 108 | €162,000 | €86,475 |
+| of which new stores | 168 | €252,000 | €104,725 |
 
-The 2027 forecast includes €88,301.90 from 108 repeat stores and €145,851.85 from 179 new stores.
-Both are expected values. The separate €88,000 backtest uses the observed outcomes of the 108 historical stores the tree would have funded.
+The 2027 figures are expected values (2,500 × p − 1,500 per funded store); the €90,500 backtest uses observed outcomes.
 
-Compared with repeating all 170 historical stores in 2027, the 287-store plan forecasts **€219,048.27 more net** and costs €175,500 more.
-At equal spend (€255,000 per plan), targeting the top 170 stores forecasts **€125,200.77 more net** than repeating the original 170.
-See the [financial report (PDF)](financial-report-class.pdf), [editable source](financial-report-class.html), and [unrounded financial summary (CSV)](../outputs/financial-summary-class.csv).
+Compared with the 2026 actual result, the plan forecasts **€176,200 more net**. Compared with repeating all 170
+historical stores in 2027 (forecast €13,275), it forecasts **€177,925 more net** and costs €159,000 more.
+At equal spend (€255,000, k = 170), targeting the top 170 stores forecasts **€131,675 more net** than repeating the
+original 170. By construction these are model-implied comparisons, not measured lift.
 
-Propensity buckets: High > 65% = 287, Marginal 55–65% = 0, Low ≤ 55% = 193.
-The geographic-transfer and pilot caveats in [`model-choice.md`](model-choice.md) still apply.
+**Stress test** (scores in 55–65% moved by ±5 points): 272 stores and €190,850 (lower) to 284 stores and €192,150
+(upper); 4 stores drop out, 8 come in. Store-level detail in [`sensitivity-class.csv`](../outputs/sensitivity-class.csv);
+totals in [`financial-summary-class.csv`](../outputs/financial-summary-class.csv), both generated from this run by
+[`scripts/rf_finance_package.py`](../scripts/rf_finance_package.py). The [financial report](financial-report-class.html)
+still shows the tree figures until Team 3/4 refresh it.
+
+Display buckets (they do not decide funding): High > 65% = 272, Marginal 55–65% = 18, Low < 55% = 190.
+
+**Known limitation.** The 170 activated stores are scored by the forest, not by their real 2026 result, so the plan
+re-funds 7 stores that failed in 2026 and leaves out 7 that succeeded. Using the observed outcome for those stores
+is a team decision pending in #51. The geographic-transfer and pilot caveats in [`model-choice.md`](model-choice.md) still apply.
 
 ## Amendment: the 5 model features
 
@@ -125,3 +150,5 @@ and reaches the same net. The dentist distance carries the model whichever set i
 **Q&A answer:** "We checked: if we give the tree all 32 store traits, it picks distance from a dentist by itself
 and earns the same profit. The result hardly changes with our choice of features."
 **Do not say** the 5 features were fixed beforehand: they were not.
+
+The robustness check above was run on trees. The chosen forest uses the same 5 features.
