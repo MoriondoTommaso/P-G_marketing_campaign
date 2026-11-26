@@ -1,5 +1,7 @@
 # Decision after the independent review
 
+> **Historical RC3 tree pilot.** For the confirmed 2027 policy use [Decision B](../final-model-decision.md) and the [current finance report and pilot instructions](../financial-report-class.html). The tree counts, leaf probabilities and stress tests below apply only to RC3.
+
 **Authorize pilot design only.** The 278 stores are a model-implied planning scenario. Their €417,000 spend and €250,602.05 conditional case net are not a pilot budget, measured lift, or accounting profit. Only the 2026 outcomes are observed. Even the equal-spend comparison ranks and values both lists with the same scores.
 
 ### What could move the decision?

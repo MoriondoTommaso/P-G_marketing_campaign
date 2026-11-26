@@ -35,6 +35,8 @@ The project uses KNIME Analytics Platform, Excel datasets, statistical analysis,
 
 ## Documentation
 
+- [Confirmed 2027 funding policy: Decision B](docs/final-model-decision.md)
+
 - [Project Roadmap](ROADMAP.md)
 - [Final KNIME workflow (submission)](docs/final-workflow.md)
 - [Project Specification](docs/SPEC.md)

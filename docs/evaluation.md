@@ -1,5 +1,7 @@
 # T02 — Evaluation protocol for the 2027 funding decision
 
+**Reading this protocol:** the original all-store threshold below remains the historical model-comparison rule. The [confirmed Decision B amendment](final-model-decision.md) governs the 2027 activation list, stress flags and financial review.
+
 Freeze this protocol before fitting. It governs T08–T12 and provides the decision arithmetic for Teams 2 and 4. Its settings were selected before inspecting model outputs. [Task acceptance](../tasks/todo.md#t02--define-the-held-out-funding-test-before-fitting) · [Project specification](SPEC.md#model-validation-and-testing-strategy)
 
 **Team 1 status: complete and ready for implementation handoff.** Team 3 can configure the workflow from this protocol and run it with the verified T06 snapshot. Team receipt is a handoff record.
@@ -127,6 +129,6 @@ The team selected the five-feature Random Forest (100 trees, Gini, seed 2026, ha
 ([issue #51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51)). The forest was not one of the two candidates in this protocol, so extending the
 economic criterion to a third family is a retrospective amendment. In the final workflow the forest's test-fold
 scores are used for the 170 historical stores and a forest refit on all 170 scores the 310. Every published score is
-the exact vote share (success votes ÷ 100), and a store is funded only with more than 60 of 100 votes, so a 60-vote
-tie is unfunded, as required above. The three models share the same X-Partitioner folds (identical settings and input);
-the hash-based ID folds, the input-order checks and the release gate are not implemented in the class workflow; the team deferred them on 26 Nov and documents the row-order limitation in [`final-workflow.md`](final-workflow.md#size-of-prize). Also on 26 Nov the team decided (decision B) that the 170 historical stores follow their observed 2026 outcome in the 2027 list, while expected euros keep the forest probabilities.
+the exact vote share (success votes ÷ 100). **Decision B:** fund a previously unactivated store with 61–100 success votes; fund a historical store if and only if its 2026 activation succeeded. A 60-vote tie is unfunded for a new store. For all 480, expected euros use the forest probability. In stress scenarios historical membership remains fixed even if its expected value changes.
+
+The three models use X-Partitioners with identical settings and input. The hash-based ID folds, input-order checks and release gate are not implemented in the class workflow; see the [workflow limitations](final-workflow.md#size-of-prize) and the separate verification tasks [#52](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/52) and [#53](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/53).

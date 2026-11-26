@@ -2,6 +2,8 @@
 
 **Status: draft for explicit approval.** Audience: P&G marketing managers. Planning outputs: this specification and [the roadmap](../ROADMAP.md). This planning pass produces documentation only.
 
+**Funding-policy amendment, 26 Nov 2026:** [Decision B](final-model-decision.md) is confirmed for the 2027 planning list. The historical model comparison still uses held-out predictions and the break-even threshold; the 2027 list uses the two cohort rules below.
+
 ## Objective and required deliverables
 
 Recommend which Italian stores should receive the 2027 campaign, how many to fund, what the investment is expected to return versus 2026, and how to speak to shoppers in those stores. The decision is about incremental sales after campaign costs; classification accuracy alone cannot answer it.
@@ -37,8 +39,8 @@ Use the code first. Of the 152 code matches, 38 lack one or both activation coor
 | Decision | Proposed rule |
 |---|---|
 | Historical benchmark | 2026 realized incremental sales = 108 × €2,500 = **€270,000**; spend = 170 × €1,500 = **€255,000**; net campaign value = **€15,000**. Use all 170 linked outcomes. |
-| Eligibility and budget | Assume all 480 national stores are eligible, including repeat activations, and no binding budget or retailer quota. If a cap is supplied, rank positive-value stores and fund only those that fit. |
-| Funding rule | For estimated success probability *p*, expected store value = €2,500 × *p* − €1,500. Select only stores with *p* **above 60%**, using unrounded probabilities. At 60% the store breaks even; exclude ties. Zero stores is an admissible result. |
+| Eligibility and budget | Score all 480 national stores; the base case has no binding budget or retailer quota. For the equal-spend comparison, rank stores within the Decision B list by forecast probability. |
+| Funding rule | Repeat a historical activation **if and only if it succeeded in 2026**. For a previously unactivated store, require **61–100 forest success votes**; 60 votes is unfunded. For both cohorts, expected value = €2,500 × forest probability − €1,500. |
 | Size of Prize | Show expected 2027 sales, spend and net value separately. Report expected optimized net value minus the **€15,000 realized in 2026**, explicitly labeled forecast versus history. Also estimate the value of repeating the 170-store list under the same forecasting assumptions; compare it with the optimized list to isolate the change in targeting and scale. Show a same-spend comparison if scale accounts for much of the difference. |
 | Interpretation | Assume the 2026 relationships and case economics are informative for 2027. Only selected stores were activated in 2026. Predicted success is conditional on activation; these data do not independently identify causal effects, individual preferences or a percentage-point gain in brand share. |
 
@@ -49,7 +51,7 @@ Use the code first. Of the 152 code matches, 38 lack one or both activation coor
 3. **Test the funding decision.** For each held-out store, record its probability and the net value that would have resulted from applying the 60% rule. Report selected count and realized net value against activating all or none on the same held-out stores. Check probability calibration near 60%, Brier score (mean squared probability error), and variation across folds. If model choices are tuned, tune inside training folds. Treat comparisons used to choose the winner as estimates, not independent proof.
 4. **Check generalization.** Compare results when nearby stores are held out together, where sample sizes allow. Report how the list changes when predicted probabilities near break-even move up or down by five percentage points. This is a sensitivity scenario, not a confidence interval. Prefer a simpler model if added complexity provides no credible decision benefit.
 5. **Produce the list.** Refit the chosen model on the labeled sample for scoring previously unseen stores. For the 170 previously activated stores, use held-out probabilities for the planning estimate so a store's own outcome does not determine its forecast. Use the same store-level estimates for the repeat-list comparator. Document these score sources. Export one score per national code and a filtered activation list. If validation does not support expansion, state that and recommend a bounded pilot rather than promising a gain.
-6. **Verify independently.** A second pair recomputes spend, sales, net value and Size of Prize from the exported list. Check that 59%, 60% and 61% imply respectively −€25, €0 and +€25 per store, and that only 61% is selected. Reopen the exported workflow in a fresh workspace and reproduce the counts, selected IDs and financial totals.
+6. **Verify independently.** A second pair reconstructs the expected ID set from the historical labels and new-store votes, then recomputes spend, sales, net value and Size of Prize. At 59, 60 and 61 votes, per-store expected net is −€25, €0 and +€25; only the 61-vote **new** store qualifies. For repeats, test a below-threshold prior success and an above-threshold prior failure. Reopen the exported workflow in a fresh workspace and reproduce the counts, IDs and totals.
 
 ## Marketing evidence standard
 

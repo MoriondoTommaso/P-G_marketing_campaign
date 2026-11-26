@@ -2,7 +2,7 @@
 
 **The workflow to submit on MyLuiss is [`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf).**
 It rebuilds the modelling part with the nodes taught in class (week 2 and week 5). Since 26 Nov 2026 the
-**Random Forest scores and selects the stores** (team decision, [issue #51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51));
+**Random Forest scores every store.** Under [confirmed Decision B](final-model-decision.md), the 2026 result selects repeats and forest votes select new stores;
 the Decision Tree stays as the simple one-rule benchmark and logistic regression as a cross-check.
 `workflows/oral-b-italy.knwf` (RC3) stays in the repo as the earlier team pipeline and is not the submission.
 
@@ -80,7 +80,7 @@ with separation scores, is in [`store-insights.md`](store-insights.md); its medi
 On the 170 held-out stores it earns the most (€90,500) and ranks stores best (AUC 0.926). Confusion matrix at the
 vote rule: 101 funded successes, 7 funded failures, 7 missed successes, 55 avoided failures. Its gain over the
 tree is modest (€2,500) and the tree wins in Tommaso's harder geographic tests
-([`model-review/model-selection-2026-11-26.md`](model-review/model-selection-2026-11-26.md)), so the list is a
+([independent geographic comparison](https://github.com/MoriondoTommaso/P-G_marketing_campaign/blob/0e35db52845d135ae86a7ca39b9c5f38b6d3797f/docs/model-review/model-selection-2026-11-26.md)), so the list is a
 **bounded pilot plan**, not proven national profitability.
 
 **What the forest relies on** (chart #127, splits ÷ candidates over the top 3 levels of the 100 trees): distance from

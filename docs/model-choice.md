@@ -1,6 +1,6 @@
 # T10 — choosing a model for the funding decision
 
-> **Update, 26 Nov 2026:** the team now submits the **Random Forest** as the store-selection model ([issue #51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51)); the tree stays as the one-rule benchmark. Numbers and the release are in [`final-workflow.md`](final-workflow.md). The notes below are kept for provenance.
+> **Confirmed, 26 Nov 2026:** the **Random Forest** scores all stores. Under [Decision B](final-model-decision.md), repeat stores follow their observed 2026 outcome and new stores need at least 61 success votes. The tree stays as the one-rule benchmark. See the [current workflow](final-workflow.md); the tree decisions below are historical.
 
 > **Final submission, 25 Nov 2026:** the submitted workflow is [`oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf), summarised in [`final-workflow.md`](final-workflow.md). It also chooses the tree (€88,000 on the 170 held-out stores) and adds a Random Forest (€90,500). The figures below are from RC3; the geographic and pilot caveats still apply.
 
