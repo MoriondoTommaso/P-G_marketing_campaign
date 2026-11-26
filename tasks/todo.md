@@ -1,5 +1,10 @@
 # Oral-B Italy delivery ledger
 
+## EX3-42 — Correct the Italian power-toothbrush creator shortlist
+- [ ] IN PROGRESS · Team 1 → Team 4 · [#42](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/42)
+- **Accept:** Trace the Italian trend and comparable creator metrics to dated sources, justify the lead, and supply slide 10 copy with a timed campaign KPI. Link roster and slide; record a second reader’s check.
+- **Evidence:** [Corrected roster](../outputs/Roaster_Influencers.pdf) · [editable source](../docs/influencer-roster.html). `python3 -B validation/extra3/test_roster.py` failed on the old 397k denominator and passed on the corrected export.
+
 Each issue has one owning two-person team; T01 records the names. Start as soon as all listed dependencies pass. Consecutive numbers denote ownership, not a requirement to finish the entire preceding block. See [team handoffs and checkpoints](plan.md).
 
 ## T01 — Record the team, environment and input fingerprints
