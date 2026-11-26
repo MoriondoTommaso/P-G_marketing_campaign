@@ -1,41 +1,19 @@
-# Storyboard: Oral-B Italy 2027 store activation
+# Oral-B Italy 2027: management presentation storyboard
 
-Rough outline for the 10-minute management deck on the 2027 Oral-B **toothpaste** in-store campaign in Italy (T04 / #4). Team 4 owns the final deck (T16). This outline reserves space; it does not fix the wording.
+**Opening line:** “We recommend repeating 108 proven stores and testing 168 new ones. We’re asking for a pilot, not a €414,000 rollout.”
 
-**Limits:** at most **10 content slides**, including the extras, plus **one separate contributions appendix**. Every number on a slide must come from the KNIME workflow or its exports. Label each figure as **history (2026)** or **forecast (2027)**.
+Ten content slides, **9:00 speaking time**, plus a contributions appendix. Use **2026 actual**, **historical backtest**, or **2027 forecast** in each chart title. [Decision brief and figures](../docs/final-model-decision.md) · [Speaker notes and Q&A](speaker-notes.md).
 
-**Policy for the deck:** [Decision B](../docs/final-model-decision.md) is confirmed. The planning figures below are from candidate `7fc7ff8`; Team 4 must check them against the independently signed package before exporting the final deck (#53).
-
-Each slide title is an action title: a full sentence that states the conclusion. `[TBD]` marks a number that Team 3 or Team 4 fills in from KNIME.
-
-| # | Working action title | What goes on the slide | Source | Owner | Time |
-|---|---|---|---|---|---|
-| 1 | Test Decision B in a bounded geographic pilot | **Forecast:** 108 repeats + 168 new stores, €414,000 spend and €182,250 expected net. Seek approval for a capped test against current practice at equal spend. | `outputs/financial-summary-class.csv`, `docs/final-model-decision.md` | Team 4 | 1:00 |
-| 2 | 2026 returned €15,000 net: 108 of 170 activations paid off | **History.** 170 activated, 108 successful (64%), €270,000 sales, €255,000 spend, €15,000 net. A store pays only when its success chance is above 60%: 59% → −€25, 60% → €0, 61% → +€25. | `outputs/baseline-2026.csv`, `outputs/finance-qa.xlsx` | Team 2 | 1:00 |
-| 3 | Repeat past successes; use forest votes for new stores | **Historical model comparison:** forest €90,500 held-out net, tree €88,000, logistic €85,000. **2027 rule:** repeat a store only after a 2026 success; for new stores require 61 of 100 success votes or more. Forest probabilities value both cohorts. | `docs/final-workflow.md`, `docs/evaluation.md` | Team 3 | 1:00 |
-| 4 | **Comparator A: Optimised list vs. repeating the 2026 list** | **Forecast.** Expected 2027 sales, spend and net for (a) the optimised list and (b) repeating the same 170 stores, under the same forecasting assumptions. Difference isolates targeting and scale. Also show optimised net minus the €15,000 realised in 2026, labelled forecast vs. history. | Size of Prize export (T12) | Team 3 | 1:00 |
-| 5 | **Comparator B: Same-spend comparison** | **Forecast.** Equal budgets remove the scale difference. Both lists are ranked and valued using model scores; the difference is not independent evidence of targeting lift. | Size of Prize export (T12) | Team 3 | 0:45 |
-| 6 | 2026 successes sat close to dentists, but most unscored stores sit where we have little evidence | Store traits that separate success from failure (direction, group sizes, explanations labelled as hypotheses). Map or table: activated vs. never-activated stores by region, showing that most never-activated stores are in the centre and south, where only 9 activations failed. | `outputs/store-profiles.csv`, `docs/store-insights.md` | Team 2 | 1:00 |
-| 7 | **Shopper actions**: what to do in the selected stores | 2–3 in-store actions tied to the profiles of the selected stores. Each action traced to a profile count and a source; inferred needs labelled as hypotheses. | `docs/shopper-actions.md`, `docs/shopper-evidence.md` | Team 4 | 1:00 |
-| 8 | Test whether the policy transfers to new locations | Compare Decision B with current practice at equal spend within region and repeat/new cohorts. Show why uncertainty matters: cutting each funded-store probability by 30 percentage points (floor zero) changes forecast net to −€24,750 at fixed spend. This is a scenario, not a confidence interval. | `docs/financial-report-class.pdf`, `docs/final-workflow.md` | Team 3 + Team 2 | 1:00 |
-| 9 | Extra 2: Buy [source] first to fill [gap] | One slide: 3–4 candidate data sources (free and paid), the gap each fills, and how we would test it on the same 5 folds. No untested improvement claims. | `docs/additional-data.md` | Team 2 | 0:45 |
-| 10 | Extra 3: Federica leads; Extra 5: GenAI shopper experience | Half a slide each. Show @federica.scagnetti’s #SorrisoSbloccato routine ahead of the November search peak; 14 days of attributed iO orders / tagged landing sessions before a second creator. | [Creator roster and evidence](../docs/influencer-roster.pdf); Team 3 GenAI experience | Teams 1 and 3 | 0:30 |
-| A | **Appendix: Who did what** | One row per person (8 people), taken from the verified contribution logs. Not counted in the 10 content slides. | `docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md` | Team 4 | n/a |
-
-**Total content time:** about 9:00, leaving one minute of slack inside the 10-minute slot.
-
-## Space reserved (T04 acceptance)
-
-| Required item | Slide |
-|---|---|
-| Optimised list vs. repeating the 2026 list | 4 |
-| Same-spend comparison | 5 |
-| Shopper actions | 7 |
-| Uncertainty | 8 |
-| Contributions appendix | A |
-
-## Notes for Team 4
-
-- If the extras do not fit, merge slide 10 into slide 7 rather than dropping the uncertainty slide.
-- Slide 2 figures can be checked against `outputs/finance-qa.xlsx`, which is independent of KNIME.
-- Keep history (2026) and forecast (2027) visually distinct, for example with a label in the corner of every chart.
+| # | Action title | Show on screen | Owner / time |
+|---|---|---|---|
+| 1 | Pilot a 276-store targeting plan | Three figures: **276 stores · €414,000 full-plan spend · €176,525 forecast net**. Underneath: approval requested for a capped test. | Team 4 · 0:45 |
+| 2 | The 2026 campaign returned €15,000 net | 108 successes + 62 failures = 170 activations. €270,000 incremental sales less €255,000 cost. | Team 2 · 0:50 |
+| 3 | Repeat known successes; use the forest for new stores | Two paths: **170 → 108** repeats by observed outcome; **310 → 168** new stores by ≥61/100 votes. Inset: held-out historical net, forest €90,000 / tree €86,000 / logistic €84,500. | Team 3 · 1:05 |
+| 4 | The full plan forecasts €163,525 more net than repeating the same stores | Compare forecast net: **€176,525 vs €13,000**. The plan adds 106 activations and €159,000 spend. Separate footer: **+€161,525 vs 2026 actual**. | Team 4 · 1:05 |
+| 5 | At the same spend, targeting still leads in the forecast | Two bars at €255,000 spend: top 170 eligible stores **€142,075 net**; repeat 170 **€13,000 net**. Difference **€129,075**, model-implied. | Team 3 · 0:50 |
+| 6 | The centre and south have the least evidence on failures | Map or three bars: 64 North / 82 Centre / 130 South in the plan. Centre and South had only nine historical failures combined. | Team 2 · 0:50 |
+| 7 | Make toothpaste easier to choose at the shelf | Show a neutral shelf guide by need and a short routine demonstration. Explain how one pilot store would test them. | Team 4 · 0:55 |
+| 8 | Use an equal-budget pilot to decide whether to expand | Side-by-side test arms: Decision B vs current practice. At fixed full-plan spend, a 30-point drop in funded-store probabilities gives **−€30,425 net**. | Teams 2 & 3 · 1:05 |
+| 9 | Extra 2: get store-level sales history before buying more data | Request existing pre-campaign oral-care sales by store; check coverage and evaluate on the same folds. Keep OSM counts out of the final model. | Team 2 · 0:40 |
+| 10 | Extra 3 and Extra 5 are tests, not forecast revenue | Creator: @federica.scagnetti, #SorrisoSbloccato ahead of November; measure 14 days of attributed iO orders / tagged landing sessions. Extra 5: show one GenAI shopper interaction. Close on the pilot ask. [Creator evidence](../docs/influencer-roster.pdf) | Teams 1 & 3 · 0:55 |
+| A | Contributions | One row per person from the [contribution log](../docs/TEAM_ASSIGNMENTS_AND_CONTRIBUTIONS.md). | Team 4 · appendix |
