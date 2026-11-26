@@ -2,6 +2,8 @@
 
 **Current candidate:** [`oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf) uses no Java Snippets. Table Creator #150 lists the five groups used to test the models. Joiner #151 matches each historical store to its group by store ID; Sorter #159 puts the groups in order. This lookup is fixed for the 170 labeled stores in the supplied workbooks. See the [Team 2 checkpoint and current comparison](../handoff/pre-finance-check.md) for verification and submission status.
 
+**Current presentation result (`a345811`):** 276 funded stores (108 repeat, 168 new), €590,525 forecast incremental sales, €414,000 spend and **€176,525 forecast net**. The forest's separate held-out historical result is €90,000. Use the [decision brief](final-model-decision.md) for comparisons and the [presentation storyboard](../presentation/storyboard.md) for slide figures.
+
 ## Earlier submission at `7fc7ff8` (historical instructions and figures)
 
 The instructions and numbers below describe the [earlier archive](https://github.com/MoriondoTommaso/P-G_marketing_campaign/blob/7fc7ff8/workflows/oral-b-italy-final.knwf).
