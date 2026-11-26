@@ -2,12 +2,14 @@
 
 **Status: automated pre-finance comparison PASS; Team 2 sign-off PENDING.** This is not a published RF release. A named Team 2 linkage reviewer must record PASS/FAIL on this exact candidate before final finance is generated. If the archive or the comparisons change, repeat the check.
 
-**Candidate:** `workflows/oral-b-italy-final.knwf` at `a8cc8f5`; SHA-256 `f1d0b0985a4bb90be9f2c6fcdc45a2fab3e1cf14fd42612fffe95016696d1fca`. KNIME Analytics Platform **5.12.1** on macOS. In two fresh workspaces, reset the candidate's upstream graph, added read-only CSV taps at the named nodes, and executed the complete tapped graph. This exercises the actual learners, selectors and comparators; the finance and publication branches are deliberately outside this checkpoint.
+**Class candidate:** `workflows/oral-b-italy-final.knwf` at `a345811`; SHA-256 `d12c0933814f3671f84881d3c09080462815e81586a7c9b476f2c6acbe1dde7c`. There are no Java Snippet nodes. Open Table Creator #150 to see the 170 store IDs and their fixed folds. Joiner #151 matches on store ID; Sorter #159 orders each group before testing. If the labeled store list changes, refresh the lookup rather than expecting the workflow to generate new folds.
+
+KNIME Analytics Platform **5.12.1** on macOS. In two fresh workspaces, the checker reset the upstream graph, added read-only CSV taps, and executed the learners, selectors and comparators. The seven resulting tables also match the previous candidate exactly. Finance and publication are outside this checkpoint.
 
 | Input | Original SHA-256 | Reversed SHA-256, observed run |
 |---|---|---|
-| Activated_Stores.xlsx | `17ae67bcec8263bedcc1e20fe7f61638091349d442b922fb9f1ec541576a4796` | `d8a0018fa23ccc8940cc75d897b041755af367ed606f9744fc811d5fe386ae66` |
-| Italian_Stores.xlsx | `f5b8cb8b68fe43499f4fb6c5793e8b40aacba9230f5aabdeee0bb66ed10a553f` | `06b553699477a1c9b774b1cc7a8a4033efb438e6d904ead66253f001bbad3e50` |
+| Activated_Stores.xlsx | `17ae67bcec8263bedcc1e20fe7f61638091349d442b922fb9f1ec541576a4796` | `655ec3765685c6f95a01e178e9d3e331d7ce268b3694c09f59de55f44cf95cab` |
+| Italian_Stores.xlsx | `f5b8cb8b68fe43499f4fb6c5793e8b40aacba9230f5aabdeee0bb66ed10a553f` | `1cf56be080637e21784e39b49401a52a3630d5295acc6d56bcb8cc6523b07bd1` |
 
 The reversed fixture preserves the workbook header, reverses every data row and updates cell references. The verifier checks worksheet and ZIP member contents, independent of ZIP timestamps.
 
@@ -23,12 +25,13 @@ All seven [pre-finance evidence tables](../validation/T52/review-data/) match by
 | `tree-benchmark.csv`, `selection.csv` | 480 tree probabilities/strict comparator flags; 480 RF vote counts and Decision B flags. Exact selected IDs match the native filtered output: 108 historical successes and 168 previously unactivated stores. Counts are descriptive, not acceptance fixtures. |
 | Native boundary fixture | Actual candidate Math Formula #142 and Rule Engine #94: 59/60/61 new-store votes → no/no/yes, including raw `0.6000000238418579`; 52-vote prior success → yes, 98-vote prior failure → no. |
 
-The native forest learners #62 and #119 use 100 Gini trees, seed 2026, full-size random bootstrap with replacement, square-root feature sampling at each node; predictors #63 and #120 use hard voting and expose both class probabilities and model count. #45 explicitly selects only the target and the five approved predictors; #72/#73 fit and apply the logistic normalizer within each fold. Store IDs are row keys, not predictors. The pre-finance checker reads **success-class** votes, rejects non-100 denominators and off-grid probabilities, and independently rebuilds Decision B from observed labels and new-store votes.
+The native forest learners #62 and #119 use 100 Gini trees, seed 2026, full-size random bootstrap with replacement, square-root feature sampling at each node; predictors #63 and #120 use hard voting and expose both class probabilities and model count. #45 explicitly selects only the target and the five approved predictors; #72/#73 fit and apply the logistic normalizer within each fold. Neither store ID nor fold is a predictor. The external checker reads **success-class** votes, rejects non-100 denominators and off-grid probabilities, and rebuilds Decision B from observed labels and new-store votes.
 
 ### Reproduce before signing
 
 ```sh
-D=$(mktemp -d "${TMPDIR:-/tmp}/t52.XXXXXX")
+printf '%s  %s\n' d12c0933814f3671f84881d3c09080462815e81586a7c9b476f2c6acbe1dde7c workflows/oral-b-italy-final.knwf | shasum -a 256 -c - &&
+D=$(mktemp -d "${TMPDIR:-/tmp}/t52.XXXXXX") &&
 python3 -B validation/T52/native_folds.py "$D/A" > "$D/A.log" &&
 python3 -B validation/T52/native_folds.py "$D/B" --reverse > "$D/B.log" &&
 python3 -B validation/T52/pre_finance.py "$D/A" "$D/B" "$D/compared" &&
