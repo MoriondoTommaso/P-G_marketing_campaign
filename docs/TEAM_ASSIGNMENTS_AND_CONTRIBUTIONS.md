@@ -106,7 +106,7 @@ The professor requires one additional presentation appendix slide describing wha
 
 | Date | Task / Issue | Specific Work Performed | Evidence (File / Commit / PR) | Result |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| 2026-11-24 | Extra 3 | Uploaded the original nine-creator shortlist. | [Original submission](https://github.com/MoriondoTommaso/P-G_marketing_campaign/commit/46eaf47) | Supplied the campaign concept and candidate pool used in the revision. |
 
 ### Lollo
 
@@ -118,6 +118,7 @@ The professor requires one additional presentation appendix slide describing wha
 
 | Date | Task / Issue | Specific Work Performed | Evidence (File / Commit / PR) | Result |
 |---|---|---|---|---|
+| 2026-11-26 | Extra 3 review | Recomputed roster metrics and reviewed sources, model linkage and PR base against the assignment. | [Review on #45](https://github.com/MoriondoTommaso/P-G_marketing_campaign/pull/45#issuecomment-7190586954) | Identified the trend-evidence gap and merge-base issue. |
 | 2026-11-21 – 2026-11-22 | T05 / #5, T06 / #6 | Built the KNIME join of the 2026 activations to the 480-store file: code match first, then unique exact lat/lon pair for the 18 blank-code rows, with `match_method` recorded. Added the success/failure `target` column (310 unlabeled left blank), a coordinate-conflict Rule-based Row Filter and `input_dir`/`output_dir` folder variables driving both Excel Readers and all 3 CSV Writers. Added a link-check GroupBy (each of the 170 activations linked to exactly one store), a Statistics node auditing the 480-store file, and an annotation on the coordinate Joiner explaining why the 18 recovered stores matter. Exported the join audit, store universe and 2026 baseline. | `workflows/oral-b-italy.knwf`, `outputs/join-audit.csv`, `outputs/store-universe.csv`, `outputs/baseline-2026.csv`; commits b774b19, 06207dc, 2087788 | 170 labeled (152 code + 18 coordinate; 108 success / 62 failure), 310 unlabeled, 0 coordinate conflicts, every link count exactly 1; data audit found 0 missing values, no negatives and all coordinates inside Italy; baseline €270,000 sales / €255,000 spend / €15,000 net (ROI 5.9%). Independent Python QA passed 27/27 checks; 3 float columns are compared at 1e-12 relative tolerance because the KNIME CSV Writer drops the last digit (team decision, 2026-11-22). |
 | 2026-11-24 – 2026-11-25 | Final workflow (agreed with Tommaso) | Rebuilt the model stage in class-style KNIME: EDA branch (success vs failure medians, regions), 3 models (Decision Tree, Random Forest, Logistic Regression) on the same stratified 5-fold X-Partitioner with Scorer, ROC Curve and net € per model, 60% break-even rule, final tree refit to score the 310 new stores, agreed output files. Added two EDA charts (Conditional Box Plot success vs failure, Bar Chart success rate by region) and a within-region dentist check. Commented all 97 nodes, put the input data inside the workflow so it runs on any computer, and recorded the feature-set amendment with a robustness check | `workflows/oral-b-italy-final.knwf`, `outputs/national-scores-class.csv`, `outputs/activation-list-class.csv`, `docs/final-workflow.md`, `scripts/feature_robustness_check.py`; commits 2105393, 07f3183 | Tree chosen: €88,000 on 170 held-out stores (forest €90,500, logistic €85,000, activate-all €15,000); 2027 plan 287 stores, €234,154 forecast net; outputs byte-identical across reruns; result unchanged when the tree is given all 32 allowed traits |
 | 2026-11-24 – 2026-11-26 | Extra 2 (#4) | Finished the data recommendation (12-source longlist with licences, shortlist of 5, get-first call on store-level sales, break-even rule). Collected OpenStreetMap counts within 1 km of all 480 stores from a dated 1 Jan 2026 snapshot, checked coverage against the official pharmacy register, and tested the 3 usable counts on the final tree in KNIME with the same folds | `docs/additional-data.md`, `extra2/`, `workflows/oral-b-italy-final.knwf` (nodes #107–#118) | OSM tested: €88,000 with and without, same confusion matrix, so OSM is dropped; dentists and drugstores too thin in OSM (74% / 72% of stores show none) |
@@ -140,7 +141,7 @@ The professor requires one additional presentation appendix slide describing wha
 
 | Date | Task / Issue | Specific Work Performed | Evidence (File / Commit / PR) | Result |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| 2026-11-26 | Extra 3 revision | Revised the pilot recommendation and documented why routine fit and estimated Italian reach favour Federica. | [PR #45](https://github.com/MoriondoTommaso/P-G_marketing_campaign/pull/45), commit `bf399ae` | Compared the lead against the likes, plays and engagement alternatives and set a measurable pilot. |
 
 ### Ale
 
