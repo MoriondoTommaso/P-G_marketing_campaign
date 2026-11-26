@@ -94,6 +94,8 @@ Counting only avoided failures, a quote of €1,500 × N needs N fewer failed ac
 
 ### OSM test result (26 Nov 2026)
 
+**Interactive version:** open [`extra2/data-value.html`](../extra2/data-value.html) in a browser (download the file first): store map with the OSM layers, the test, the 16 stores the tree misses and a payback calculator.
+
 **OpenStreetMap is dropped: it did not change a single funding decision.** Built in the final workflow ([`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf), bottom row, nodes #107–#118), following the steps below.
 
 | | Funded successes | Funded failures | Missed successes | Avoided failures | AUC | Net € on the 170 |
@@ -115,7 +117,13 @@ Counting only avoided failures, a quote of €1,500 × N needs N fewer failed ac
 | Successes the tree skips | 8 | €8,000 | All in the North, far from a dentist (141 vs 157), but higher income (€25,253 vs €19,983) and more schools (6 vs 1) |
 | Failures the tree funds | 8 | €12,000 | 4 South, 2 Centre, 2 North; very close to a dentist (0.4 vs 6.2) and larger areas (population 197,589 vs 135,545) |
 
-Income and schools are already model inputs, but 8 stores are fewer than the tree's 10-store minimum per node (set against overfitting), so it cannot learn a rule for them, and extra area data such as OSM does not change that. What would separate these stores is store-level information, above all past oral care sales: one more reason to get the sales panel first. A 2027 pilot that includes northern stores in wealthier areas with many schools would also add the labels the tree lacks. Groups of 8 are small: read these profiles as leads, not proof.
+Income and schools are already model inputs, but 8 stores are fewer than the tree's 10-store minimum per node (set against overfitting), so it cannot learn a rule for them, and extra area data such as OSM does not change that.
+
+**What our data says about the value of new data** (checks in [`scripts/extra2_value_checks.py`](../scripts/extra2_value_checks.py)):
+
+- **For:** area data is exhausted. All 32 area traits and the OSM counts leave the 16 errors unchanged. For 11 of the 16, the nearest activated store had the opposite result, and 5 of the 8 missed successes sit within 15 km of each other in the North-East. That points to a local factor we do not observe, such as the retailer, the field team or the store's own sales.
+- **Against:** outcomes are strongly local. Of the 47 activated stores with another activated store within 1 km, 96% share its result, so most of the signal is area-level and the tree already captures it. The closest proxy for sales we have, `Online Consumption IYA` (excluded from the model for possible leakage), does not separate the error stores either (median 221.5 for missed successes vs 237 for the failures the tree skips).
+- **So:** our data cannot say how much a paid source would gain, so we do not simulate one. Ask for P&G's internal data first (retailer, field team, 2026 selection criteria), which is free and could explain the North-East pocket, then test a free sample of the sales panel on our stores before buying. A 2027 pilot that includes northern stores in wealthier areas with many schools would add the labels the tree lacks. Groups of 8 are small: read these profiles as leads, not proof.
 
 **The most new data could add in 2027.** Using the model's own probabilities, the 287 funded stores carry about 21 expected failures (€31,708 at €1,500 each) and the 193 skipped stores about 25 expected successes (€24,825 at €1,000 each). Even perfect information is worth at most about €56,500 per campaign, so a data source priced above that cannot pay back in one year (break-even rule above).
 
