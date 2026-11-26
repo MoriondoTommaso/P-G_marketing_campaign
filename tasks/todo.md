@@ -150,3 +150,54 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - [x] RC2: supplied-probability boundary fixture, 13 reconciled exports and [eight corruption checks](../validation/issue31/guards/native-results.txt). RC2 did not validate final finance, activation or sensitivity rows.
 - [x] RC3 (`e1185d7`): final writer-input tables feed the shared release gate; all 13 clean CSVs reconciled.
 - [ ] Team 4: independently rerun the pinned corrected archive in a fresh workspace, record hashes and sign-off on T13/T15 and integrate the qualified decision into T16.
+
+## Random Forest release ledger
+
+Parent: [#51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51). Contract: [final RF decision, §§2–5](../docs/final-model-decision.md). Only the two new entries below are in this breakdown. Run commands from the repository root. The baseline tree outputs and diagnostic 277-store forest are not acceptance fixtures.
+
+**Package contract for both issues:** Each fresh published directory has the eight class CSVs at its root and deterministic, canonically sorted QA tables in `evidence/`: `folds.csv`, `oof-scores.csv`, `rf-refit-votes.csv`, `tree-benchmark.csv`, `model-metrics.csv`, `sensitivity.csv` and `permutation-importance.csv`. List all expected payload files by name before testing. The pinned candidate's `handoff/package.sha256` lives **outside** the payload and contains one `shasum -a 256` entry per declared file, with paths relative to the payload root starting `./`. Keep variable logs, fixture reports, input/archive hashes, version and reviewer attestations outside the payload, pinned alongside it. Never regenerate the expected manifest from the run being checked.
+
+**Full-package verification** (macOS zsh; set `MANIFEST` to the absolute path of the pinned `handoff/package.sha256` and `RUN` to each fresh directory). Both commands must exit zero: the first checks values; the second catches missing **and unexpected** files, including QA tables.
+
+```sh
+(cd "$RUN" && shasum -a 256 -c "$MANIFEST")
+diff -u <(sed -E 's/^[[:xdigit:]]{64} [ *]//' "$MANIFEST" | LC_ALL=C sort) <(cd "$RUN" && find . -type f -print | LC_ALL=C sort)
+```
+
+### RF-WF — Build and verify the KNIME release candidate
+
+- [ ] **TODO** · [#52](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/52) · Team 3 (Team 2 verifies linkage) · Depends: approved decision; no RF-QA dependency.
+- **Inputs and handoff:** Edit `workflows/oral-b-italy-final.knwf` in KNIME 5.12.1. Keep RC3 historical. Deliver the seven existing class exports **plus the same-run financial summary**, and a versioned QA bundle containing ID folds, observed outcomes, keyed OOF/refit votes and probabilities, metrics, sensitivity, native test evidence, and a checksum manifest. Refresh the class workflow, evaluation/model-choice and operator/release docs per the spec inventory.
+- **Accept — comparison:** Reconcile 480 unique stores, 152 code + 18 coordinate links, 108/62 observed outcomes and 310 unknown. Match the protocol fold map by store ID (5 × 34); one held-out prediction per store for each of baseline/tree/logistic/RF; no identifiers as predictors and all learned preprocessing fold-local. Record observed net, funded successes/failures, Brier, AUC, near-60% calibration counts, all/none controls (€15,000/€0) and separately labeled geographic stress. Reproduce held-out permutation importance with the unshuffled predictions as reference. If Extra 2 is retained, rerun its paired RF test or explicitly label the finding tree-only.
+- **Accept — decisions:** Use the five specified inputs, seed 2026 and 100 hard-voting trees on both RF paths. Verify all 100 contributed, take **success** votes, reject invalid scores, and fund only 61–100 votes. Native 59/60/61 fixtures must yield no/no/yes, including the widened float for 60 votes. Match all 170 OOF and 310 full-refit scores by ID to upstream evidence. Original/reversed workbook runs must match on keyed folds, votes, probabilities, model metrics, national scores, funded IDs, sensitivity and finance after canonical sorting; equal counts alone fail.
+- **Pre-finance stop/go:** Record Gini, replacement bootstrap, square-root feature sampling and hard-vote settings for both learners; reject a non-100 denominator and an off-grid score outside native float tolerance. Export `evidence/tree-benchmark.csv` with store ID, cohort, tree score and strict funding decision for the same 170 OOF + 310 refit sites, separate from official RF scores. Before generating final euros, the **Team 2 linkage reviewer** checks original vs reversed canonical folds, all model metrics, both upstream RF vote/score tables, tree comparator and selected IDs. Pin the named reviewer, pass/fail and file comparisons in `handoff/pre-finance-check.md`. A one-vote mismatch stops work even if the funded set is identical: locate the first divergence, repair and repeat both runs.
+- **Optional Extra 2 handoff:** If submitted, dashboard inputs and option values describing the selected stores must use the accepted RF scores; a historical tree-only OSM comparison cannot support a claim about RF.
+- **Accept — publication:** Preserve the five-column store export interface. Stage and validate the entire package before publishing. Inject each fault in decision §3.4, including duplicate/missing/conflicting IDs, fund-list inversion, altered score, finance contradiction and late failure. Every faulty run must fail and publish **zero** files; the clean run must publish every declared file. Record each fixture and result.
+- **Verify / handoff checkpoint:** KNIME **Reset → Execute all** in separate fresh original/reversed workspaces; export the release tables in canonical order. Set `A`, `B` to those two fresh release directories and `FAULT` to each initially empty fault destination in turn. Record the input/archive fingerprints and compare outputs:
+
+  ```sh
+  shasum -a 256 data/Activated_Stores.xlsx data/Italian_Stores.xlsx workflows/oral-b-italy-final.knwf
+  wc -l "$A/national-scores-class.csv" "$A/join-audit.csv"  # 481 and 171 including headers
+  cmp "$A/national-scores-class.csv" "$B/national-scores-class.csv" && cmp "$A/activation-list-class.csv" "$B/activation-list-class.csv" && cmp "$A/financial-summary-class.csv" "$B/financial-summary-class.csv"
+  test -d "$FAULT" && test -z "$(find "$FAULT" -type f -print)"  # after each expected KNIME failure
+  ```
+
+  Run the full-package verification above for **both** `A` and `B`, including the keyed evidence. Attach the pairwise comparison results and exact fault-run logs. Pin commit, KNIME version, input/archive hashes and the manifest. Team 4 starts from that manifest, not the working directory.
+
+### RF-QA — Independently reconcile the RF economics and sign off
+
+- [ ] **TODO** · [#53](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/53) · Team 4, reviewer other than the workflow author · Blocked by RF-WF handing off its pinned candidate.
+- **Inputs and handoff:** Load the pinned artifact with the pinned workbooks in a fresh KNIME 5.12.1 workspace, reset, and execute into an empty directory. Use the resulting `join-audit.csv` and RF national scores as inputs to an independent calculation in `outputs/finance-qa.xlsx`; the workflow's list and summary are comparison outputs, not inputs to that calculation.
+- **Accept — stores and euros:** Reconstruct the exact funded set from validated success votes (>60); verify 480 unique IDs, 170 historical/310 unseen, cohort subtotals, and each store's `2500 × p − 1500`. From funded IDs independently compute count, sales, spend and net. Verify the historical control from observed labels (170 stores, €270,000 sales, €255,000 spend, €15,000 net). Compare exact ID sets/counts, unrounded calculations and reported amounts to the cent after final rounding.
+- **Accept — policy comparisons:** Recalculate optimized minus actual 2026 **and** optimized minus forecast repeat-170; reconstruct the equal-spend comparison with `k=min(N,170)` and the protocol's score/ID tie-break. Recompute lower/base/upper sensitivity and added/dropped IDs using original 55–65% band membership and ±5 percentage points; verify ties and the zero-selection case. A previous tree summary, matching row counts, or a passing RC3 checker is not independent RF evidence.
+- **Independent fixtures and pilot groups:** In the workbook, 59/60/61 votes must produce −€25/€0/+€25 and no/no/yes, independent of the scores that happen to occur. Join the 310 unseen RF decisions to `evidence/tree-benchmark.csv` by ID; verify the both/forest-only/tree-only/neither sets are disjoint and cover all 310 before handing those groups to the pilot owners.
+- **Accept — handoff:** Record reviewer, date, version, warnings, exact commit/hashes and pass/fail in `docs/rerun.md`; refresh the financial report HTML/PDF and rerun reference for this candidate. Give the existing shopper/deck owners the signed store IDs, regional/near-threshold counts, verified headline values, pilot/disagreement groups and release identifier. Keep forecasts distinct from realized net. Return discrepancies to RF-WF; do not approve a changed candidate against a previous hash.
+- **Verify / sign-off checkpoint:** Set `REF` to the RF-WF candidate's release output directory and `QA` to the independent run's output directory. Verify **all** declared file hashes using the supplied manifest; these commands are focused cross-checks. Open the independently refreshed workbook and trace both Size of Prize cells and the matched-budget result to the store rows:
+
+  ```sh
+  shasum -a 256 workflows/oral-b-italy-final.knwf "$QA/national-scores-class.csv" "$QA/activation-list-class.csv" "$QA/financial-summary-class.csv"
+  cmp "$REF/national-scores-class.csv" "$QA/national-scores-class.csv" && cmp "$REF/activation-list-class.csv" "$QA/activation-list-class.csv" && cmp "$REF/financial-summary-class.csv" "$QA/financial-summary-class.csv"
+  open outputs/finance-qa.xlsx
+  ```
+
+  Run the full-package verification above with `RUN="$QA"` using the manifest received from RF-WF. Attach the independent recalculation, signed manifest and regenerated report to #51. `validation/T12/check.py` reads RC3 `tree_probability` and filenames: do **not** use it unmodified to certify this RF package.
