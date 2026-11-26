@@ -3,6 +3,7 @@
 **Submit [`oral-b-italy-final.knwf`](oral-b-italy-final.knwf).** Import it in KNIME and click **Execute all**:
 the input data and the outputs live inside the workflow, so nothing needs configuring. What it does, the model
 comparison and the Size of Prize are in [`docs/final-workflow.md`](../docs/final-workflow.md).
+Built and tested in **KNIME 5.12.1**; open it in 5.12 or later.
 
 `oral-b-italy.knwf` is the earlier team pipeline (RC3), kept for reference and for the validation scripts below.
 

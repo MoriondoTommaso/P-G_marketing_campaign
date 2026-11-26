@@ -24,10 +24,11 @@ the Decision Tree stays as the simple one-rule benchmark and logistic regression
 | Compare 3 models | X-Partitioner (5 folds, stratified, seed 2026) → Learner → Predictor → X-Aggregator, same folds for all 3 | Scorer, ROC Curve, net € per model |
 | Business rule | Rule Engine: a new store is funded only if more than 60 of the 100 trees vote success (break-even 60%; a 60-vote tie is not funded); the 170 stores activated in 2026 follow their real result (decision B) | Net € per store: +1,000 / −1,500 / 0 |
 | 2027 plan | Forest test-fold scores for the 170 activated stores; a final forest (same settings, all 170) scores the 310; Math Formula rounds every score to the exact vote share (votes ÷ 100); Rule Engine #94 funds the 108 stores that succeeded in 2026 and the new stores with more than 60 votes | `national-scores-class.csv` (480), `activation-list-class.csv` (276) |
+| Size of Prize | Rule-based Row Filter, GroupBy ×2, Joiner ×2, Math Formula ×2 (#143–#149) | Plan vs 2026 actual and vs repeating the 2026 list |
 | Model charts (right of the comparison) | ROC of all three models, net € by model, forest variable importance, logistic coefficients, tree with and without pruning | See *Model comparison* |
 | Extra 2 (bottom row) | CSV Reader of OpenStreetMap counts, Joiner, Column Filter, a copy of the forest row | Forest + 3 OSM counts: €88,000 vs €90,500 without, so OSM is dropped ([`additional-data.md`](additional-data.md#osm-test-result-26-nov-2026)) |
 
-Every one of the 130 nodes has a plain-language comment.
+Every one of the 137 nodes has a plain-language comment. Built and tested in KNIME 5.12.1.
 
 ## EDA findings (170 activated stores)
 
@@ -104,12 +105,14 @@ stores, 8 of them successes: the kind of rule pruning removes to avoid overfitti
 | 2027 plan, best case (every 2026 success repeats) | 276 | €414,000 | €212,725 |
 
 The 2027 figures are expected values (2,500 × p − 1,500 per funded store, p = forest probability); the €90,500
-backtest uses observed outcomes. The realistic range for the plan is **€182,250 to €212,725**.
+backtest uses observed outcomes. The plan is expected to make **€182,250**, or €212,725 if every 2026 success repeats;
+the downside cases in the [financial report](financial-report-class.html) go below zero if the probabilities are 30 points too optimistic.
 
 Compared with the 2026 actual result, the plan forecasts **€167,250 more net**. Compared with repeating all 170
 historical stores in 2027 (forecast €13,275), it forecasts **€168,975 more net** and costs €159,000 more.
 At equal spend (€255,000, k = 170), targeting the top 170 stores forecasts **€130,100 more net** than repeating the
-original 170. These are model-implied comparisons, not measured lift.
+original 170. These are model-implied comparisons, not measured lift. The first two are computed in KNIME (nodes #143–#149,
+bottom right of the plan); the equal-spend comparison and the stress test are computed by the script below.
 
 **Stress test** (new-store scores in 55–65% moved by ±5 points; repeat stores stay fixed): 272 stores and €181,900
 (lower) to 284 stores and €183,200 (upper); 4 stores drop out, 8 come in. Store-level detail in
@@ -125,7 +128,8 @@ succeeded are in the plan and none of the 62 that failed. Before this decision t
 re-funded 7 stores that had failed (68672, 2006331, 23781, 97240, 71884, 98235, 79237) and left out 7 that had
 succeeded (2007481, 77034, 28340, 20013, 30967, 8914, 109086). On the real 2026 results the swap is worth +€17,500
 (7 failures avoided, 7 successes kept); the model-based forecast falls by €8,950 because the forest still rates the
-7 kept successes as risky (33–54%). The plan size and spend are unchanged.
+7 kept successes as risky (33–54%). The plan size and spend are unchanged. As a result, 7 funded repeat stores show a negative expected € in
+`national-scores-class.csv` and 7 left-out ones a positive one: this is deliberate, not an error.
 
 **Deferred engineering checks (team, 26 Nov 2026, #51).** Store-ID-based (hash) folds, the reversed-input proof and an
 automatic release gate with fault tests are not implemented: they cannot be built with the class nodes. Known limitation:
