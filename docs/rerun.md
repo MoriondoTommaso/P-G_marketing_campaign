@@ -1,3 +1,89 @@
+# T15 — Reproduction evidence and release history
+
+**Current recommendation: Decision B (Random Forest, 276 stores).** See the first section for the current verification. The subsequent RC3 and Decision Tree sections are superseded historical evidence, not current recommendations.
+
+## Current verification — Decision B (27 November 2026)
+
+- Independent operator: **Linda Carla Zorzoli — Team 4**, T15 / issue #15.
+- Repository snapshot: `c384317c305bc9e8914cccf8a94446b00c2afd61` (ZIP comment); workflow revision identified in the decision document: `a345811`.
+- Environment: macOS, KNIME Analytics Platform 5.12.1 LTS; exact build and macOS version not recorded.
+- Independent clean-run reproduction: **PASS within the checks below**. T13 independent workbook submitted in PR #57; reviewer approval and updated finance export reconciliation are pending.
+
+### Input and reference fingerprints
+
+| Artifact | SHA-256 |
+|---|---|
+| `workflows/oral-b-italy-final.knwf` | `d12c0933814f3671f84881d3c09080462815e81586a7c9b476f2c6acbe1dde7c` |
+| `data/Activated_Stores.xlsx` | `17ae67bcec8263bedcc1e20fe7f61638091349d442b922fb9f1ec541576a4796` |
+| `data/Italian_Stores.xlsx` | `f5b8cb8b68fe43499f4fb6c5793e8b40aacba9230f5aabdeee0bb66ed10a553f` |
+| `extra2/osm-counts-2026-01-01.csv` | `b8e21e6577bcb909de9cdb86248f6bc0eeb00dec3c00ca4ebac666567625bb63` |
+| `validation/T52/review-data/selection.csv` | `918b214211268c2eff9aa918980f54abca647ff58bfb9bee35c717145c580148` |
+| `validation/T52/review-data/oof-scores.csv` | `43e0f42bf0b22700eeaacec7cc23dfe7c486ca686aa7e43ad67f34329121ee8e` |
+| `validation/T52/review-data/rf-refit-votes.csv` | `f90964791339d8922fa7acff8058d883d169b400e90e267ba310f84ddb1fc0ed` |
+
+### Procedure
+
+1. Extracted the repository into `P-G_FINAL_DECISION_B` and verified workflow and reference hashes. Imported the workflow into a fresh workspace `knime-workspace-DECISION-B-T15`.
+2. Import reported IDLE-to-CONFIGURED node-state warnings. The workflow opened in an unexecuted state; Reset all was disabled. No node settings were modified.
+3. Verified all three embedded input hashes and confirmed `data/outputs/` was empty using `ls -la outputs`.
+4. Executed all; operator inspected the canvas and reported green nodes. Seven native CSVs were generated at approximately 00:03 local time on 27 November.
+5. Used Python standard-library CSV and Decimal calculations to check unique IDs, activation membership, exact reference probabilities, financial totals and historical join counts. A first long terminal paste failed with a syntax error; subsequent shorter commands completed successfully. No workflow rerun or data modification was required for that error.
+6. Copied the seven exports into `outputs/rerun-decision-b/`; all seven `cmp -s` comparisons against the fresh workspace files passed. Recorded hashes with `shasum -a 256 outputs/rerun-decision-b/*.csv`.
+
+### Fresh evidence manifest
+
+| File in `outputs/rerun-decision-b/` | Data rows | SHA-256 |
+|---|---:|---|
+| activation-list-class.csv | 276 | `084f24976c0de965ff49a3c455a04528412e18ce83e51509808f12970f23a958` |
+| baseline-2026.csv | 1 | `6df5ad9f263783a114030377f2455027c90e8e1f7542433a39af09947591f55e` |
+| eda-region-success.csv | 9 | `c4d73571bdb2bc5a8745b14c55506672ca3fc2e17f6ab87477dee204728530e7` |
+| eda-success-profile.csv | 2 | `4dcdb64dfb9218be88beb8bbce23f44272791b279dd8c9b6eb22e8e747da480a` |
+| join-audit.csv | 170 | `a8bf662688b25788edc57dd0b6f9ef37dd1ac1debad720b3efc70f7ae3d534a1` |
+| national-scores-class.csv | 480 | `7b746ac0b6745208bcc4e528bf554087fe0b0233d5c3fbfd2bb6ee1c8818adfa` |
+| store-universe.csv | 480 | `17be4d40346fb87957e8382f33b61eb1125f8904c734d94491ad7ff1067b83b4` |
+
+### Reconciliation
+
+| Check | Result |
+|---|---|
+| National score rows / unique IDs | 480 / 480 |
+| Selected rows / unique IDs | 276 / 276 |
+| Activation ID set vs national funding flags | Exact match |
+| Activation ID set vs T52 selection reference | Exact match |
+| National ID-to-probability map vs T52 votes / 100 | 480/480 exact matches |
+| Activation rows vs corresponding national score rows | 276/276 exact matches |
+| Historical score-source count | 170 |
+| Join audit rows / unique resolved IDs | 170 / 170 |
+| Code / coordinate matches | 152 / 18 |
+| Historical successes / failures | 108 / 62 |
+
+Decision B repeats the 108 historical successes and funds 168 previously unactivated stores with more than 60 out of 100 success votes, as specified by T52. The exact selected ID set was reproduced; this is not a universal probability-threshold policy for historical stores. Both cohorts use Random Forest probabilities for expected sales. The T13 workbook separately reconstructs the policy from the source predictions.
+
+### Financial reconciliation
+
+Expected sales = sum of selected probabilities × €2,500; spend = selected count × €1,500; expected net = sales minus spend. Repeat forecast uses all 170 historical scores. Equal-budget optimized scenario takes the top 170 expected net values within the selected Decision B list.
+
+| Scenario | Stores | Sales (€) | Spend (€) | Net (€) |
+|---|---:|---:|---:|---:|
+| 2026 actual | 170 | 270,000 | 255,000 | 15,000 |
+| Repeat forecast | 170 | 268,000 | 255,000 | 13,000 |
+| Decision B full forecast | 276 | 590,525 | 414,000 | 176,525 |
+| Decision B equal-budget forecast | 170 | 397,075 | 255,000 | 142,075 |
+
+Size of Prize versus actual: €161,525; versus repeat forecast: €163,525; equal-budget advantage: €129,075. All headline values agree with the T13 workbook and `docs/final-model-decision.md`. Forecasts are conditional planning estimates, not realized future returns.
+
+### Scope, limitations and release status
+
+- This is independent clean-run reproduction on the original input order, not a repetition of the adversarial integrity tests or reversed-input fold tests. No claim is made that all audit blockers are resolved.
+- The import warning did not prevent the observed execution. A complete warning log was not captured. Input files were not edited; filesystem read-only permissions were not established.
+- The seven hashes above are operator-reported fingerprints; copying was checked byte-for-byte, not equality of every fresh file against the older repository exports. The fresh CSVs have not been independently uploaded to this reviewer for byte inspection at the time of this report. EDA exports were checked for presence and row counts, not full cell-by-cell equality.
+- The separate `outputs/financial-summary-class.csv` in the tested snapshot is stale (SHA-256 `c9f44b62a053af652cb255d6113ad4973235dcb623e59bedb2b49e632c01d1e5`); it was not treated as a valid reference. Team 3 is responsible for replacing it. The corrected export must be reconciled against this run and bound to the accepted release manifest.
+- Technical clean-run verification: PASS. Formal T13/T15 reviewer acceptance, corrected finance export verification and final release-integrity approval remain pending. A changed workflow hash requires renewed verification. No source workflow changes are submitted by this operator.
+
+---
+
+## Superseded historical verification records
+
 # T15 — Independent clean-workspace reproduction (RC3)
 
 - Issue: #15 (Team 4); prerequisite: T13, approved according to the operator and shown closed on GitHub.
