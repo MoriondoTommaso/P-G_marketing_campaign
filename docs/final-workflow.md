@@ -23,8 +23,9 @@ the submission.
 | Compare 3 models | X-Partitioner (5 folds, stratified, seed 2026) → Learner → Predictor → X-Aggregator, same folds for all 3 | Scorer, ROC Curve, net € per model |
 | Business rule | Rule Engine: fund only if p > 60% (break-even) | Net € per store: +1,000 / −1,500 / 0 |
 | 2027 plan | Final tree refit on all 170, scores the 310; held-out scores kept for the 170 | `national-scores-class.csv` (480), `activation-list-class.csv` (287) |
+| Extra 2 (bottom row) | CSV Reader of OpenStreetMap counts, Joiner, Column Filter, a copy of the tree row | Tree + 3 OSM counts: €88,000, same as without, so OSM is dropped ([`additional-data.md`](additional-data.md#osm-test-result-26-nov-2026)) |
 
-Every one of the 97 nodes has a plain-language comment.
+Every one of the 109 nodes has a plain-language comment.
 
 ## EDA findings (170 activated stores)
 
