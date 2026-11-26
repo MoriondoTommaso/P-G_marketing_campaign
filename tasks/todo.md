@@ -150,3 +150,7 @@ Each issue has one owning two-person team; T01 records the names. Start as soon 
 - [x] RC2: supplied-probability boundary fixture, 13 reconciled exports and [eight corruption checks](../validation/issue31/guards/native-results.txt). RC2 did not validate final finance, activation or sensitivity rows.
 - [x] RC3 (`e1185d7`): final writer-input tables feed the shared release gate; all 13 clean CSVs reconciled.
 - [ ] Team 4: independently rerun the pinned corrected archive in a fresh workspace, record hashes and sign-off on T13/T15 and integrate the qualified decision into T16.
+
+## T-052 — Verify the Decision B KNIME release
+- [ ] **IN PROGRESS** · [RF-WF #52](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/52) · Team 3; Team 2 verifies linkage. Owner approved the [reviewed task](https://github.com/MoriondoTommaso/P-G_marketing_campaign/blob/39c7a809694af09ca6e89aaeda274360d5b3b9d0/tasks/todo.md#rf-wf--build-and-verify-the-knime-release-candidate) with [Decision B](../docs/final-model-decision.md).
+- **Native shared-fold slice:** on `d067910` the tree held out 138 of 170 IDs in the wrong protocol fold. The candidate computes class-wise hash ranks, orders by fold and text ID, then uses linear 34-row test blocks. The native test checks the *actual* test IDs for tree, forest and logistic against `outputs/folds.csv`. This is pre-finance verification, not release sign-off.
