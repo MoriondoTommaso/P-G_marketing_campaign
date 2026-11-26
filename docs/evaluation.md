@@ -121,3 +121,12 @@ The audit retained the seed, five-fold mapping, feature shortlist, learner famil
 
 The submitted workflow ([`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf)) is a class-style rebuild of the model stage. It uses X-Partitioner folds (stratified, seed 2026) instead of the hash folds above, and its feature allowlist differs from the five listed under *Predictors*: it adds `Water hardness IDX` and `Nr of Schools` and drops `Households avg components` and `Nr of Hygienists`. Its logistic regression also uses KNIME's default learner settings (SAG solver, no prior, 100 epochs) rather than the settings in the *Models* table. The team agreed to keep it after a robustness check showed the result barely changes with the feature set. The decision, evidence and settings are recorded in [`final-workflow.md`](final-workflow.md#amendment-the-5-model-features).
 
+## Amendment, 26 Nov 2026: Random Forest release
+
+The team selected the five-feature Random Forest (100 trees, Gini, seed 2026, hard voting) as the scorer
+([issue #51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51)). The forest was not one of the two candidates in this protocol, so extending the
+economic criterion to a third family is a retrospective amendment. In the final workflow the forest's test-fold
+scores are used for the 170 historical stores and a forest refit on all 170 scores the 310. Every published score is
+the exact vote share (success votes ÷ 100), and a store is funded only with more than 60 of 100 votes, so a 60-vote
+tie is unfunded, as required above. The three models share the same X-Partitioner folds (identical settings and input);
+the hash-based ID folds and the input-order checks are not implemented in the class workflow and are tracked in #51.

@@ -1,5 +1,7 @@
 # T10 — choosing a model for the funding decision
 
+> **Update, 26 Nov 2026:** the team now submits the **Random Forest** as the store-selection model ([issue #51](https://github.com/MoriondoTommaso/P-G_marketing_campaign/issues/51)); the tree stays as the one-rule benchmark. Numbers and the release are in [`final-workflow.md`](final-workflow.md). The notes below are kept for provenance.
+
 > **Final submission, 25 Nov 2026:** the submitted workflow is [`oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf), summarised in [`final-workflow.md`](final-workflow.md). It also chooses the tree (€88,000 on the 170 held-out stores) and adds a Random Forest (€90,500). The figures below are from RC3; the geographic and pilot caveats still apply.
 
 **Release interpretation:** use the tree for [bounded pilot design](model-review/pilot.md). That note gives geographic losses, refit leaf counts and uncertainty, broad forecast stress, and the proposed comparator.

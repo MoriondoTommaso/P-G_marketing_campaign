@@ -1,9 +1,9 @@
 # Extra 2 test input: OpenStreetMap counts near each store
 
 > **STATUS: done, 26 Nov 2026.** The counts were tested on the final workflow
-> (`workflows/oral-b-italy-final.knwf`, bottom row, nodes #107–#118): the tree earns
-> €88,000 with and without the 3 usable OSM counts, with the same confusion matrix,
-> so OSM is dropped. Result and keep rule in
+> (`workflows/oral-b-italy-final.knwf`, bottom row, nodes #107–#123). On the chosen
+> forest, OSM lowers net from €90,500 to €88,000 (AUC 0.932 vs 0.926); on the tree
+> benchmark it changed nothing (€88,000 either way). OSM is dropped. Result and keep rule in
 > [`docs/additional-data.md`](../docs/additional-data.md#osm-test-result-26-nov-2026).
 
 Team 2 · Ele · prepared 24 Nov 2026 · issue #4 / Extra 2
@@ -95,10 +95,12 @@ of `oral-b-italy-final.knwf`, so the main model and its outputs are untouched.
    store keeps its fold.
 3. **Column Filter (#109)** keeps the same 5 store traits, `target` and the 3
    usable counts: pharmacies, schools and supermarkets.
-4. **#110–#118** are a copy of the tree row (X-Partitioner seed 2026, Learner,
-   Predictor, X-Aggregator, 60% rule, Scorer, € per store, total), unchanged.
+4. **#110–#123** are a copy of the forest row (X-Partitioner seed 2026, Random
+   Forest Learner and Predictor, X-Aggregator, more-than-60-votes rule, Scorer,
+   € per store, total). The first run used a copy of the tree row.
 
-Result: €88,000, confusion matrix 100 / 8 / 8 / 54 and AUC 0.864, all identical to the tree without OSM.
+Result on the forest: €88,000, confusion matrix 100 / 8 / 8 / 54, AUC 0.932, against €90,500, 101 / 7 / 7 / 55 and AUC 0.926 without OSM.
+First run on the tree: €88,000, 100 / 8 / 8 / 54 and AUC 0.864, identical to the tree without OSM.
 
 ## Reproduce
 
