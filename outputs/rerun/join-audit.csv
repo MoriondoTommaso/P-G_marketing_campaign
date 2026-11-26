@@ -1,0 +1,171 @@
+"act_code","act_lat","act_lon","outcome","store_id","match_method","success"
+1337,41.489387,13.8355476,"incremental sales",1337,"code",1
+2231,39.16534,8.99546,"incremental sales",2231,"code",1
+2343,39.292166,9.0034569,"incremental sales",2343,"code",1
+3316,45.80151,7.57026,"no incremental sales",3316,"code",0
+3335,,,"no incremental sales",3335,"code",0
+3840,44.3349634,9.2085654,"incremental sales",3840,"code",1
+3911,44.42136,8.90877,"incremental sales",3911,"code",1
+5800,45.770846,9.7912389,"no incremental sales",5800,"code",0
+5801,45.767041,9.809491,"no incremental sales",5801,"code",0
+7709,45.9586298,,"incremental sales",7709,"code",1
+7713,,,"incremental sales",7713,"code",1
+7717,45.6765907,13.387705,"incremental sales",7717,"code",1
+8844,,,"incremental sales",8844,"code",1
+8914,46.7166461,11.6543229,"incremental sales",8914,"code",1
+,43.6117627,13.5054245,"incremental sales",11439,"coordinates",1
+11983,42.0853129,13.54843,"no incremental sales",11983,"code",0
+15010,38.14428,13.33918,"incremental sales",15010,"code",1
+,37.5680878,15.1641405,"no incremental sales",15596,"coordinates",0
+20013,46.4942423,11.3656945,"incremental sales",20013,"code",1
+21028,,,"incremental sales",21028,"code",1
+,45.738232,9.621942,"no incremental sales",21111,"coordinates",0
+21811,45.692105,9.059065,"no incremental sales",21811,"code",0
+22884,,,"incremental sales",22884,"code",1
+22968,44.38353,9.16586,"incremental sales",22968,"code",1
+23174,45.9219577,13.6134859,"incremental sales",23174,"code",1
+23421,44.50657,,"incremental sales",23421,"code",1
+,45.8412352,13.4914367,"no incremental sales",23781,"coordinates",0
+25557,45.08142,,"no incremental sales",25557,"code",0
+25868,45.756108,9.788468,"no incremental sales",25868,"code",0
+26057,45.8036554,9.8636925,"no incremental sales",26057,"code",0
+26572,39.3930239,16.238123,"incremental sales",26572,"code",1
+26604,39.289543,9.007212,"incremental sales",26604,"code",1
+26690,41.7385284,12.648051,"incremental sales",26690,"code",1
+26843,,,"incremental sales",26843,"code",1
+27308,43.59302,13.50501,"incremental sales",27308,"code",1
+27455,44.445361,9.090496,"incremental sales",27455,"code",1
+,45.68433,9.787253,"no incremental sales",27504,"coordinates",0
+27870,45.826695,10.0964874,"no incremental sales",27870,"code",0
+28196,45.9392,13.50826,"incremental sales",28196,"code",1
+28213,45.805935,6.964478,"no incremental sales",28213,"code",0
+28340,43.6152433,13.434285,"incremental sales",28340,"code",1
+30331,,,"incremental sales",30331,"code",1
+30499,45.749615,7.617858,"no incremental sales",30499,"code",0
+30967,45.3664983,11.7865009,"incremental sales",30967,"code",1
+31056,43.5783293,13.5100988,"incremental sales",31056,"code",1
+31522,,,"incremental sales",31522,"code",1
+,45.6834519,9.6700301,"no incremental sales",31955,"coordinates",0
+33163,42.1582256,14.6157881,"incremental sales",33163,"code",1
+33498,,,"no incremental sales",33498,"code",0
+36180,46.583097,11.904868,"no incremental sales",36180,"code",0
+36299,42.2659656,14.4341445,"incremental sales",36299,"code",1
+37480,45.4361202,8.7549864,"no incremental sales",37480,"code",0
+38247,45.9411964,13.6153067,"incremental sales",38247,"code",1
+38729,,,"incremental sales",38729,"code",1
+38787,39.289967,9.01246,"incremental sales",38787,"code",1
+39107,46.2854494,12.0310753,"no incremental sales",39107,"code",0
+,45.6859179,9.7655112,"no incremental sales",39278,"coordinates",0
+39613,42.0626849,14.775524,"incremental sales",39613,"code",1
+,45.6908675,9.7016998,"no incremental sales",40047,"coordinates",0
+41196,39.475814,15.990664,"incremental sales",41196,"code",1
+41619,45.9525389,,"incremental sales",41619,"code",1
+41711,37.2706825,13.5835193,"incremental sales",41711,"code",1
+41812,,,"incremental sales",41812,"code",1
+44433,39.2452744,9.1154061,"incremental sales",44433,"code",1
+44540,45.3719774,11.8585033,"incremental sales",44540,"code",1
+49304,44.3485406,9.1552364,"incremental sales",49304,"code",1
+50143,43.611754,13.5189086,"incremental sales",50143,"code",1
+50231,43.4548506,13.5962393,"incremental sales",50231,"code",1
+50277,,,"incremental sales",50277,"code",1
+50710,39.3453718,9.3606029,"incremental sales",50710,"code",1
+50819,42.3478335,14.1362322,"incremental sales",50819,"code",1
+50928,,,"incremental sales",50928,"code",1
+50984,45.784008,6.972654,"no incremental sales",50984,"code",0
+51121,45.3470243,11.7789582,"incremental sales",51121,"code",1
+52609,46.4136775,11.233682,"incremental sales",52609,"code",1
+54115,43.57896,13.025864,"incremental sales",54115,"code",1
+55149,45.7476644,9.9081388,"no incremental sales",55149,"code",0
+55661,46.0755757,11.126675,"no incremental sales",55661,"code",0
+56303,43.6069515,13.4560969,"incremental sales",56303,"code",1
+56380,45.0288285,7.5968473,"no incremental sales",56380,"code",0
+57596,,,"incremental sales",57596,"code",1
+60015,,,"incremental sales",60015,"code",1
+60185,44.3789311,9.0719562,"incremental sales",60185,"code",1
+64156,45.2904136,11.7824744,"incremental sales",64156,"code",1
+65806,45.7983141,13.5245093,"incremental sales",65806,"code",1
+66758,45.3450225,11.7758173,"incremental sales",66758,"code",1
+66856,45.811115,7.588302,"no incremental sales",66856,"code",0
+68672,45.3597832,11.7967197,"no incremental sales",68672,"code",0
+,45.74904,7.607172,"no incremental sales",69112,"coordinates",0
+69660,44.3912799,9.16565,"incremental sales",69660,"code",1
+71368,43.543464,13.386495,"incremental sales",71368,"code",1
+,45.6619656,9.6775761,"no incremental sales",71748,"coordinates",0
+71884,39.0671079,16.0926776,"no incremental sales",71884,"code",0
+76122,,,"incremental sales",76122,"code",1
+76135,46.412725,11.245987,"incremental sales",76135,"code",1
+77021,43.5817053,13.5031618,"incremental sales",77021,"code",1
+77034,,,"incremental sales",77034,"code",1
+,45.7842086,9.5684353,"no incremental sales",77257,"coordinates",0
+,37.5619664,15.1291725,"incremental sales",77513,"coordinates",1
+78375,,,"incremental sales",78375,"code",1
+79237,37.5538421,15.1458331,"no incremental sales",79237,"code",0
+80347,44.536099,8.996821,"incremental sales",80347,"code",1
+80793,44.506954,,"incremental sales",80793,"code",1
+80863,,,"incremental sales",80863,"code",1
+81523,43.075784,12.0517756,"no incremental sales",81523,"code",0
+81917,39.2905017,8.9962077,"incremental sales",81917,"code",1
+83515,37.27537,13.61269,"incremental sales",83515,"code",1
+,45.749273,7.615737,"no incremental sales",83528,"coordinates",0
+84573,39.5302675,16.4744815,"incremental sales",84573,"code",1
+84647,,,"incremental sales",84647,"code",1
+85046,43.61525,13.51979,"incremental sales",85046,"code",1
+85879,39.279295,9.021928,"incremental sales",85879,"code",1
+86311,45.8364118,7.7303653,"no incremental sales",86311,"code",0
+86328,43.3165886,11.813545,"no incremental sales",86328,"code",0
+92323,39.2849519,9.006547,"incremental sales",92323,"code",1
+93394,,,"incremental sales",93394,"code",1
+96006,45.7573004,7.7333073,"no incremental sales",96006,"code",0
+,45.7370604,9.581768,"no incremental sales",96097,"coordinates",0
+96619,,,"incremental sales",96619,"code",1
+97240,,,"no incremental sales",97240,"code",0
+97349,45.7564877,9.7899194,"no incremental sales",97349,"code",0
+97446,46.396862,11.388192,"no incremental sales",97446,"code",0
+97448,46.46259,11.28135,"no incremental sales",97448,"code",0
+98235,43.6086064,13.4619767,"no incremental sales",98235,"code",0
+100046,45.6541921,9.6235007,"no incremental sales",100046,"code",0
+100062,,,"incremental sales",100062,"code",1
+101615,45.64737,7.71861,"no incremental sales",101615,"code",0
+101724,45.69997,9.94875,"no incremental sales",101724,"code",0
+101867,,,"incremental sales",101867,"code",1
+102012,37.5494996,15.0490168,"incremental sales",102012,"code",1
+102130,44.3863744,9.3791847,"incremental sales",102130,"code",1
+104330,45.4951875,8.6308771,"no incremental sales",104330,"code",0
+,45.7414189,9.5987054,"no incremental sales",105434,"coordinates",0
+105539,45.9410744,,"incremental sales",105539,"code",1
+105957,45.5772543,9.6121339,"no incremental sales",105957,"code",0
+106570,43.52175,13.55876,"incremental sales",106570,"code",1
+106797,,,"incremental sales",106797,"code",1
+106798,44.38122,9.06828,"incremental sales",106798,"code",1
+108644,41.803478,12.59909,"incremental sales",108644,"code",1
+109086,37.1010363,13.9410097,"incremental sales",109086,"code",1
+109339,43.4781271,13.1233149,"incremental sales",109339,"code",1
+,45.6849668,9.7628297,"no incremental sales",109439,"coordinates",0
+110719,45.0837143,7.4084599,"no incremental sales",110719,"code",0
+111371,45.753163,7.634785,"no incremental sales",111371,"code",0
+,45.608573,7.35532,"no incremental sales",111372,"coordinates",0
+111921,39.29859,8.99581,"incremental sales",111921,"code",1
+112035,,,"incremental sales",112035,"code",1
+112879,42.1425259,14.4376436,"incremental sales",112879,"code",1
+114218,,,"incremental sales",114218,"code",1
+115683,45.844153,13.54022,"incremental sales",115683,"code",1
+116509,39.3276554,,"incremental sales",116509,"code",1
+117009,39.2220563,9.1303102,"incremental sales",117009,"code",1
+117090,,,"incremental sales",117090,"code",1
+117718,,,"incremental sales",117718,"code",1
+118113,41.8103655,12.5952761,"incremental sales",118113,"code",1
+118632,39.341258,9.3606719,"incremental sales",118632,"code",1
+118792,45.0762439,7.5873794,"no incremental sales",118792,"code",0
+119281,43.5989409,13.4897145,"incremental sales",119281,"code",1
+119330,40.411123,16.6872529,"incremental sales",119330,"code",1
+120400,45.8054052,9.8699234,"no incremental sales",120400,"code",0
+120688,46.086192,11.1185392,"no incremental sales",120688,"code",0
+121216,37.264427,13.6224744,"incremental sales",121216,"code",1
+121733,46.49211,11.33319,"no incremental sales",121733,"code",0
+199971,39.2365859,9.2043012,"incremental sales",199971,"code",1
+2002191,38.1280035,13.3385148,"incremental sales",2002191,"code",1
+,37.3043453,13.5929066,"no incremental sales",2006331,"coordinates",0
+2007063,45.6981863,9.6688522,"no incremental sales",2007063,"code",0
+2007481,46.5517333,12.4425598,"incremental sales",2007481,"code",1
+2007563,,,"incremental sales",2007563,"code",1
+2008262,45.7055492,9.6836919,"no incremental sales",2008262,"code",0
