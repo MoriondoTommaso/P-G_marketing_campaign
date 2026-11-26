@@ -1,8 +1,24 @@
 """Fail the pre-finance comparison on the first different store, including a single vote."""
 from pathlib import Path
 import sys
+import math
+import struct
 
 from native_folds import rows
+
+
+def votes(raw, denominator):
+    if denominator != "100":
+        raise ValueError(f"expected 100 contributing trees; got {denominator}")
+    p = float(raw)
+    if not math.isfinite(p) or not 0 <= p <= 1:
+        raise ValueError(f"invalid probability {raw}")
+    n = round(p * 100)
+    exact = n / 100
+    widened, = struct.unpack("f", struct.pack("f", exact))
+    if p not in (exact, widened):
+        raise ValueError(f"off-grid success probability {raw}")
+    return n
 
 
 def scores(run, model):
@@ -12,6 +28,8 @@ def scores(run, model):
         i = r["Pdv Code"] if model == "refit" else ids[r["row ID"]]
         if i in result:
             raise ValueError(f"duplicate {model} ID {i}")
+        if model in ("forest", "refit"):
+            votes(r["P (target=success)"], r["model count"])
         result[i] = (r.get("fold #"), r["P (target=success)"], r.get("model count"))
     return result
 
