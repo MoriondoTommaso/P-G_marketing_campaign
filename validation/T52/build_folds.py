@@ -41,6 +41,18 @@ def migrate(src, rc3, dst):
         ns, cs = key(wf, "nodes"), key(wf, "connections")
         proto = ET.fromstring(templates.read(tpl + "workflow.knime"))
         layout = copy.deepcopy(ns[0])
+        tree = copy.deepcopy(next(n for n in ns if value(n, "id") == "48"))
+        predictor = ET.fromstring(old.read(root + value(tree, "node_settings_file")))
+        idle(predictor)
+        tree.set("key", "node_163")
+        put(tree, "id", 163)
+        path = "Decision Tree Predictor (#163)/settings.xml"
+        put(tree, "node_settings_file", path)
+        bounds = key(key(tree, "ui_settings"), "extrainfo.node.bounds")
+        put(bounds, "0", 3200)
+        put(bounds, "1", 2450)
+        ns.append(tree)
+        out.writestr(root + path, xml(predictor))
         for i, source in [
             (160, tpl + "Java Snippet (simple) (#40)/settings.xml"),
             (161, next(f for f in templates.namelist() if f.endswith("RowID (#105)/settings.xml"))),
@@ -102,7 +114,7 @@ def migrate(src, rc3, dst):
         for j, (a, b, port) in enumerate([
             (44,150,1), (150,151,1), (151,152,1), (152,153,1), (153,154,1),
             (151,155,1), (155,156,1), (156,157,1), (154,158,1), (157,158,2),
-            (158,159,1), (18,160,1), (160,161,1), (161,162,1),
+            (158,159,1), (18,160,1), (160,161,1), (161,162,1), (77,163,1), (76,163,2),
         ], 1000):
             c = copy.deepcopy(cs[0])
             c.set("key", f"connection_{j}")

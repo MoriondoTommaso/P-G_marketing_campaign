@@ -55,7 +55,9 @@ def prepare(scratch, candidate, reverse=False):
     ns, cs = (key(flow.getroot(), k) for k in ("nodes", "connections"))
     nodes = {int(value(n, "id")): n for n in ns}
     targets = {44: "identities", 49: "tree", 57: "forest", 67: "logistic", 120: "refit",
-               12: "links", 76: "unseen"}
+               12: "links", 76: "unseen", 98: "national", 101: "funded", 163: "tree-refit"}
+    if 163 not in nodes:
+        raise ValueError("missing native tree comparator for the 310 refit stores")
     keep = set(targets)
     while extra := {int(value(c, "sourceID")) for c in cs if int(value(c, "destID")) in keep} - keep:
         keep.update(extra)
