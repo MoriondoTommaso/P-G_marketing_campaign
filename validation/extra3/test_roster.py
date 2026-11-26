@@ -28,6 +28,17 @@ class RosterEvidence(unittest.TestCase):
             positions.append(row.start())
         self.assertEqual(positions, sorted(positions), "Rows should descend by Instagram ER")
 
+    def test_slide_ten_names_the_pilot_and_uses_the_roster_evidence(self):
+        board = (ROOT / "presentation/storyboard.md").read_text()
+        slides = re.findall(r"^\| (\d+) \| (.+)$", board, re.M)
+        self.assertEqual([int(n) for n, _ in slides], list(range(1, 11)))
+        panel = dict(slides)["10"]
+        for evidence in ("@la_elibeauty", "5 of 57", "#iOSmileUnlocked",
+                         "14 days", "iO orders", "tagged landing sessions",
+                         "attributed", "Extra 5", "../outputs/Roaster_Influencers.pdf"):
+            with self.subTest(evidence=evidence):
+                self.assertIn(evidence, panel)
+
 
 if __name__ == "__main__":
     unittest.main()
