@@ -5,6 +5,21 @@ import check_pair
 
 
 class ForestEvidence(unittest.TestCase):
+    def test_class_archive_contains_no_java_snippet_nodes(self):
+        from xml.etree import ElementTree as ET
+        from zipfile import ZipFile
+        from native_folds import ROOT
+        with ZipFile(ROOT / "workflows/oral-b-italy-final.knwf") as archive:
+            snippets = []
+            for path in archive.namelist():
+                if path.endswith("/settings.xml"):
+                    node = ET.fromstring(archive.read(path))
+                    factory = node.find("*[@key='factory']")
+                    if factory is not None and any(term in factory.get("value", "").lower()
+                                                   for term in ("javasnippet", "javascripting")):
+                        snippets.append(path)
+        self.assertEqual(snippets, [])
+
     def test_one_workspace_cannot_attest_to_two_native_runs(self):
         from pre_finance import compare_inputs
         from pathlib import Path

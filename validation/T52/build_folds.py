@@ -1,15 +1,17 @@
-"""Migrate the class archive to protocol folds using the native RC3 node templates.
+"""Build the class candidate from the pre-T52 class archive (d067910).
 
 Usage: python3 build_folds.py CLASS.knwf RC3.knwf NEW.knwf
-The output is an unexecuted candidate; cached tables, models and exports are not evidence.
+RC3 supplies only the standard Table Creator template. Its two-column lookup is
+the published protocol map for these 170 stores, not code run inside KNIME.
 """
 import copy
+import csv
 from pathlib import Path
 import sys
 from xml.etree import ElementTree as ET
 from zipfile import ZIP_DEFLATED, ZipFile
 
-from native_folds import key, value
+from native_folds import ROOT, key, value
 
 
 def put(el, k, v):
@@ -35,14 +37,13 @@ def idle(el):
 
 def migrate(src, rc3, dst):
     root = "oral-b-italy-final/"
-    tpl = "oral-b-italy/03  Assign fixed folds (#205)/"
     with ZipFile(src) as old, ZipFile(rc3) as templates, ZipFile(dst, "x", ZIP_DEFLATED) as out:
         wf = ET.fromstring(old.read(root + "workflow.knime"))
         ns, cs = key(wf, "nodes"), key(wf, "connections")
-        proto = ET.fromstring(templates.read(tpl + "workflow.knime"))
         layout = copy.deepcopy(ns[0])
         tree = copy.deepcopy(next(n for n in ns if value(n, "id") == "48"))
         predictor = ET.fromstring(old.read(root + value(tree, "node_settings_file")))
+        put(key(predictor, "nodeAnnotation"), "text", "Benchmark: the tree trained on all 170 labeled stores scores the 310 new stores.")
         idle(predictor)
         tree.set("key", "node_163")
         put(tree, "id", 163)
@@ -53,18 +54,61 @@ def migrate(src, rc3, dst):
         put(bounds, "1", 2450)
         ns.append(tree)
         out.writestr(root + path, xml(predictor))
-        for i, source in [
-            (160, tpl + "Java Snippet (simple) (#40)/settings.xml"),
-            (161, next(f for f in templates.namelist() if f.endswith("RowID (#105)/settings.xml"))),
-            (162, tpl + "Sorter (#49)/settings.xml"),
+        table_path = next(f for f in templates.namelist() if f.endswith("Table Creator (#52)/settings.xml"))
+        for i, archive, source, x, y in [
+            (150, templates, table_path, 100, 2450),
+            (151, old, root + "Joiner (#108)/settings.xml", 300, 2450),
+            (159, old, root + "Sorter (#98)/settings.xml", 500, 2450),
+            (162, old, root + "Sorter (#98)/settings.xml", 100, 2260),
         ]:
-            s = ET.fromstring(templates.read(source))
+            s = ET.fromstring(archive.read(source))
+            put(key(s, "nodeAnnotation"), "text", {
+                150: "Fixed cross-validation groups: store ID and fold (1–5) for the 170 labeled stores.",
+                151: "Match each labeled store to its fold by store ID.",
+                159: "Order by fold, then store ID, for five test groups of 34.",
+                162: "Sort the 480 stores by store ID before deriving the target.",
+            }[i])
             m = key(s, "model")
-            if i == 160:
-                put(m, "expression", "return String.valueOf($Pdv Code$);")
-                put(m, "append_column", "false")
-            if i == 162:
-                put(key(key(m, "sortingCriteria")[0], "columnV2"), "regularChoice", "Pdv Code")
+            if i == 150:
+                with (ROOT / "outputs/folds.csv").open() as stream:
+                    records = list(csv.DictReader(stream))
+                props = key(m, "columnProperties")
+                id_col = copy.deepcopy(props[0])
+                put(id_col, "ColumnName", "fold_store")
+                put(key(id_col, "ColumnClass"), "cell_class", "org.knime.core.data.def.StringCell")
+                props[0].set("key", "1")
+                put(props[0], "ColumnName", "fold")
+                props.insert(0, id_col)
+                cells = [(row, col, r[k]) for row,r in enumerate(records)
+                         for col,k in enumerate(("store_id", "fold"))]
+                for j,k in enumerate(("rowIndices", "columnIndices", "values")):
+                    group = key(m, k)
+                    item = group[1]
+                    group[:] = [group[0]]
+                    put(group, "array-size", len(cells))
+                    for ncell, cell in enumerate(cells):
+                        e = copy.deepcopy(item)
+                        e.set("key", str(ncell))
+                        e.set("value", str(cell[j]))
+                        group.append(e)
+            elif i == 151:
+                crit = key(m, "matchingCriteria")[0]
+                put(key(crit, "rightTableColumnV2"), "regularChoice", "fold_store")
+                put(m, "dataCellComparisonMode", "STRING")
+                put(m, "rowKeyFactory", "SEQUENTIAL")
+                right = key(key(key(m, "rightColumnSelectionConfigV2"), "manualFilter"), "manuallySelected")
+                right[:] = right[:3]
+                put(right, "array-size", 2)
+                put(right, "0", "fold_store")
+                put(right, "1", "fold")
+            else:
+                criteria = key(m, "sortingCriteria")
+                put(key(criteria[0], "columnV2"), "regularChoice", "fold" if i == 159 else "Pdv Code")
+                if i == 159:
+                    second = copy.deepcopy(criteria[0])
+                    second.set("key", "1")
+                    put(key(second, "columnV2"), "regularChoice", "fold_store")
+                    criteria.append(second)
             dirname = Path(source).parent.name.rsplit(" (#", 1)[0]
             path = f"{dirname} (#{i})/settings.xml"
             n = copy.deepcopy(layout)
@@ -72,37 +116,8 @@ def migrate(src, rc3, dst):
             put(n, "id", i)
             put(n, "node_settings_file", path)
             bounds = key(key(n, "ui_settings"), "extrainfo.node.bounds")
-            put(bounds, "0", 50 + 150 * (i - 160))
-            put(bounds, "1", 2450)
-            ns.append(n)
-            idle(s)
-            out.writestr(root + path, xml(s))
-        for n in key(proto, "nodes"):
-            t = int(value(n, "id"))
-            if not 40 <= t <= 49:
-                continue
-            i = t + 110
-            path = value(n, "node_settings_file")
-            s = ET.fromstring(templates.read(tpl + path))
-            m = key(s, "model")
-            if t == 40:
-                put(m, "expression", "return String.valueOf($Pdv Code$);")
-                put(m, "append_column", "false")  # legacy settings: false means append
-            if t == 48:
-                put(m, "create_new_rowids", "false")
-                put(m, "fail_on_duplicates", "true")
-            if t == 49:
-                criteria = key(m, "sortingCriteria")
-                second = copy.deepcopy(criteria[0])
-                second.set("key", "1")
-                criteria.append(second)
-                put(key(criteria[0], "columnV2"), "regularChoice", "fold")
-            path = path.replace(f"(#{t})", f"(#{i})")
-            put(n, "id", i)
-            put(n, "node_settings_file", path)
-            n.set("key", f"node_{i}")
-            bounds = key(key(n, "ui_settings"), "extrainfo.node.bounds")
-            put(bounds, "1", int(value(bounds, "1")) + 2500)
+            put(bounds, "0", x)
+            put(bounds, "1", y)
             ns.append(n)
             idle(s)
             out.writestr(root + path, xml(s))
@@ -111,10 +126,10 @@ def migrate(src, rc3, dst):
                 put(c, "sourceID", 159)
             if (value(c, "sourceID"), value(c, "destID")) == ("18", "31"):
                 put(c, "sourceID", 162)
+            if (value(c, "sourceID"), value(c, "destID")) == ("31", "44"):
+                put(c, "sourceID", 151)
         for j, (a, b, port) in enumerate([
-            (44,150,1), (150,151,1), (151,152,1), (152,153,1), (153,154,1),
-            (151,155,1), (155,156,1), (156,157,1), (154,158,1), (157,158,2),
-            (158,159,1), (18,160,1), (160,161,1), (161,162,1), (77,163,1), (76,163,2),
+            (18,162,1), (31,151,1), (150,151,2), (44,159,1), (77,163,1), (76,163,2),
         ], 1000):
             c = copy.deepcopy(cs[0])
             c.set("key", f"connection_{j}")
