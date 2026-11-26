@@ -40,6 +40,31 @@ def migrate(src, rc3, dst):
         wf = ET.fromstring(old.read(root + "workflow.knime"))
         ns, cs = key(wf, "nodes"), key(wf, "connections")
         proto = ET.fromstring(templates.read(tpl + "workflow.knime"))
+        layout = copy.deepcopy(ns[0])
+        for i, source in [
+            (160, tpl + "Java Snippet (simple) (#40)/settings.xml"),
+            (161, next(f for f in templates.namelist() if f.endswith("RowID (#105)/settings.xml"))),
+            (162, tpl + "Sorter (#49)/settings.xml"),
+        ]:
+            s = ET.fromstring(templates.read(source))
+            m = key(s, "model")
+            if i == 160:
+                put(m, "expression", "return String.valueOf($Pdv Code$);")
+                put(m, "append_column", "false")
+            if i == 162:
+                put(key(key(m, "sortingCriteria")[0], "columnV2"), "regularChoice", "Pdv Code")
+            dirname = Path(source).parent.name.rsplit(" (#", 1)[0]
+            path = f"{dirname} (#{i})/settings.xml"
+            n = copy.deepcopy(layout)
+            n.set("key", f"node_{i}")
+            put(n, "id", i)
+            put(n, "node_settings_file", path)
+            bounds = key(key(n, "ui_settings"), "extrainfo.node.bounds")
+            put(bounds, "0", 50 + 150 * (i - 160))
+            put(bounds, "1", 2450)
+            ns.append(n)
+            idle(s)
+            out.writestr(root + path, xml(s))
         for n in key(proto, "nodes"):
             t = int(value(n, "id"))
             if not 40 <= t <= 49:
@@ -72,10 +97,12 @@ def migrate(src, rc3, dst):
         for c in cs:
             if (value(c, "sourceID"), value(c, "destID")) == ("44", "45"):
                 put(c, "sourceID", 159)
+            if (value(c, "sourceID"), value(c, "destID")) == ("18", "31"):
+                put(c, "sourceID", 162)
         for j, (a, b, port) in enumerate([
             (44,150,1), (150,151,1), (151,152,1), (152,153,1), (153,154,1),
             (151,155,1), (155,156,1), (156,157,1), (154,158,1), (157,158,2),
-            (158,159,1),
+            (158,159,1), (18,160,1), (160,161,1), (161,162,1),
         ], 1000):
             c = copy.deepcopy(cs[0])
             c.set("key", f"connection_{j}")

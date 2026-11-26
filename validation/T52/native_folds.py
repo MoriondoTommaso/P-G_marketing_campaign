@@ -3,11 +3,12 @@ import copy
 import csv
 import os
 import signal
+import re
 from pathlib import Path
 import subprocess
 import sys
 from xml.etree import ElementTree as ET
-from zipfile import ZipFile
+from zipfile import ZIP_DEFLATED, ZipFile
 
 ROOT = Path(__file__).resolve().parents[2]
 ENGINE = ROOT / "validation/issue31/native/run.py"
@@ -23,14 +24,38 @@ def value(el, k):
     return key(el, k).get("value")
 
 
-def prepare(scratch, candidate):
+def reverse_records(path):
+    """Reverse only workbook data rows; retain header, cells and their types."""
+    with ZipFile(path) as src, ZipFile(path.with_suffix(".new"), "x", ZIP_DEFLATED) as dst:
+        for f in src.namelist():
+            data = src.read(f)
+            if f == "xl/worksheets/sheet1.xml":
+                # Preserve spreadsheet namespace declarations and worksheet metadata verbatim.
+                match = re.search(rb"(<sheetData>)(.*?)(</sheetData>)", data, re.S)
+                rows_ = re.findall(rb"<row\b[^>]*>.*?</row>", match[2], re.S)
+                if len(rows_) not in (171, 481) or b"<f>" in match[2]:
+                    raise ValueError("unexpected workbook layout")
+                values = [rows_[0]]
+                for i, row in enumerate(reversed(rows_[1:]), 2):
+                    values.append(re.sub(rb' r="([A-Z]*)[0-9]+"',
+                                         lambda m: b' r="' + m[1] + str(i).encode() + b'"', row))
+                data = data[:match.start(2)] + b"".join(values) + data[match.end(2):]
+            dst.writestr(f, data)
+    path.with_suffix(".new").replace(path)
+
+
+def prepare(scratch, candidate, reverse=False):
     with ZipFile(candidate) as archive:
         archive.extractall(scratch)
     wf = scratch / "oral-b-italy-final"
+    if reverse:
+        for p in (wf / "data/inputs").glob("*.xlsx"):
+            reverse_records(p)
     flow = ET.parse(wf / "workflow.knime")
     ns, cs = (key(flow.getroot(), k) for k in ("nodes", "connections"))
     nodes = {int(value(n, "id")): n for n in ns}
-    targets = {44: "identities", 49: "tree", 57: "forest", 67: "logistic"}
+    targets = {44: "identities", 49: "tree", 57: "forest", 67: "logistic", 120: "refit",
+               12: "links", 76: "unseen"}
     keep = set(targets)
     while extra := {int(value(c, "sourceID")) for c in cs if int(value(c, "destID")) in keep} - keep:
         keep.update(extra)
@@ -75,7 +100,9 @@ def rows(path):
 if __name__ == "__main__":
     scratch = Path(sys.argv[1]).resolve()
     scratch.mkdir(exist_ok=False)
-    wf = prepare(scratch, sys.argv[2] if len(sys.argv) > 2 else ROOT / "workflows/oral-b-italy-final.knwf")
+    args = [x for x in sys.argv[2:] if x != "--reverse"]
+    wf = prepare(scratch, args[0] if args else ROOT / "workflows/oral-b-italy-final.knwf",
+                 "--reverse" in sys.argv[2:])
     cmd = [sys.executable, "-B", ENGINE, wf, scratch / "runtime", ECLIPSE]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
                           start_new_session=True,
