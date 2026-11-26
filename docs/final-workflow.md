@@ -1,6 +1,10 @@
-# Final submitted KNIME workflow (updated 26 Nov 2026: Random Forest release)
+# Class KNIME workflow: Random Forest
 
-**The workflow to submit on MyLuiss is [`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf).**
+**Current candidate:** [`oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf) uses no Java Snippets. Table Creator #150 lists the five groups used to test the models. Joiner #151 matches each historical store to its group by store ID; Sorter #159 puts the groups in order. This lookup is fixed for the 170 labeled stores in the supplied workbooks. See the [Team 2 checkpoint and current comparison](../handoff/pre-finance-check.md) for verification and submission status.
+
+## Earlier submission at `7fc7ff8` (historical instructions and figures)
+
+The instructions and numbers below describe the [earlier archive](https://github.com/MoriondoTommaso/P-G_marketing_campaign/blob/7fc7ff8/workflows/oral-b-italy-final.knwf).
 It rebuilds the modelling part with the nodes taught in class (week 2 and week 5). Since 26 Nov 2026 the
 **Random Forest scores every store.** Under [confirmed Decision B](final-model-decision.md), the 2026 result selects repeats and forest votes select new stores;
 the Decision Tree stays as the simple one-rule benchmark and logistic regression as a cross-check.

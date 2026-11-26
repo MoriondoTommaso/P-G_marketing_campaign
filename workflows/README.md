@@ -1,8 +1,6 @@
 # Workflows
 
-**Submit [`oral-b-italy-final.knwf`](oral-b-italy-final.knwf).** Import it in KNIME and click **Execute all**:
-the input data and the outputs live inside the workflow, so nothing needs configuring. What it does, the model
-comparison and the Size of Prize are in [`docs/final-workflow.md`](../docs/final-workflow.md).
+**Class candidate: [`oral-b-italy-final.knwf`](oral-b-italy-final.knwf).** It contains no Java Snippets. Table Creator #150 lists the folds and Joiner #151 matches them to the labeled stores. Use the [current reviewer instructions](../handoff/pre-finance-check.md); submission is pending. The [workflow guide](../docs/final-workflow.md) distinguishes this archive from the earlier submission figures.
 Built and tested in **KNIME 5.12.1**; open it in 5.12 or later.
 
 `oral-b-italy.knwf` is the earlier team pipeline (RC3), kept for reference and for the validation scripts below.
