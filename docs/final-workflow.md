@@ -112,8 +112,7 @@ original 170. By construction these are model-implied comparisons, not measured 
 **Stress test** (scores in 55–65% moved by ±5 points): 272 stores and €190,850 (lower) to 284 stores and €192,150
 (upper); 4 stores drop out, 8 come in. Store-level detail in [`sensitivity-class.csv`](../outputs/sensitivity-class.csv);
 totals in [`financial-summary-class.csv`](../outputs/financial-summary-class.csv), both generated from this run by
-[`scripts/rf_finance_package.py`](../scripts/rf_finance_package.py). The [financial report](financial-report-class.html)
-still shows the tree figures until Team 3/4 refresh it.
+[`scripts/rf_finance_package.py`](../scripts/rf_finance_package.py). The [financial report](financial-report-class.html) ([PDF](financial-report-class.pdf)) uses the same figures.
 
 Display buckets (they do not decide funding): High > 65% = 272, Marginal 55–65% = 18, Low < 55% = 190.
 

@@ -18,52 +18,52 @@ ol { margin:3pt 0 8pt; padding-left:16pt } li { padding-left:2pt; margin-bottom:
 @media screen {body{padding:22px 0} section+section{margin-top:32px}}
 </style></head><body>
 <section class="page">
-<div class="kicker">Oral-B Italy · Team 3 finance handoff · 25 November 2026</div>
+<div class="kicker">Oral-B Italy · Finance handoff · updated 26 November 2026 · Random Forest release (#51)</div>
 <h1>2027 store activation: what is the opportunity worth?</h1>
 <p class="lead"><strong>Recommendation: approve the design of a capped, equal-budget pilot.</strong>
-The tree identifies 287 stores with positive expected value. Activating all of them would cost €430,500 and yield an estimated €234,153.75 in net campaign value. This is a planning scenario; the historical sample does not establish the return in never-activated stores.</p>
+The chosen Random Forest funds 276 stores, where more than 60 of its 100 trees vote success. Activating all of them would cost €414,000 and yield an estimated €191,200.00 in net campaign value. This is a planning scenario; the historical sample does not establish the return in never-activated stores.</p>
 <h2>Campaign economics</h2>
 <p>All amounts are incremental to ordinary store sales. A successful activation generates €2,500 in incremental sales; every activation costs €1,500. Net campaign value is incremental sales less activation spend, before product costs or other overhead.</p>
 <table><thead><tr><th>Policy and evidence</th><th>Stores</th><th>Sales (€)</th><th>Spend (€)</th><th>Net (€)</th></tr></thead>
 <tbody>
 <tr><td>2026 actual</td><td>170</td><td>270,000.00</td><td>255,000.00</td><td>15,000.00</td></tr>
-<tr><td>2027 repeat the 2026 list · forecast</td><td>170</td><td>270,105.49</td><td>255,000.00</td><td>15,105.49</td></tr>
-<tr><td>2027 top 170 eligible · forecast</td><td>170</td><td>395,306.26</td><td>255,000.00</td><td>140,306.26</td></tr>
-<tr class="focus"><td>2027 all positive-value stores · forecast</td><td>287</td><td>664,653.75</td><td>430,500.00</td><td>234,153.75</td></tr>
+<tr><td>2027 repeat the 2026 list · forecast</td><td>170</td><td>268,275.00</td><td>255,000.00</td><td>13,275.00</td></tr>
+<tr><td>2027 top 170 eligible · forecast</td><td>170</td><td>399,950.00</td><td>255,000.00</td><td>144,950.00</td></tr>
+<tr class="focus"><td>2027 all positive-value stores · forecast</td><td>276</td><td>605,200.00</td><td>414,000.00</td><td>191,200.00</td></tr>
 </tbody></table>
 <h2>Size of Prize: three different questions</h2>
 <table><thead><tr><th>Which comparison?</th><th>Net difference (€)</th><th>Extra spend (€)</th></tr></thead>
 <tbody>
-<tr><td>287-store forecast vs. 2026 actual</td><td>+219,153.75</td><td>175,500.00</td></tr>
-<tr><td>287-store forecast vs. repeating the 170 in 2027</td><td>+219,048.27</td><td>175,500.00</td></tr>
-<tr><td>Top 170 vs. repeat 170 in 2027, at equal spend</td><td>+125,200.77</td><td>0.00</td></tr>
+<tr><td>276-store forecast vs. 2026 actual</td><td>+176,200.00</td><td>159,000.00</td></tr>
+<tr><td>276-store forecast vs. repeating the 170 in 2027</td><td>+177,925.00</td><td>159,000.00</td></tr>
+<tr><td>Top 170 vs. repeat 170 in 2027, at equal spend</td><td>+131,675.00</td><td>0.00</td></tr>
 </tbody></table>
-<p>The first comparison is forecast versus history. The second adds 117 activations as well as changing which stores are funded. The third holds spend fixed. Its advantage is model-implied: the same scores both rank and value the stores. None of the three differences is measured lift.</p>
+<p>The first comparison is forecast versus history. The second adds 106 activations as well as changing which stores are funded. The third holds spend fixed. Its advantage is model-implied: the same scores both rank and value the stores. None of the three differences is measured lift.</p>
 <h2>What was actually observed?</h2>
-<p>In 2026, 108 of 170 activations succeeded. Applying the tree’s held-out decisions retrospectively would have funded 108 stores: 100 observed successes and 8 failures, for <strong>€88,000 retrospective net</strong> (€250,000 sales less €162,000 spend). The campaign actually earned €15,000 net. The €73,000 difference is a historical backtest.</p>
-<p>For 2027, the 108 selected repeat stores contribute <strong>€88,301.90 expected net</strong>; the 179 selected new stores contribute <strong>€145,851.85 expected net</strong>. Both are forecasts. Together they make up the €234,153.75 scenario.</p>
+<p>In 2026, 108 of 170 activations succeeded. Applying the forest’s held-out decisions retrospectively would have funded 108 stores: 101 observed successes and 7 failures, for <strong>€90,500 retrospective net</strong> (€252,500 sales less €162,000 spend). The campaign actually earned €15,000 net; the €75,500 difference is a historical backtest (tree benchmark: €88,000).</p>
+<p>For 2027, the 108 selected repeat stores contribute <strong>€86,475.00 expected net</strong>; the 168 selected new stores contribute <strong>€104,725.00 expected net</strong>. Both are forecasts. Together they make up the €191,200.00 scenario.</p>
 </section>
 <section class="page">
 <div class="kicker">Oral-B Italy · Decision and reconciliation</div>
 <h1>How much should we commit?</h1>
 <p class="lead"><strong>Agree the pilot budget before selecting stores.</strong> Each pair of activations, one in each test arm, costs €3,000. Choose a cap that can fund the minimum sample needed to make an expansion decision.</p>
 <h2>Downside if scores are too optimistic</h2>
-<p>The full commitment needs <strong>173 successful activations out of 287</strong> to cover its cost: 172 successes would lose €500; 173 would earn €2,000. The model implies about 266 successes. The 170 historic activations were selected, and neither planned geographic holdout had sufficient support to validate transfer.</p>
-<table><thead><tr><th>Assumed change to every funded store’s success probability</th><th>Net at fixed €430,500 spend</th></tr></thead>
+<p>The full commitment needs <strong>166 successful activations out of 276</strong> to cover its cost: 165 successes would lose €1,500; 166 would earn €1,000. The model implies about 242 successes. The 170 historic activations were selected, and neither planned geographic holdout had sufficient support to validate transfer.</p>
+<table><thead><tr><th>Assumed change to every funded store’s success probability</th><th>Net at fixed €414,000 spend</th></tr></thead>
 <tbody>
-<tr><td>No change (base forecast)</td><td>€234,153.75</td></tr>
-<tr><td>20 percentage points lower</td><td>€90,653.75</td></tr>
-<tr><td>30 percentage points lower</td><td>€18,903.75</td></tr>
-<tr><td>40 percentage points lower</td><td>−€52,846.25</td></tr>
+<tr><td>No change (base forecast)</td><td>€191,200.00</td></tr>
+<tr><td>20 percentage points lower</td><td>€53,200.00</td></tr>
+<tr><td>30 percentage points lower</td><td>−€15,800.00</td></tr>
+<tr><td>40 percentage points lower</td><td>−€84,800.00</td></tr>
 </tbody></table>
-<p class="small">Illustrative downside, not a confidence interval. Hold all 287 commitments fixed, subtract the stated amount from each probability (floor at zero), then recompute net. No score in the 480-store release lies in the 55–65% band, so shifting only near-threshold scores would not test this risk.</p>
+<p class="small">Illustrative downside, not a confidence interval. Hold all 276 commitments fixed, subtract the stated amount from each probability (floor at zero), then recompute net. Near the threshold, 18 of the 480 scores lie in the 55–65% band; moving them by ±5 points gives 272 stores and €190,850 to 284 stores and €192,150 (<code>sensitivity-class.csv</code>).</p>
 <h2>Decision and next steps</h2>
 <ol>
-<li><strong>Team 4 — reconcile the handoff.</strong> Verify the workflow fingerprint below, run it into an empty output folder, and reconcile the 287 exact IDs and the three differences on page 1. Use the class exports for these figures; the older 278-store RC3 summary describes a different policy.</li>
-<li><strong>Campaign owner — design the test.</strong> Set the spend cap, duration, outcome window, minimum worthwhile return and sample size before seeing results. Freeze the tree and the strict funding rule. Within region and new/repeat groups, randomly assign comparable store pools to tree targeting or current practice and give each arm the same activation budget.</li>
+<li><strong>Team 4 — reconcile the handoff.</strong> Verify the workflow fingerprint below, run it into an empty output folder, and reconcile the 276 exact IDs and the three differences on page 1. Use the class exports for these figures; the earlier 287-store tree release and the 278-store RC3 summary describe different policies.</li>
+<li><strong>Campaign owner — design the test.</strong> Set the spend cap, duration, outcome window, minimum worthwhile return and sample size before seeing results. Freeze the forest and the strict funding rule (more than 60 of 100 votes). Within region and new/repeat groups, randomly assign comparable store pools to forest targeting or current practice and give each arm the same activation budget.</li>
 <li><strong>Expansion decision.</strong> Track actual activations, successes, spend, and realized net per euro by arm and region. Expand only if the pilot clears the agreed financial criterion with adequate evidence; otherwise hold spending and review where forecasts failed.</li>
 </ol>
 <h2>Calculation and source record</h2>
-<p class="small">Score all 480 stores once: 170 historical stores use held-out scores; 310 new stores use the tree refit on the historical sample. Fund only if unrounded <em>p</em> &gt; 0.60. For any selected set: sales = €2,500 × sum(<em>p</em>); spend = €1,500 × count. For equal spend rank positive-value stores by probability descending, then text store ID ascending. Compare the top 170 with all 170 historical IDs, using the same probability wherever a store recurs. Differences use unrounded values; round only for display.</p>
-<p class="small">Release <a href="https://github.com/MoriondoTommaso/P-G_marketing_campaign/tree/f72b302785efcb1da2e5cc0bb5750d1c06e2ae9b">f72b302</a> · <a href="https://github.com/MoriondoTommaso/P-G_marketing_campaign/blob/f72b302785efcb1da2e5cc0bb5750d1c06e2ae9b/workflows/oral-b-italy-final.knwf">oral-b-italy-final.knwf</a><br>SHA-256: <code>d93545757110ec667a2ba93917d212f2e4a134257d71fed90a2a88f05a137916</code><br>Sources: <a href="https://github.com/MoriondoTommaso/P-G_marketing_campaign/tree/f72b302785efcb1da2e5cc0bb5750d1c06e2ae9b/outputs">national-scores-class.csv, activation-list-class.csv, store-universe.csv, baseline-2026.csv</a>. Companion: <code>financial-summary-class.csv</code>. Prepared for independent finance review.</p>
+<p class="small">Score all 480 stores once: 170 historical stores use the forest’s held-out scores; 310 new stores use the forest refit on the historical sample. Each score is the exact vote share (success votes ÷ 100); fund only if more than 60 of 100 trees vote success (<em>p</em> &gt; 0.60, a 60-vote tie is not funded). For any selected set: sales = €2,500 × sum(<em>p</em>); spend = €1,500 × count. For equal spend rank positive-value stores by probability descending, then text store ID ascending. Compare the top 170 with all 170 historical IDs, using the same probability wherever a store recurs. Differences use unrounded values; round only for display.</p>
+<p class="small">Random Forest release, <a href="https://github.com/MoriondoTommaso/P-G_marketing_campaign/pull/54">PR #54</a> · <code>workflows/oral-b-italy-final.knwf</code><br>SHA-256: <code>7462ec74a2718a098c60377672bf4cda5c8e68826585ec650c0ad78d77e4515b</code><br>Sources: <code>national-scores-class.csv</code>, <code>activation-list-class.csv</code>, <code>baseline-2026.csv</code>. Companions: <code>financial-summary-class.csv</code>, <code>sensitivity-class.csv</code> (generated by <code>scripts/rf_finance_package.py</code>). Prepared for independent finance review.</p>
 </section></body></html>
