@@ -1,0 +1,5 @@
+region,stores,dentists_mean_1km,dentists_share_zero,pharmacies_mean_1km,pharmacies_share_zero,schools_mean_1km,schools_share_zero,supermarkets_mean_1km,supermarkets_share_zero,drugstores_mean_1km,drugstores_share_zero,pharmacies_osm_near_stores,pharmacies_register_near_stores,pharmacy_completeness_near_stores,pharmacies_osm_whole_region,pharmacies_register_whole_region,pharmacy_completeness_whole_region,too_thin
+North,166,0.52,0.705,2.81,0.211,4.09,0.259,3.66,0.127,0.75,0.693,466,410,1.137,6982,7444,0.938,no
+Centre,166,0.75,0.723,2.58,0.247,3.42,0.271,3.07,0.199,0.45,0.675,429,324,1.324,4598,5476,0.84,no
+South,148,0.29,0.804,2.76,0.25,4.94,0.216,3.41,0.257,0.27,0.818,409,315,1.298,4530,6030,0.751,no
+Italy,480,0.53,0.742,2.72,0.235,4.12,0.25,3.38,0.192,0.5,0.725,1304,1049,1.243,16110,18950,0.85,no
