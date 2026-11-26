@@ -94,7 +94,7 @@ Counting only avoided failures, a quote of €1,500 × N needs N fewer failed ac
 
 ### OSM test result (26 Nov 2026)
 
-**Interactive version:** open [`extra2/data-value.html`](../extra2/data-value.html) in a browser (download the file first): store map with the OSM layers, the test, the 16 stores the tree misses and a payback calculator.
+**Interactive version:** open [`extra2/data-value.html`](../extra2/data-value.html) in a browser (download the file first): store map with the OSM layers, the forest test, the 14 stores the forest misses and a payback calculator.
 
 **OpenStreetMap is dropped: it does not improve funding decisions.** Built in the final workflow ([`workflows/oral-b-italy-final.knwf`](../workflows/oral-b-italy-final.knwf), bottom row, nodes #107–#123), following the steps below. First run on the tree; re-run on the chosen forest on 26 Nov (#51).
 
@@ -114,7 +114,7 @@ With OSM the forest ranks stores slightly better (AUC 0.932 vs 0.926) but makes 
 
 ### Where the remaining value is (26 Nov 2026)
 
-**The chosen forest earns 84% of the most any model could earn on the 2026 stores (€90,500 of €108,000; 14 errors). The analysis below and the dashboard were built on the tree benchmark (81%, 16 errors) and are kept as they are.** A perfect model would fund the 108 successes and skip the 62 failures. The remaining €20,000 sits in 16 stores, the tree's errors at its 60% rule (split: distance from a dentist ≤ 56.07):
+**The chosen forest earns 84% of the most any model could earn on the 2026 stores (€90,500 of €108,000; 14 errors). The analysis below was built on the tree benchmark (81%, 16 errors) and is kept as it is; the dashboard shows the forest's 14.** A perfect model would fund the 108 successes and skip the 62 failures. The remaining €20,000 sits in 16 stores, the tree's errors at its 60% rule (split: distance from a dentist ≤ 56.07):
 
 | Group | Stores | Value lost | Profile (medians, vs the stores the tree gets right on the same side) |
 |---|---:|---:|---|
